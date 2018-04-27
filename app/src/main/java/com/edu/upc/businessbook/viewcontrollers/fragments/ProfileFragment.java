@@ -14,7 +14,7 @@ import com.edu.upc.businessbook.R;
  */
 public class ProfileFragment extends Fragment {
 
-//jac
+
     public ProfileFragment() {
         // Required empty public constructor
     }
