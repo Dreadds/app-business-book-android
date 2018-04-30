@@ -1,13 +1,13 @@
 package com.edu.upc.businessbook.models;
 
 public class Product {
-    private String prodcutId;
+    private String productId;
     private String name;
     private String unitPrice;
     private String state;
 
-    public Product(String prodcutId, String name, String unitPrice, String state) {
-        this.prodcutId = prodcutId;
+    public Product(String productId, String name, String unitPrice, String state) {
+        this.productId = productId;
         this.name = name;
         this.unitPrice = unitPrice;
         this.state = state;
@@ -16,12 +16,12 @@ public class Product {
     public Product() {
     }
 
-    public String getProdcutId() {
-        return prodcutId;
+    public String getProductId() {
+        return productId;
     }
 
-    public Product setProdcutId(String prodcutId) {
-        this.prodcutId = prodcutId;
+    public Product setProductId(String productId) {
+        this.productId = productId;
         return this;
     }
 
