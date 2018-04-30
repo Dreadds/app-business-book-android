@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <string name="app_name">BusinessBook</string>
-    <string name="slogan_message_text">LLeva tu compañia contigo siempre...</string>
-    <string name="title_profile">Perfil</string>
-    <string name="title_reports">Reportes</string>
-    <string name="title_home">Inicio</string>
-</resources>
