@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">BusinessBook</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_main">BusinessBook</string>
+    <string name="title_home">Home</string>
+    <string name="title_reports">Reports</string>
+    <string name="title_profile">Profile</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="slogan_message_text">Take your company with you always ...</string>
+    <string name="text_mobile_number">mobile number</string>
+</resources>
