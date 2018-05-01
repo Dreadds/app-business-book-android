@@ -35,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
 
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+        navigateTo(navigation.getMenu().findItem(R.id.navigation_home));
     }
 
     private Fragment getFragmentFor(MenuItem item){
@@ -47,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private boolean navigateTo(MenuItem item){
+        item.setChecked(true);
         return getSupportFragmentManager()
                 .beginTransaction()
                 .replace(R.id.content, getFragmentFor(item))
