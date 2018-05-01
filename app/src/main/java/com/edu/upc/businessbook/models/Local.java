@@ -14,6 +14,11 @@ public class Local {
         this.address = address;
     }
 
+    public Local(String name, String address) {
+        this.name = name;
+        this.address = address;
+    }
+
 
     public String getLocalId() {
         return localId;
