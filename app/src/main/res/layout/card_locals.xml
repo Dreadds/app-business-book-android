@@ -13,11 +13,11 @@
         
         <ImageView
             android:id="@+id/localImageView"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="@dimen/image_default_side"
             android:src="@mipmap/ic_launcher"
             android:layout_margin="@dimen/default_margin"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/nameTextView"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"/>
         <TextView
@@ -27,10 +27,9 @@
             android:layout_margin="@dimen/default_margin"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/localImageView"
             android:textStyle="bold"
             android:gravity="center"
-            android:textColor="@color/colorAccent"
+            android:textColor="@color/colorDivider"
             android:text="Local Uno" />
         <TextView
             android:id="@+id/nameTextView"
@@ -39,9 +38,19 @@
             android:layout_margin="@dimen/default_margin"
             app:layout_constraintTop_toBottomOf="@id/titleTextView"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/localImageView"
             android:gravity="center"
             android:text="Pepito's Local"/>
+        <TextView
+            android:id="@+id/exploreTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/default_margin"
+            app:layout_constraintTop_toBottomOf="@id/localImageView"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:text="explore"
+            android:textStyle="bold"
+            android:textColor="@color/colorAccent"
+            android:textAllCaps="true"/>
     </android.support.constraint.ConstraintLayout>
 
 </android.support.v7.widget.CardView>
