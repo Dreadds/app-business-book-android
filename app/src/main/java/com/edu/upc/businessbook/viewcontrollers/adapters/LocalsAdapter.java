@@ -70,7 +70,7 @@ public class LocalsAdapter extends RecyclerView.Adapter<LocalsAdapter.ViewHolder
         private void updateView(final Local local){
             titleTextView.setText(local.getName());
             nameTextView.setText(local.getAddress());
-            localLayout.setOnClickListener(new View.OnClickListener() {
+            exploreTextView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Context context = v.getContext();
