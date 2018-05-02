@@ -74,7 +74,8 @@ public class LocalsAdapter extends RecyclerView.Adapter<LocalsAdapter.ViewHolder
                 @Override
                 public void onClick(View v) {
                     Context context = v.getContext();
-                    context.startActivity(new Intent(context, LocalActivity.class));
+                    context.startActivity(new Intent(context, LocalActivity.class)
+                            .putExtras(local.toBundle()));
                 }
             });
         }

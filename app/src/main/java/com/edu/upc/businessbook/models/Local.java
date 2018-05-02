@@ -1,5 +1,7 @@
 package com.edu.upc.businessbook.models;
 
+import android.os.Bundle;
+
 public class Local {
     private String localId;
     private String name;
@@ -45,5 +47,13 @@ public class Local {
     public Local setAddress(String address) {
         this.address = address;
         return this;
+    }
+
+    public Bundle toBundle(){
+        Bundle bundle = new Bundle();
+        bundle.putString("localId", getLocalId());
+        bundle.putString("name", getName());
+        bundle.putString("address", getAddress());
+        return bundle;
     }
 }
