@@ -6,6 +6,7 @@ public class Local {
     private String localId;
     private String name;
     private String address;
+    private int thumbnail;
 
     public Local() {
     }
@@ -16,9 +17,10 @@ public class Local {
         this.address = address;
     }
 
-    public Local(String name, String address) {
+    public Local(String name, String address, int thumbnail) {
         this.name = name;
         this.address = address;
+        this.thumbnail = thumbnail;
     }
 
 
@@ -46,6 +48,15 @@ public class Local {
 
     public Local setAddress(String address) {
         this.address = address;
+        return this;
+    }
+
+    public int getThumbnail() {
+        return thumbnail;
+    }
+
+    public Local setThumbnail(int thumbnail) {
+        this.thumbnail = thumbnail;
         return this;
     }
 
