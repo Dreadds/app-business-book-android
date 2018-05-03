@@ -6,6 +6,7 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
@@ -14,6 +15,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.edu.upc.businessbook.R;
+import com.edu.upc.businessbook.viewcontrollers.dialogs.DialogPersonalized;
 import com.edu.upc.businessbook.viewcontrollers.fragments.HomeFragment;
 import com.edu.upc.businessbook.viewcontrollers.fragments.ProfileFragment;
 import com.edu.upc.businessbook.viewcontrollers.fragments.ReportsFragment;
@@ -47,6 +49,8 @@ public class MainActivity extends AppCompatActivity {
         localFab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                DialogFragment dialogFragment = new DialogPersonalized();
+                dialogFragment.show(getSupportFragmentManager(), "Dialog");
                 //startActivity(new Intent(view.getContext(), MainActivity.class));
             }
         });
