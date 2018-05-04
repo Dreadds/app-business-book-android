@@ -10,7 +10,7 @@
         android:id="@+id/ImageView_imagen"
         android:layout_width="70dp"
         android:layout_height="70dp"
-        android:src="@drawable/img_venta"
+        android:src="@mipmap/ic_launcher"
         android:layout_margin="14dp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"/>
