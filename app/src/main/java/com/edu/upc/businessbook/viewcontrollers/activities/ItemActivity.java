@@ -2,6 +2,7 @@ package com.edu.upc.businessbook.viewcontrollers.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -18,18 +19,19 @@ public class ItemActivity extends AppCompatActivity {
     Item item;
     ItemsRepository itemsRepository;
     TextView nameItemTextView;
+
     private ItemsAdapter itemsAdapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_product);
+        setContentView(R.layout.activity_item);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
         Intent intent = getIntent();
         if(intent == null) return;
         item = Item.Builder.from(intent.getExtras()).build();
-        nameItemTextView = (TextView) findViewById(R.id.nameItemTextView);
-
+        toolbar.setTitle(item.getName());
         updateView(item);
 
 
@@ -45,7 +47,8 @@ public class ItemActivity extends AppCompatActivity {
     }
 
     private void updateView(Item item){
-        nameItemTextView.setText(item.getName());
+        //nameItemTextView.setText(item.getName());
+
 
     }
 

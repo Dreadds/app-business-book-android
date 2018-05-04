@@ -2,64 +2,133 @@ package com.edu.upc.businessbook.models;
 
 import android.os.Bundle;
 
-public class Product {
-    private String productId;
-    private String name;
-    private String unitPrice;
-    private String state;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
-    public Product(String productId, String name, String unitPrice, String state) {
-        this.productId = productId;
-        this.name = name;
-        this.unitPrice = unitPrice;
-        this.state = state;
-    }
+import java.util.ArrayList;
+import java.util.List;
+
+public class Product {
+    private String productoId;
+    private String nombre;
+    private String precioUnitario;
+    private String estado;
 
     public Product() {
     }
 
-    public String getProductId() {
-        return productId;
+    public Product(String productoId, String nombre, String precioUnitario, String estado) {
+        this.productoId = productoId;
+        this.nombre = nombre;
+        this.precioUnitario = precioUnitario;
+        this.estado = estado;
     }
 
-    public Product setProductId(String productId) {
-        this.productId = productId;
+    public String getProductoId() {
+        return productoId;
+    }
+
+    public Product setProductoId(String productoId) {
+        this.productoId = productoId;
         return this;
     }
 
-    public String getName() {
-        return name;
+    public String getNombre() {
+        return nombre;
     }
 
-    public Product setName(String name) {
-        this.name = name;
+    public Product setNombre(String nombre) {
+        this.nombre = nombre;
         return this;
     }
 
-    public String getUnitPrice() {
-        return unitPrice;
+    public String getPrecioUnitario() {
+        return precioUnitario;
     }
 
-    public Product setUnitPrice(String unitPrice) {
-        this.unitPrice = unitPrice;
+    public Product setPrecioUnitario(String precioUnitario) {
+        this.precioUnitario = precioUnitario;
         return this;
     }
 
-    public String getState() {
-        return state;
+    public String getEstado() {
+        return estado;
     }
 
-    public Product setState(String state) {
-        this.state = state;
+    public Product setEstado(String estado) {
+        this.estado = estado;
         return this;
     }
+
 
     public Bundle toBundle(){
         Bundle bundle = new Bundle();
-        bundle.putString("productId", getProductId());
-        bundle.putString("name", getName());
-        bundle.putString("unitPrice", getUnitPrice());
-        bundle.putString("state", getState());
+        bundle.putString("productoId", getProductoId());
+        bundle.putString("nombre", getNombre());
+        bundle.putString("precioUnitario", getPrecioUnitario());
+        bundle.putString("estado", getEstado());
         return bundle;
     }
+
+    public static class Builder{
+        private Product product;
+        private List<Product> products;
+
+        public Builder(){
+            this.product = new Product();
+            this.products = new ArrayList<>();
+        }
+
+        public Builder(Product product){
+            this.product = product;
+        }
+        public Builder (List<Product> products){
+            this.products = products;
+        }
+        public Product build(){
+            return product;
+        }
+        public List<Product> buildAll(){
+            return products;
+        }
+
+        public static Builder from(Bundle bundle){
+            return new Builder(new Product(
+                    bundle.getString("productoId"),
+                    bundle.getString("nombre"),
+                    bundle.getString("precioUnitario"),
+                    bundle.getString("estado")
+            ));
+        }
+
+        public static Builder from(JSONObject jsonProduct){
+            try {
+                return new Builder(new Product(
+                        jsonProduct.getString("productoId"),
+                        jsonProduct.getString("nombre"),
+                        jsonProduct.getString("precioUnitario"),
+                        jsonProduct.getString("estado")
+                ));
+            } catch (JSONException e) {
+                    e.printStackTrace();
+            }
+            return null;
+        }
+
+        public static Builder from(JSONArray jsonProduct){
+            int length = jsonProduct.length();
+            List<Product> products = new ArrayList<>();
+            for (int i = 0; i < length; i++){
+                try {
+                    products.add(Builder.from(jsonProduct.getJSONObject(i)).build());
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+            return new Builder(products);
+        }
+    }
+
+
 }
