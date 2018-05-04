@@ -5,4 +5,15 @@
     <string name="title_profile">Perfil</string>
     <string name="title_reports">Reportes</string>
     <string name="title_home">Inicio</string>
+    <string name="title_activity_login">Registrate o Inicia Sesión</string>
+
+    <string name="login_phone_button_label">INGRESA CON TU CELULAR</string>
+    <string name="login_email_button_label">INGRESA CON TU EMAIL</string>
+    <string name="facebook_app_id">217458915684407</string>
+    <string name="account_kit_client_token">5260fa10c8e58f1c207e9374bd129de8</string>
+    <string name="ak_login_protocol_scheme">ak5260fa10c8e58f1c207e9374bd129de8</string>
+
+    <string name="password_hint_login">Contraseña</string>
+    <string name="email_hint_login">Correo electrónico</string>
+    <string name="sign_in_button">INICIAR SESIÓN</string>
 </resources>

@@ -9,6 +9,20 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="slogan_message_text">Take your company with you always ...</string>
+<<<<<<< HEAD
     <string name="text_mobile_number">mobile number</string>
     <string name="title_activity_edit_profile">EditProfileActivity</string>
+=======
+    <string name="title_activity_login">Register or Login</string>
+
+    <string name="login_phone_button_label">LOGIN WITH PHONE NUMBER</string>
+    <string name="login_email_button_label">LOGIN WITH EMAIL</string>
+    <string name="facebook_app_id">217458915684407</string>
+    <string name="account_kit_client_token">5260fa10c8e58f1c207e9374bd129de8</string>
+    <string name="ak_login_protocol_scheme">ak5260fa10c8e58f1c207e9374bd129de8</string>
+
+    <string name="password_hint_login">Password</string>
+    <string name="email_hint_login">Email</string>
+    <string name="sign_in_button">Login</string>
+>>>>>>> katherin
 </resources>
