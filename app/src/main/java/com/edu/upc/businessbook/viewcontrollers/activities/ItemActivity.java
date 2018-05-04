@@ -14,7 +14,7 @@ import com.edu.upc.businessbook.models.Item;
 import com.edu.upc.businessbook.models.ItemsRepository;
 import com.edu.upc.businessbook.viewcontrollers.adapters.ItemsAdapter;
 
-public class ProductActivity extends AppCompatActivity {
+public class ItemActivity extends AppCompatActivity {
     Item item;
     ItemsRepository itemsRepository;
     TextView nameItemTextView;
@@ -28,13 +28,11 @@ public class ProductActivity extends AppCompatActivity {
         Intent intent = getIntent();
         if(intent == null) return;
         item = Item.Builder.from(intent.getExtras()).build();
-        //itemsAdapter = new ItemsAdapter(ItemsRepository.getInstance().getItems());
         nameItemTextView = (TextView) findViewById(R.id.nameItemTextView);
 
         updateView(item);
 
 
-        //item = Item.Bun
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {

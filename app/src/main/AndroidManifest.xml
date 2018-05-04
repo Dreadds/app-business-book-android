@@ -27,8 +27,8 @@
             android:label="@string/title_activity_local"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".viewcontrollers.activities.ProductActivity"
-            android:label="@string/title_activity_product"
+            android:name=".viewcontrollers.activities.ItemActivity"
+            android:label="@string/title_activity_item"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
