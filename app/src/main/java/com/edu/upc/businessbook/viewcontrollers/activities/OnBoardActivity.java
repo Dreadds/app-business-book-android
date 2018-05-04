@@ -9,10 +9,19 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.edu.upc.businessbook.R;
+import com.facebook.accountkit.AccessToken;
+import com.facebook.accountkit.AccountKit;
+import com.facebook.accountkit.AccountKitLoginResult;
+import com.facebook.accountkit.ui.AccountKitActivity;
+import com.facebook.accountkit.ui.AccountKitConfiguration;
+import com.facebook.accountkit.ui.LoginType;
 
 public class OnBoardActivity extends AppCompatActivity {
+
+    public static int APP_REQUEST_CODE=1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,36 +30,59 @@ public class OnBoardActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(view.getContext(), MainActivity.class));
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_on_board, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        AccessToken accessToken = AccountKit.getCurrentAccessToken();
+        if (accessToken != null) {
+            launchHomeActivity();
         }
 
-        return super.onOptionsItemSelected(item);
+    }
+
+    private void launchHomeActivity(){
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity (intent);
+        finish();
+    }
+
+    public void onPhoneLogin(View view){
+        onLogin(LoginType.PHONE);
+    }
+
+    public void onEmailLogin(View view){
+        Intent intent = new Intent(this, LoginActivity.class);
+        startActivity (intent);
+        finish();
+
+    }
+
+    private void onLogin (final LoginType loginType){
+        final Intent intent = new Intent(this, AccountKitActivity.class);
+
+        AccountKitConfiguration.AccountKitConfigurationBuilder configurationBuilder =
+                new AccountKitConfiguration.AccountKitConfigurationBuilder(
+                        loginType,
+                        AccountKitActivity.ResponseType.TOKEN
+                );
+        final AccountKitConfiguration configuration = configurationBuilder.build();
+
+        intent.putExtra(AccountKitActivity.ACCOUNT_KIT_ACTIVITY_CONFIGURATION, configuration);
+        startActivityForResult(intent, APP_REQUEST_CODE);
+    }
+
+    @Override
+    protected void onActivityResult(final int requestCode, final int resultCode, final Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        // confirm that this response matches your request
+        if (requestCode == APP_REQUEST_CODE) {
+            AccountKitLoginResult loginResult = data.getParcelableExtra(AccountKitLoginResult.RESULT_KEY);
+            if (loginResult.getError() != null) {
+                // login error
+                String toastMessage = loginResult.getError().getErrorType().getMessage();
+                Toast.makeText(this, toastMessage, Toast.LENGTH_LONG).show();
+            } else if (loginResult.getAccessToken() != null) {
+                // oK
+                launchHomeActivity();
+            }
+        }
     }
 }
