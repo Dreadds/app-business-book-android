@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.edu.upc.businessbook">
+<<<<<<< HEAD
     <uses-permission android:name="android.permission.INTERNET" />
 
+=======
+    <uses-permission android:name="android.permission.INTERNET"/>
+>>>>>>> kevin
     <application
+        android:name=".BusinessBookApp"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -35,8 +40,17 @@
             android:name=".viewcontrollers.activities.MainActivity"
             android:label="@string/title_activity_main" />
         <activity
+<<<<<<< HEAD
             android:name=".viewcontrollers.activities.LoginActivity"
             android:label="@string/title_activity_login"
+=======
+            android:name=".viewcontrollers.activities.LocalActivity"
+            android:label="@string/title_activity_local"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".viewcontrollers.activities.ItemActivity"
+            android:label="@string/title_activity_item"
+>>>>>>> kevin
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 

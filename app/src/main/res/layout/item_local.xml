@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    android:id="@+id/layout_itemLocal"
+    android:clickable="true"
+    android:foreground="?android:selectableItemBackground"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_margin="@dimen/default_margin_kev"
+    app:cardCornerRadius="4dp"
+    app:cardElevation="2dp">
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+         <TextView
+            android:id="@+id/nameTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/default_margin_kev"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:text="@string/mock_text"
+             android:textStyle="bold"
+             android:textColor="@color/colorDivider"/>
+        <ImageView
+            android:id="@+id/itemLocalImageView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/default_margin_kev"
+            android:src="@mipmap/ic_launcher"
+            app:layout_constraintTop_toBottomOf="@+id/nameTextView"/>
+    </android.support.constraint.ConstraintLayout>
+
+</android.support.v7.widget.CardView>
