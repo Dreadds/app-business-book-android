@@ -10,9 +10,6 @@ import android.widget.TextView;
 
 import com.edu.upc.businessbook.R;
 import com.edu.upc.businessbook.viewcontrollers.models.Sale;
-import com.edu.upc.businessbook.viewcontrollers.activities.sales.DeleteSaleActivity;
-import com.edu.upc.businessbook.viewcontrollers.activities.sales.EditSaleActivity;
-import com.edu.upc.businessbook.viewcontrollers.activities.sales.ViewSaleActivity;
 
 import java.util.List;
 
@@ -66,9 +63,9 @@ public class SaleAdapter
             super(view);
             numberTicketTextView = (TextView) view.findViewById(R.id.TextView_numberTicket);
             totalPrice = (TextView) view.findViewById(R.id.TextView_totalPrice);
-            deleteImageView = (AppCompatImageButton) view.findViewById(R.id.imageView_delete);
-            editImageView = (AppCompatImageButton) view.findViewById(R.id.imageView_edit);
-            viewImageView = (AppCompatImageButton) view.findViewById(R.id.imageView_view);
+            deleteImageView = (AppCompatImageButton) view.findViewById(R.id.imageButton_delete);
+            editImageView = (AppCompatImageButton) view.findViewById(R.id.imageButton_edit);
+            viewImageView = (AppCompatImageButton) view.findViewById(R.id.imageButton_view);
         }
 
         public void updateViews(final Sale sale){

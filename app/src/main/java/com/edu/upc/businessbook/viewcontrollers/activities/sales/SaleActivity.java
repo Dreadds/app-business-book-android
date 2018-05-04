@@ -52,7 +52,7 @@ public class SaleActivity extends  Activity {
         floatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(v.getContext(),AddSaleActivity.class);
+                Intent intent = new Intent(v.getContext(),SaleAddActivity.class);
                 startActivityForResult(intent,0);
             }
         });
