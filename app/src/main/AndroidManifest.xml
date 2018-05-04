@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.edu.upc.businessbook">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -21,7 +23,8 @@
         </activity>
         <activity
             android:name=".viewcontrollers.activities.MainActivity"
-            android:label="@string/title_activity_main"></activity>
+            android:label="@string/title_activity_main" />
+        <activity android:name=".viewcontrollers.activities.sales.SaleActivity"></activity>
     </application>
 
 </manifest>
