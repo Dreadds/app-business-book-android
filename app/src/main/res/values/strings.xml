@@ -13,4 +13,5 @@
     <string name="mock_text">Mock Text</string>
     <string name="local_name_hint">Local Name</string>
     <string name="title_activity_item">Item</string>
+    <string name="about_text_card">about</string>
 </resources>

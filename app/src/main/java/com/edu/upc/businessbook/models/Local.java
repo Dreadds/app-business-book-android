@@ -2,6 +2,9 @@ package com.edu.upc.businessbook.models;
 
 import android.os.Bundle;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Local {
     private String localId;
     private String name;
@@ -9,12 +12,6 @@ public class Local {
     private int thumbnail;
 
     public Local() {
-    }
-
-    public Local(String localId, String name, String address) {
-        this.localId = localId;
-        this.name = name;
-        this.address = address;
     }
 
     public Local(String name, String address, int thumbnail) {
@@ -66,5 +63,39 @@ public class Local {
         bundle.putString("name", getName());
         bundle.putString("address", getAddress());
         return bundle;
+    }
+
+    public static  class Builder{
+        private Local local;
+        private List<Local> locals;
+
+        public Builder(){
+            this.local = new Local();
+            this.locals = new ArrayList<>();
+        }
+
+        public Builder (Local local) {
+            this.local = local;
+        }
+
+        public Builder (List<Local> locals) {
+            this.locals = locals;
+        }
+        public Local build(){
+            return local;
+        }
+
+        public List<Local> buildAll() {
+            return locals;
+        }
+
+        public static Builder from(Bundle bundle){
+            return new Builder(new Local(
+                    bundle.getString("name"),
+                    bundle.getString("address"),
+                    bundle.getInt("thumbnail")
+
+            ));
+        }
     }
 }

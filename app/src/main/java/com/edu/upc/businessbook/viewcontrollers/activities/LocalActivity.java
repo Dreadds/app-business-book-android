@@ -17,12 +17,14 @@ import android.widget.ImageView;
 import com.edu.upc.businessbook.R;
 import com.edu.upc.businessbook.models.Item;
 import com.edu.upc.businessbook.models.ItemsRepository;
+import com.edu.upc.businessbook.models.Local;
 import com.edu.upc.businessbook.viewcontrollers.adapters.ItemsAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class LocalActivity extends AppCompatActivity {
+    Local local;
     private RecyclerView itemsRecyclerView;
     private ItemsAdapter itemsAdapter;
     //LinearLayoutManager layoutManager;
@@ -33,7 +35,7 @@ public class LocalActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_local);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarLocal);
         setSupportActionBar(toolbar);
         itemsRecyclerView = findViewById(R.id.recycler_items);
         items = new ArrayList<>();
@@ -41,6 +43,10 @@ public class LocalActivity extends AppCompatActivity {
         itemsLayoutManager = new GridLayoutManager(this, 2);
         itemsRecyclerView.setAdapter(itemsAdapter);
         itemsRecyclerView.setLayoutManager(itemsLayoutManager);
+        Intent intent = getIntent();
+        if(intent == null) return;
+        local = Local.Builder.from(intent.getExtras()).build();
+        toolbar.setTitle(local.getName());
 
         //Intent intent = getIntent();
         //if(intent == null) return;
