@@ -9,16 +9,16 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Product {
+public class Producto {
     private String productoId;
     private String nombre;
     private String precioUnitario;
     private String estado;
 
-    public Product() {
+    public Producto() {
     }
 
-    public Product(String productoId, String nombre, String precioUnitario, String estado) {
+    public Producto(String productoId, String nombre, String precioUnitario, String estado) {
         this.productoId = productoId;
         this.nombre = nombre;
         this.precioUnitario = precioUnitario;
@@ -29,7 +29,7 @@ public class Product {
         return productoId;
     }
 
-    public Product setProductoId(String productoId) {
+    public Producto setProductoId(String productoId) {
         this.productoId = productoId;
         return this;
     }
@@ -38,7 +38,7 @@ public class Product {
         return nombre;
     }
 
-    public Product setNombre(String nombre) {
+    public Producto setNombre(String nombre) {
         this.nombre = nombre;
         return this;
     }
@@ -47,7 +47,7 @@ public class Product {
         return precioUnitario;
     }
 
-    public Product setPrecioUnitario(String precioUnitario) {
+    public Producto setPrecioUnitario(String precioUnitario) {
         this.precioUnitario = precioUnitario;
         return this;
     }
@@ -56,7 +56,7 @@ public class Product {
         return estado;
     }
 
-    public Product setEstado(String estado) {
+    public Producto setEstado(String estado) {
         this.estado = estado;
         return this;
     }
@@ -72,29 +72,29 @@ public class Product {
     }
 
     public static class Builder{
-        private Product product;
-        private List<Product> products;
+        private Producto product;
+        private List<Producto> products;
 
         public Builder(){
-            this.product = new Product();
+            this.product = new Producto();
             this.products = new ArrayList<>();
         }
 
-        public Builder(Product product){
+        public Builder(Producto product){
             this.product = product;
         }
-        public Builder (List<Product> products){
+        public Builder (List<Producto> products){
             this.products = products;
         }
-        public Product build(){
+        public Producto build(){
             return product;
         }
-        public List<Product> buildAll(){
+        public List<Producto> buildAll(){
             return products;
         }
 
         public static Builder from(Bundle bundle){
-            return new Builder(new Product(
+            return new Builder(new Producto(
                     bundle.getString("productoId"),
                     bundle.getString("nombre"),
                     bundle.getString("precioUnitario"),
@@ -104,7 +104,7 @@ public class Product {
 
         public static Builder from(JSONObject jsonProduct){
             try {
-                return new Builder(new Product(
+                return new Builder(new Producto(
                         jsonProduct.getString("productoId"),
                         jsonProduct.getString("nombre"),
                         jsonProduct.getString("precioUnitario"),
@@ -118,7 +118,7 @@ public class Product {
 
         public static Builder from(JSONArray jsonProduct){
             int length = jsonProduct.length();
-            List<Product> products = new ArrayList<>();
+            List<Producto> products = new ArrayList<>();
             for (int i = 0; i < length; i++){
                 try {
                     products.add(Builder.from(jsonProduct.getJSONObject(i)).build());

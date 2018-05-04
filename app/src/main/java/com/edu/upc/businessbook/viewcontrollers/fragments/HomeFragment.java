@@ -3,17 +3,26 @@ package com.edu.upc.businessbook.viewcontrollers.fragments;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.androidnetworking.AndroidNetworking;
+import com.androidnetworking.common.Priority;
+import com.androidnetworking.error.ANError;
+import com.androidnetworking.interfaces.JSONObjectRequestListener;
 import com.edu.upc.businessbook.R;
 import com.edu.upc.businessbook.models.Local;
 import com.edu.upc.businessbook.models.LocalsRepository;
+import com.edu.upc.businessbook.models.Producto;
+import com.edu.upc.businessbook.network.BusinessBookApi;
 import com.edu.upc.businessbook.viewcontrollers.adapters.LocalsAdapter;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,6 +36,7 @@ public class HomeFragment extends Fragment {
     //LinearLayoutManager layoutManager;
     private RecyclerView.LayoutManager localsLayoutManager;
     private List<Local> locals;
+
 
 
     public HomeFragment() {
@@ -45,12 +55,11 @@ public class HomeFragment extends Fragment {
         localsLayoutManager = new LinearLayoutManager(view.getContext());
         localsRecyclerView.setAdapter(localsAdapter);
         localsRecyclerView.setLayoutManager(localsLayoutManager);
-        //updateView();
+        updateView();
         return view;
     }
-   /* private void updateView(){
-        localsAdapter.setLocals(locals);
-        localsAdapter.notifyDataSetChanged();
-    }*/
+    private void updateView(){
+
+    }
 
 }
