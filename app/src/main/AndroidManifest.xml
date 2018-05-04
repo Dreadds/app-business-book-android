@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.edu.upc.businessbook">
+<<<<<<< HEAD
     <uses-permission android:name="android.permission.INTERNET" />
+=======
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+>>>>>>> chema
     <application
         android:name=".BusinessBookApp"
         android:allowBackup="true"
@@ -34,6 +40,7 @@
         <activity
             android:name=".viewcontrollers.activities.MainActivity"
             android:label="@string/title_activity_main" />
+<<<<<<< HEAD
         <activity
             android:name=".viewcontrollers.activities.LoginActivity"
             android:label="@string/title_activity_login"/>
@@ -45,6 +52,12 @@
             android:name=".viewcontrollers.activities.ItemActivity"
             android:label="@string/title_activity_item"
             android:theme="@style/AppTheme.NoActionBar"></activity>
+=======
+        <activity android:name=".viewcontrollers.activities.sales.SaleActivity" />
+        <activity android:name=".viewcontrollers.activities.purchases.PurchaseActivity" />
+        <activity android:name=".viewcontrollers.activities.sales.SaleAddActivity" />
+        <activity android:name=".viewcontrollers.activities.purchases.PurchaseAddActivity"></activity>
+>>>>>>> chema
     </application>
 
 </manifest>
