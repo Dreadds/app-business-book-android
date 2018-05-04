@@ -35,8 +35,8 @@ public class LocalActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_local);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarLocal);
-        setSupportActionBar(toolbar);
+        Toolbar toolbarLocal = (Toolbar) findViewById(R.id.toolbarLocal);
+        setSupportActionBar(toolbarLocal);
         itemsRecyclerView = findViewById(R.id.recycler_items);
         items = new ArrayList<>();
         itemsAdapter = new ItemsAdapter(ItemsRepository.getInstance().getItems());
@@ -46,7 +46,7 @@ public class LocalActivity extends AppCompatActivity {
         Intent intent = getIntent();
         if(intent == null) return;
         local = Local.Builder.from(intent.getExtras()).build();
-        toolbar.setTitle(local.getName());
+        toolbarLocal.setTitle(local.getName());
 
         //Intent intent = getIntent();
         //if(intent == null) return;

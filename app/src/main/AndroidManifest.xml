@@ -36,8 +36,7 @@
             android:label="@string/title_activity_main" />
         <activity
             android:name=".viewcontrollers.activities.LoginActivity"
-            android:label="@string/title_activity_login">
-        </activity>
+            android:label="@string/title_activity_login"/>
         <activity
             android:name=".viewcontrollers.activities.LocalActivity"
             android:label="@string/title_activity_local"
