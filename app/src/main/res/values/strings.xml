@@ -19,4 +19,5 @@
 
     <string name="password_hint_login">Password</string>
     <string name="email_hint_login">Email</string>
+    <string name="sign_in_button">Login</string>
 </resources>

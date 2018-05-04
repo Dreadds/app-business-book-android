@@ -14,5 +14,6 @@
     <string name="ak_login_protocol_scheme">ak5260fa10c8e58f1c207e9374bd129de8</string>
 
     <string name="password_hint_login">Contraseña</string>
-    <string name="email_hint_login">Correo electronico</string>
+    <string name="email_hint_login">Correo electrónico</string>
+    <string name="sign_in_button">INICIAR SESIÓN</string>
 </resources>

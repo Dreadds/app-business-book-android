@@ -34,7 +34,6 @@ public class OnBoardActivity extends AppCompatActivity {
         if (accessToken != null) {
             launchHomeActivity();
         }
-
     }
 
     private void launchHomeActivity(){
