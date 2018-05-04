@@ -14,6 +14,7 @@ import android.widget.TextView;
 import com.edu.upc.businessbook.R;
 import com.edu.upc.businessbook.models.Item;
 import com.edu.upc.businessbook.viewcontrollers.activities.ItemActivity;
+import com.edu.upc.businessbook.viewcontrollers.activities.sales.SaleActivity;
 
 import java.util.List;
 
@@ -72,7 +73,7 @@ public class ItemsAdapter extends RecyclerView.Adapter<ItemsAdapter.ViewHolder> 
                 public void onClick(View v) {
 
                     Context context = v.getContext();
-                    context.startActivity(new Intent(context, ItemActivity.class)
+                    context.startActivity(new Intent(context, SaleActivity.class)
                             .putExtras(item.toBundle()));
                 }
             });
