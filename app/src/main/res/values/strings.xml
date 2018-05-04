@@ -12,4 +12,5 @@
     <string name="title_activity_local">About Local</string>
     <string name="mock_text">Mock Text</string>
     <string name="local_name_hint">Local Name</string>
+    <string name="title_activity_product">Product</string>
 </resources>

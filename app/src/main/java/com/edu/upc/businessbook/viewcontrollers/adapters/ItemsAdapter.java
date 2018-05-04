@@ -1,5 +1,8 @@
 package com.edu.upc.businessbook.viewcontrollers.adapters;
 
+import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.widget.CardView;
@@ -12,6 +15,8 @@ import android.widget.TextView;
 
 import com.edu.upc.businessbook.R;
 import com.edu.upc.businessbook.models.Item;
+import com.edu.upc.businessbook.viewcontrollers.activities.LocalActivity;
+import com.edu.upc.businessbook.viewcontrollers.activities.ProductActivity;
 
 import java.util.List;
 
@@ -61,10 +66,19 @@ public class ItemsAdapter extends RecyclerView.Adapter<ItemsAdapter.ViewHolder> 
             nameTextView = (TextView) view.findViewById(R.id.nameTextView);
             itemLocalLayout = (CardView) view.findViewById(R.id.layout_itemLocal);
         }
-        private void updateView(Item item){
+        private void updateView(final Item item){
 
             nameTextView.setText(item.getName());
             itemLocalImageView.setImageResource(item.getThumbnail());
+            itemLocalImageView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    Context context = v.getContext();
+                    context.startActivity(new Intent(context, ProductActivity.class)
+                            .putExtras(item.toBundle()));
+                }
+            });
         }
     }
 }

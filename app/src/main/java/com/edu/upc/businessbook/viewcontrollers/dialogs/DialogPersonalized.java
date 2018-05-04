@@ -32,11 +32,11 @@ public class DialogPersonalized extends DialogFragment {
         View view = getActivity().getLayoutInflater().inflate(R.layout.dialog_local,null);
         editText = (TextInputEditText) view.findViewById(R.id.editLocalName);
         builder.setView(view)
-                .setTitle("Create Local")
-                .setPositiveButton("Create", new DialogInterface.OnClickListener() {
+                .setTitle("New Local")
+                .setPositiveButton("Save", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        localsRepository.getLocals().add(new Local(editText.getText().toString(),"1",R.drawable.ic_business_black_24dp));
+                        //localsRepository.getLocals().add(new Local(editText.getText().toString(),"1",R.drawable.ic_business_black_24dp));
                         //locals.add(new Local(editText.getText().toString(),"1",R.drawable.ic_business_black_24dp));
 
                     }

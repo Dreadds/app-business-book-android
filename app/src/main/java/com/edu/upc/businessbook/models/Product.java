@@ -1,5 +1,7 @@
 package com.edu.upc.businessbook.models;
 
+import android.os.Bundle;
+
 public class Product {
     private String productId;
     private String name;
@@ -50,5 +52,14 @@ public class Product {
     public Product setState(String state) {
         this.state = state;
         return this;
+    }
+
+    public Bundle toBundle(){
+        Bundle bundle = new Bundle();
+        bundle.putString("productId", getProductId());
+        bundle.putString("name", getName());
+        bundle.putString("unitPrice", getUnitPrice());
+        bundle.putString("state", getState());
+        return bundle;
     }
 }

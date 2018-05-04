@@ -25,6 +25,10 @@
         <activity
             android:name=".viewcontrollers.activities.LocalActivity"
             android:label="@string/title_activity_local"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".viewcontrollers.activities.ProductActivity"
+            android:label="@string/title_activity_product"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
