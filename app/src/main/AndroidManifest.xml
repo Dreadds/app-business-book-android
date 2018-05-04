@@ -24,7 +24,10 @@
         <activity
             android:name=".viewcontrollers.activities.MainActivity"
             android:label="@string/title_activity_main" />
-        <activity android:name=".viewcontrollers.activities.sales.SaleActivity"></activity>
+        <activity android:name=".viewcontrollers.activities.sales.SaleActivity" />
+        <activity android:name=".viewcontrollers.activities.purchases.PurchaseActivity" />
+        <activity android:name=".viewcontrollers.activities.sales.SaleAddActivity" />
+        <activity android:name=".viewcontrollers.activities.purchases.PurchaseAddActivity"></activity>
     </application>
 
 </manifest>
