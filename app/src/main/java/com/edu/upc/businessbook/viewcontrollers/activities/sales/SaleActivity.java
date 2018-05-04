@@ -1,15 +1,13 @@
 package com.edu.upc.businessbook.viewcontrollers.activities.sales;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
-import android.net.Uri;
 import android.os.Bundle;
 
 import com.androidnetworking.interfaces.JSONArrayRequestListener;
 import com.edu.upc.businessbook.R;
-import com.edu.upc.businessbook.viewcontrollers.adapters.SalesAdapter;
+import com.edu.upc.businessbook.viewcontrollers.adapters.SaleAdapter;
 import com.edu.upc.businessbook.viewcontrollers.models.Sale;
 
 import android.support.design.widget.FloatingActionButton;
@@ -19,14 +17,9 @@ import java.util.*;
 import android.util.Log;
 import android.view.View;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import com.androidnetworking.AndroidNetworking;
 import com.androidnetworking.common.Priority;
 import com.androidnetworking.error.ANError;
-import com.androidnetworking.interfaces.JSONObjectRequestListener;
 import com.edu.upc.businessbook.viewcontrollers.network.NewApi;
 
 import static android.content.res.Configuration.ORIENTATION_PORTRAIT;
@@ -36,7 +29,7 @@ public class SaleActivity extends  Activity {
     private java.util.List<Sale> sales ;
     private RecyclerView salesRecyclerView;
     private RecyclerView.LayoutManager salesLayoutManager;
-    private SalesAdapter salesAdapter;
+    private SaleAdapter salesAdapter;
     private FloatingActionButton floatingActionButton;
     public SaleActivity() {
     }
@@ -50,7 +43,7 @@ public class SaleActivity extends  Activity {
 
         salesRecyclerView = findViewById(R.id.recyclerView_sale);
         sales = new ArrayList<>();
-        salesAdapter = new SalesAdapter(sales);
+        salesAdapter = new SaleAdapter(sales);
         salesLayoutManager = new GridLayoutManager(SaleActivity.this,1);
         salesRecyclerView.setAdapter(salesAdapter);
         salesRecyclerView.setLayoutManager(salesLayoutManager);
