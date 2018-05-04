@@ -30,20 +30,12 @@ public class OnBoardActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-<<<<<<< HEAD
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(view.getContext(), MainActivity.class));
-            }
-        });
-=======
+
         AccessToken accessToken = AccountKit.getCurrentAccessToken();
         if (accessToken != null) {
             launchHomeActivity();
         }
->>>>>>> katherin
+
     }
 
     private void launchHomeActivity(){

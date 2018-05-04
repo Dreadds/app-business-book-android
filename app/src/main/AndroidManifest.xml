@@ -34,13 +34,10 @@
         <activity
             android:name=".viewcontrollers.activities.MainActivity"
             android:label="@string/title_activity_main" />
-<<<<<<< HEAD
-=======
         <activity
             android:name=".viewcontrollers.activities.LoginActivity"
             android:label="@string/title_activity_login"
             android:theme="@style/AppTheme.NoActionBar"></activity>
->>>>>>> katherin
     </application>
 
 </manifest>
