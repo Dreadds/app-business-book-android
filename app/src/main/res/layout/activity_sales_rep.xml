@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/titleText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="13dp"
+        android:textSize="18sp"
+        android:gravity="center"
+        android:text="Top Products per month"
+        android:textStyle="bold"
+        />
+    <com.github.mikephil.charting.charts.PieChart
+        android:id="@+id/chart"
+        android:layout_marginTop="50dp"
+        android:layout_width="400dp"
+        android:layout_height="400dp"/>
+</RelativeLayout>
