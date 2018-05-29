@@ -14,11 +14,14 @@ import android.widget.TextView;
 import com.edu.upc.businessbook.R;
 import com.edu.upc.businessbook.models.Item;
 import com.edu.upc.businessbook.viewcontrollers.activities.ItemActivity;
+import com.edu.upc.businessbook.viewcontrollers.activities.OnBoardActivity;
+import com.edu.upc.businessbook.viewcontrollers.activities.ProviderActivity;
 
 import java.util.List;
 
 public class ItemsAdapter extends RecyclerView.Adapter<ItemsAdapter.ViewHolder> {
     private List<Item> items;
+    Item item;
 
     public ItemsAdapter(List<Item> items) {
         this.items = items;
@@ -70,10 +73,16 @@ public class ItemsAdapter extends RecyclerView.Adapter<ItemsAdapter.ViewHolder> 
             itemLocalImageView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-
-                    Context context = v.getContext();
-                    context.startActivity(new Intent(context, ItemActivity.class)
-                            .putExtras(item.toBundle()));
+                    if(item.getName().toString() == "Sales") {
+                        Context context = v.getContext();
+                        context.startActivity(new Intent(context, ItemActivity.class)
+                                .putExtras(item.toBundle()));
+                    }
+                    if(item.getName().toString() == "Providers") {
+                        Context context = v.getContext();
+                        context.startActivity(new Intent(context, ProviderActivity.class)
+                                .putExtras(item.toBundle()));
+                    }
                 }
             });
         }

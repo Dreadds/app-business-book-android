@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.edu.upc.businessbook">
-    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:name=".BusinessBookApp"
         android:allowBackup="true"
@@ -30,6 +32,10 @@
         <activity
             android:name=".viewcontrollers.activities.ItemActivity"
             android:label="@string/title_activity_item"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".viewcontrollers.activities.ProviderActivity"
+            android:label="@string/title_activity_provider"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
