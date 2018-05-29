@@ -2,6 +2,8 @@ package com.edu.upc.businessbook.viewcontrollers.fragments;
 
 
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
+import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -20,6 +22,7 @@ import com.edu.upc.businessbook.models.LocalsRepository;
 import com.edu.upc.businessbook.models.Producto;
 import com.edu.upc.businessbook.network.BusinessBookApi;
 import com.edu.upc.businessbook.viewcontrollers.adapters.LocalsAdapter;
+import com.edu.upc.businessbook.viewcontrollers.dialogs.DialogPersonalized;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -56,10 +59,19 @@ public class HomeFragment extends Fragment {
         localsRecyclerView.setAdapter(localsAdapter);
         localsRecyclerView.setLayoutManager(localsLayoutManager);
         updateView();
+        FloatingActionButton localFab = (FloatingActionButton) view.findViewById(R.id.localFab);
+        localFab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DialogFragment dialogFragment = new DialogPersonalized();
+                dialogFragment.show(getFragmentManager(), "Dialog");
+            }
+        });
         return view;
     }
     private void updateView(){
 
     }
+
 
 }
