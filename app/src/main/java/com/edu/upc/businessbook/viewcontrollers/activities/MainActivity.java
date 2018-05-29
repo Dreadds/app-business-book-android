@@ -45,15 +45,6 @@ public class MainActivity extends AppCompatActivity {
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         navigateTo(navigation.getMenu().findItem(R.id.navigation_home));
 
-        FloatingActionButton localFab = (FloatingActionButton) findViewById(R.id.localFab);
-        localFab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                DialogFragment dialogFragment = new DialogPersonalized();
-                dialogFragment.show(getSupportFragmentManager(), "Dialog");
-                //startActivity(new Intent(view.getContext(), MainActivity.class));
-            }
-        });
 
     }
 
