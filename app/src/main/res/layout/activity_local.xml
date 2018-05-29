@@ -42,6 +42,7 @@
 
     <include layout="@layout/content_local" />
 
+    <!--
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab"
         android:layout_width="wrap_content"
@@ -54,6 +55,6 @@
         app:layout_anchorGravity="bottom|right|end"
         android:clickable="true"
         android:foreground="?android:selectableItemBackground"/>
-
+    -->
 
 </android.support.design.widget.CoordinatorLayout>
