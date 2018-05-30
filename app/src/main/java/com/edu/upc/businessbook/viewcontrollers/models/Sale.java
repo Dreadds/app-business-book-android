@@ -12,126 +12,124 @@ import java.util.List;
 
 public class Sale {
 
-    int VentaId;
-    String FechaCreacion;
-    String CodigoGuia;
-    String NombreLocal;
-    float PrecioTotal;
-    String NombreCompletoTrabajador;
-    String NombreCompletoCliente;
-    String Estado;
-    String EstadoEntrega;
+    int SaleId;
+    String DateCreation;
+    String CodeGuide;
+    String LocalName;
+    float PriceTotal;
+    String EmployeeName;
+    String ClientName;
+    String State;
+    String StateDelivery;
 
     public Sale() { }
 
-    public Sale(int VentaId, String FechaCreacion, String CodigoGuia, String NombreLocal,
-                float PrecioTotal, String NombreCompletoTrabajador, String NombreCompletoCliente,
-                String Estado, String EstadoEntrega) {
-        this.VentaId = VentaId;
-        this.FechaCreacion = FechaCreacion;
-        this.CodigoGuia = CodigoGuia;
-        this.NombreLocal = NombreLocal;
-        this.PrecioTotal = PrecioTotal;
-        this.NombreCompletoTrabajador = NombreCompletoTrabajador;
-        this.NombreCompletoCliente = NombreCompletoCliente;
-        this.Estado = Estado;
-        this.EstadoEntrega = EstadoEntrega;
 
+    public Sale(int saleId, String dateCreation, String codeGuide, String localName, float priceTotal, String employeeName, String clientName, String state, String stateDelivery) {
+        SaleId = saleId;
+        DateCreation = dateCreation;
+        CodeGuide = codeGuide;
+        LocalName = localName;
+        PriceTotal = priceTotal;
+        EmployeeName = employeeName;
+        ClientName = clientName;
+        State = state;
+        StateDelivery = stateDelivery;
     }
 
-    public int getVentaId() {
-        return VentaId;
+    public int getSaleId() {
+        return SaleId;
     }
 
-    public Sale setVentaId(int ventaId) {
-        VentaId = ventaId;
+    public Sale setSaleId(int saleId) {
+        SaleId = saleId;
         return this;
     }
 
-    public String getFechaCreacion() {
-        return FechaCreacion;
+    public String getDateCreation() {
+        return DateCreation;
     }
 
-    public Sale setFechaCreacion(String fechaCreacion) {
-        FechaCreacion = fechaCreacion;
+    public Sale setDateCreation(String dateCreation) {
+        DateCreation = dateCreation;
         return this;
     }
 
-    public String getCodigoGuia() {
-        return CodigoGuia;
+    public String getCodeGuide() {
+        return CodeGuide;
     }
 
-    public Sale setCodigoGuia(String codigoGuia) {
-        CodigoGuia = codigoGuia;
+    public Sale setCodeGuide(String codeGuide) {
+        CodeGuide = codeGuide;
         return this;
     }
 
-    public String getNombreLocal() {
-        return NombreLocal;
+    public String getLocalName() {
+        return LocalName;
     }
 
-    public Sale setNombreLocal(String nombreLocal) {
-        NombreLocal = nombreLocal;
+    public Sale setLocalName(String localName) {
+        LocalName = localName;
         return this;
     }
 
-    public float getPrecioTotal() {
-        return PrecioTotal;
+    public float getPriceTotal() {
+        return PriceTotal;
     }
 
-    public Sale setPrecioTotal(float precioTotal) {
-        PrecioTotal = precioTotal;
+    public Sale setPriceTotal(float priceTotal) {
+        PriceTotal = priceTotal;
         return this;
     }
 
-    public String getNombreCompletoTrabajador() {
-        return NombreCompletoTrabajador;
+    public String getEmployeeName() {
+        return EmployeeName;
     }
 
-    public Sale setNombreCompletoTrabajador(String nombreCompletoTrabajador) {
-        NombreCompletoTrabajador = nombreCompletoTrabajador;
+    public Sale setEmployeeName(String employeeName) {
+        EmployeeName = employeeName;
         return this;
     }
 
-    public String getNombreCompletoCliente() {
-        return NombreCompletoCliente;
+    public String getClientName() {
+        return ClientName;
     }
 
-    public Sale setNombreCompletoCliente(String nombreCompletoCliente) {
-        NombreCompletoCliente = nombreCompletoCliente;
+    public Sale setClientName(String clientName) {
+        ClientName = clientName;
         return this;
     }
 
-    public String getEstado() {
-        return Estado;
+    public String getState() {
+        return State;
     }
 
-    public Sale setEstado(String estado) {
-        Estado = estado;
+    public Sale setState(String state) {
+        State = state;
         return this;
     }
 
-    public String getEstadoEntrega() {
-        return EstadoEntrega;
+    public String getStateDelivery() {
+        return StateDelivery;
     }
 
-    public Sale setEstadoEntrega(String estadoEntrega) {
-        EstadoEntrega = estadoEntrega;
+    public Sale setStateDelivery(String stateDelivery) {
+        StateDelivery = stateDelivery;
         return this;
     }
 
     //sirve para trasnferir datos de una vista otra
     public Bundle toBundle(){
         Bundle bundle = new Bundle();
-        bundle.putInt("VentaId",getVentaId());
-        bundle.putString("FechaCreacion",getFechaCreacion());
-        bundle.putString("CodigoGuia",getCodigoGuia());
-        bundle.putString("NombreLocal",getNombreLocal());
-        bundle.putFloat("PrecioTotal",getPrecioTotal());
-        bundle.putString("NombreCompletoTrabajador",getNombreCompletoTrabajador());
-        bundle.putString("NombreCompletoCliente",getNombreCompletoCliente());
-        bundle.putString("Estado",getEstado());
-        bundle.putString("EstadoEntrega",getEstadoEntrega());
+        bundle.putInt("SaleId",getSaleId());
+        bundle.putString("DateCreation",getDateCreation());
+        bundle.putString("CodeGuide",getCodeGuide());
+        bundle.putString("localName",getLocalName());
+        bundle.putFloat("PriceTotal",getPriceTotal());
+        bundle.putString("EmployeeName",getEmployeeName());
+        bundle.putString("ClientName",getClientName());
+        bundle.putString("State",getState());
+        bundle.putString("StateDelivery",getStateDelivery());
         return bundle;
     }
 
@@ -156,32 +154,32 @@ public class Sale {
 
         public static Sale.Builder from(Bundle bundle){
             return new Sale.Builder(new Sale(
-                    bundle.getInt("VentaId"),
-                    bundle.getString("FechaCreacion"),
-                    bundle.getString("CodigoGuia"),
-                    bundle.getString("NombreLocal"),
-                    bundle.getFloat("PrecioTotal"),
-                    bundle.getString("NombreCompletoTrabajador"),
-                    bundle.getString("NombreCompletoCliente"),
-                    bundle.getString("Estado"),
-                    bundle.getString("EstadoEntrega")
+                    bundle.getInt("SaleId"),
+                    bundle.getString("DateCreation"),
+                    bundle.getString("CodeGuide"),
+                    bundle.getString("localName"),
+                    bundle.getFloat("PriceTotal"),
+                    bundle.getString("EmployeeName"),
+                    bundle.getString("ClientName"),
+                    bundle.getString("State"),
+                    bundle.getString("StateDelivery")
             ));
         }
         public static Builder from(JSONObject jsonSale) {
             try {
-                Double totalPrice = (jsonSale.getString("PrecioTotal").equals("null")) ? 0.0 : jsonSale.getDouble("PrecioTotal");
+                Double totalPrice = (jsonSale.getString("PriceTotal").equals("null")) ? 0.0 : jsonSale.getDouble("PriceTotal");
 
                 return new Builder(new Sale(
-                        jsonSale.getInt("VentaId"),
-                        jsonSale.getString("FechaCreacion"),
-                        jsonSale.getString("CodigoGuia"),
-                        jsonSale.getString("NombreLocal"),
+                        jsonSale.getInt("SaleId"),
+                        jsonSale.getString("DateCreation"),
+                        jsonSale.getString("CodeGuide"),
+                        jsonSale.getString("localName"),
                         BigDecimal.valueOf(totalPrice).floatValue(),
                         // TODO: Change "Trabajdor" to "Trabajador" in backend
-                        jsonSale.getString("NombreCompletoTrabajdor"),
-                        jsonSale.getString("NombreCompletoCliente"),
-                        jsonSale.getString("Estado"),
-                        jsonSale.getString("EstadoEntrega")));
+                        jsonSale.getString("EmployeeName"),
+                        jsonSale.getString("ClientName"),
+                        jsonSale.getString("State"),
+                        jsonSale.getString("StateDelivery")));
             } catch (JSONException e) {
                 e.printStackTrace();
             }
