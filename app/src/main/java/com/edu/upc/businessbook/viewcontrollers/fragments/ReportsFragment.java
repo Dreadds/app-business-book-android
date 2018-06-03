@@ -11,7 +11,10 @@ import android.view.ViewGroup;
 import android.widget.GridLayout;
 
 import com.edu.upc.businessbook.R;
+import com.edu.upc.businessbook.viewcontrollers.activities.ComRepActivity;
+import com.edu.upc.businessbook.viewcontrollers.activities.PurchasesRepActivity;
 import com.edu.upc.businessbook.viewcontrollers.activities.SalesRepActivity;
+import com.edu.upc.businessbook.viewcontrollers.activities.TopProdRepActivity;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -45,8 +48,23 @@ public class ReportsFragment extends Fragment {
                 @Override
                 public void onClick(View v) {
                     //Toast.makeText(getActivity(),"Click index: "+finalI,Toast.LENGTH_SHORT).show();
+                    if(finalI==0){
+                        Intent intent = new Intent(getActivity(), SalesRepActivity.class);
+                        getActivity().startActivity(intent);
+                    }
+
+                    if(finalI==1){
+                        Intent intent = new Intent(getActivity(), PurchasesRepActivity.class);
+                        getActivity().startActivity(intent);
+                    }
+
+                    if(finalI==2){
+                        Intent intent = new Intent(getActivity(), ComRepActivity.class);
+                        getActivity().startActivity(intent);
+                    }
+
                     if(finalI==3){
-                       Intent intent = new Intent(getActivity(), SalesRepActivity.class);
+                       Intent intent = new Intent(getActivity(), TopProdRepActivity.class);
                         getActivity().startActivity(intent);
                     }
                 }

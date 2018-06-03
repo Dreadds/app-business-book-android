@@ -50,7 +50,10 @@
         <activity android:name=".viewcontrollers.activities.purchases.PurchaseActivity" />
         <activity android:name=".viewcontrollers.activities.sales.SaleAddActivity" />
         <activity android:name=".viewcontrollers.activities.purchases.PurchaseAddActivity" />
-        <activity android:name=".viewcontrollers.activities.SalesRepActivity"></activity>
+        <activity android:name=".viewcontrollers.activities.TopProdRepActivity" />
+        <activity android:name=".viewcontrollers.activities.PurchasesRepActivity" />
+        <activity android:name=".viewcontrollers.activities.SalesRepActivity" />
+        <activity android:name=".viewcontrollers.activities.ComRepActivity"></activity>
     </application>
 
 </manifest>

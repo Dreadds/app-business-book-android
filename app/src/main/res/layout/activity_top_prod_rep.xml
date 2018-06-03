@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".viewcontrollers.activities.SalesRepActivity">
+    android:layout_height="match_parent">
 
     <TextView
         android:id="@+id/titleText"
@@ -14,15 +11,12 @@
         android:layout_marginTop="16dp"
         android:layout_marginLeft="16dp"
         android:textSize="18sp"
-        android:text="Monthly sales"
+        android:text="Top products per month"
         android:textStyle="bold"
         />
-
-    <com.github.mikephil.charting.charts.LineChart
-        android:id="@+id/lineChartSales"
-        android:layout_marginTop="65dp"
-        android:layout_marginRight="@dimen/default_margin"
-        android:layout_marginLeft="@dimen/default_margin"
+    <com.github.mikephil.charting.charts.PieChart
+        android:id="@+id/chart"
+        android:layout_marginTop="60dp"
         android:layout_width="400dp"
         android:layout_height="400dp"/>
 </RelativeLayout>

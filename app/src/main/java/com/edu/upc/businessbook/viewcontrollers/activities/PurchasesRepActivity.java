@@ -15,39 +15,40 @@ import com.github.mikephil.charting.data.LineDataSet;
 import com.github.mikephil.charting.formatter.IAxisValueFormatter;
 import com.github.mikephil.charting.formatter.IValueFormatter;
 import com.github.mikephil.charting.interfaces.datasets.ILineDataSet;
+import com.github.mikephil.charting.listener.OnChartGestureListener;
+import com.github.mikephil.charting.listener.OnChartValueSelectedListener;
 import com.github.mikephil.charting.utils.ViewPortHandler;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 
-public class SalesRepActivity extends AppCompatActivity {
+public class PurchasesRepActivity extends AppCompatActivity {
 
     private LineChart pChart;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_sales_rep);
+        setContentView(R.layout.activity_purchases_rep);
 
+        pChart = (LineChart)findViewById(R.id.lineChart);
 
-        pChart = (LineChart)findViewById(R.id.lineChartSales);
-
-        // pChart.setOnChartGestureListener(PurchasesRepActivity.this);
-        // pChart.setOnChartValueSelectedListener(PurchasesRepActivity.this);
+       // pChart.setOnChartGestureListener(PurchasesRepActivity.this);
+       // pChart.setOnChartValueSelectedListener(PurchasesRepActivity.this);
 
         pChart.setDragEnabled(true);
         pChart.setScaleEnabled(false);
 
         ArrayList<Entry> yValue = new ArrayList<>();
-        yValue.add(new Entry(0,45f));
-        yValue.add(new Entry(1,35f));
-        yValue.add(new Entry(2,55f));
-        yValue.add(new Entry(3,20f));
-        yValue.add(new Entry(4,70f));
+        yValue.add(new Entry(0,60f));
+        yValue.add(new Entry(1,50f));
+        yValue.add(new Entry(2,70f));
+        yValue.add(new Entry(3,30f));
+        yValue.add(new Entry(4,50f));
         yValue.add(new Entry(5,60f));
         yValue.add(new Entry(6,65f));
 
-        LineDataSet setPurchases = new LineDataSet(yValue, "Data Sales");
+        LineDataSet setPurchases = new LineDataSet(yValue, "Data Purchases");
 
         setPurchases.setFillAlpha(110);
         setPurchases.setColor(Color.RED);
@@ -74,9 +75,11 @@ public class SalesRepActivity extends AppCompatActivity {
 
         xAxis.setGranularity(1f);
         xAxis.setPosition(XAxis.XAxisPosition.BOTH_SIDED);
+
+
     }
 
-    public class MyXAxisValueFormatter implements IAxisValueFormatter {
+    public class MyXAxisValueFormatter implements IAxisValueFormatter{
         private String[] xValues;
         public MyXAxisValueFormatter(String[] values){
             this.xValues = values;
@@ -113,3 +116,4 @@ public class SalesRepActivity extends AppCompatActivity {
         }
     }
 }
+
