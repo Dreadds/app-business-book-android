@@ -6,9 +6,10 @@ import android.content.res.Configuration;
 import android.os.Bundle;
 
 import com.androidnetworking.interfaces.JSONArrayRequestListener;
+import com.androidnetworking.interfaces.JSONObjectRequestListener;
 import com.edu.upc.businessbook.R;
 import com.edu.upc.businessbook.viewcontrollers.adapters.SaleAdapter;
-import com.edu.upc.businessbook.viewcontrollers.models.Sale;
+import com.edu.upc.businessbook.models.Sale;
 
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.widget.RecyclerView;
@@ -21,6 +22,10 @@ import com.androidnetworking.AndroidNetworking;
 import com.androidnetworking.common.Priority;
 import com.androidnetworking.error.ANError;
 import com.edu.upc.businessbook.viewcontrollers.network.NewApi;
+import com.google.gson.JsonObject;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import static android.content.res.Configuration.ORIENTATION_PORTRAIT;
 
@@ -48,7 +53,7 @@ public class SaleActivity extends  Activity {
         salesRecyclerView.setAdapter(salesAdapter);
         salesRecyclerView.setLayoutManager(salesLayoutManager);
         floatingActionButton = (FloatingActionButton) findViewById(R.id.flotingActionButton_add);
-        updateData();
+        getListSales();
         floatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -58,27 +63,35 @@ public class SaleActivity extends  Activity {
         });
     }
 
-    private void updateData(){
+    private void getListSales() {
 
+        String token = "bearer 8kofE2Qw1XXqAswVTcjflYVcgPPGyoRYGm3dkYQcddV0cwHjmCBuCu6MwmIj8j-0N4Y-iECeLPBgAweewd4kEhwa-VaMxuoOjaLRjRT6IQFqvg6XCsIRUNqDQx-1lStYbdZ2Jw-CMz88s-gYIvTiRBATXMrUuPqCyP1XCcJfv7jI3h8k6BuanvldAIpWy2hYqAKCVCOEEMS8MXg4mHHmbPJmRkW33XryoAAb9jJ8MRhpDhscUY5_r1pScediyYUdBvn9pnQxZhBBOaXIulfPYyME-Oq-sZIyTKZpZcyn8ss";
+        String token1 = token.trim();
+        String url = "http://chemita96-001-site1.dtempurl.com/businessbookapi/v1/sales";
         AndroidNetworking
-                .get(NewApi.getSaleUrl())
+                .get(url)//TODO * URL DE LA LISTA
+                .addHeaders("Authorization", token) //TODO * INVESTIGAR COMO PASAR EL TOKEN
+                //.addHeaders ("Content-Type", "application/json")
                 .setTag("BusinessBook")
                 .setPriority(Priority.LOW)
                 .build()
-                .getAsJSONArray(new JSONArrayRequestListener() {
+                .getAsJSONObject(new JSONObjectRequestListener() {
                     @Override
-                    public void onResponse(org.json.JSONArray response) {
-                        if(response != null) {
-                            sales = Sale.Builder
-                                    .from(response)
-                                    .buildAll();
-                            salesAdapter.setSales(sales);
-                            salesAdapter.notifyDataSetChanged();
-                            Log.d("BusinessBook",
-                                    String.format("Sales Count: %d",
-                                            sales.size()));
+                    public void onResponse(JSONObject response) {
+                        try {
+                            if (response != null) {
+                                sales = Sale.Builder
+                                        .from(response.getJSONArray("Result"))
+                                        .buildAll();
+                                salesAdapter.setSales(sales);
+                                salesAdapter.notifyDataSetChanged();
+                                Log.d("BusinessBook", String.format("Sales Count: %d", sales.size()));
+                            }
+                        } catch (JSONException ex) {
+                            ex.printStackTrace();
                         }
                     }
+
                     @Override
                     public void onError(ANError anError) {
                         Log.d("BusinessBook", anError.getErrorDetail());
@@ -86,10 +99,8 @@ public class SaleActivity extends  Activity {
                         String[] split1 = valor.split("Value");
                         String[] split2 = split1[1].split("of");
                         int status = anError.getErrorCode();
-
                     }
                 });
-
     }
 
 

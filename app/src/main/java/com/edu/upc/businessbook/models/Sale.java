@@ -1,4 +1,4 @@
-package com.edu.upc.businessbook.viewcontrollers.models;
+package com.edu.upc.businessbook.models;
 
 import android.os.Bundle;
 
@@ -124,7 +124,7 @@ public class Sale {
         bundle.putInt("SaleId",getSaleId());
         bundle.putString("DateCreation",getDateCreation());
         bundle.putString("CodeGuide",getCodeGuide());
-        bundle.putString("localName",getLocalName());
+        bundle.putString("LocalName",getLocalName());
         bundle.putFloat("PriceTotal",getPriceTotal());
         bundle.putString("EmployeeName",getEmployeeName());
         bundle.putString("ClientName",getClientName());
@@ -157,7 +157,7 @@ public class Sale {
                     bundle.getInt("SaleId"),
                     bundle.getString("DateCreation"),
                     bundle.getString("CodeGuide"),
-                    bundle.getString("localName"),
+                    bundle.getString("LocalName"),
                     bundle.getFloat("PriceTotal"),
                     bundle.getString("EmployeeName"),
                     bundle.getString("ClientName"),
@@ -173,9 +173,8 @@ public class Sale {
                         jsonSale.getInt("SaleId"),
                         jsonSale.getString("DateCreation"),
                         jsonSale.getString("CodeGuide"),
-                        jsonSale.getString("localName"),
+                        jsonSale.getString("LocalName"),
                         BigDecimal.valueOf(totalPrice).floatValue(),
-                        // TODO: Change "Trabajdor" to "Trabajador" in backend
                         jsonSale.getString("EmployeeName"),
                         jsonSale.getString("ClientName"),
                         jsonSale.getString("State"),

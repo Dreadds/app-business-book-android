@@ -1,93 +1,102 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
+<android.support.v7.widget.CardView
+    android:id="@+id/card_Sale"
+    android:clickable="true"
+    android:foreground="?android:selectableItemBackground"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/layout_sale"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_margin="@dimen/default_margin">
-    <ImageView
-        android:id="@+id/ImageView_imagen"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
-        android:src="@mipmap/ic_launcher"
-        android:layout_margin="14dp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"/>
-    <TextView
-        android:id="@+id/TextView_codigoGuia"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Nº Guia:"
-        android:textSize="15dp"
-        android:textStyle="bold"
-        android:layout_marginTop="23dp"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginStart="110dp"
-        app:layout_constraintStart_toEndOf="@id/ImageView_imagen"
-        app:layout_constraintTop_toTopOf="parent"/>
+    android:layout_margin="@dimen/default_margin_kev"
+    app:cardCornerRadius="4dp"
+    app:cardElevation="2dp">
 
-    <TextView
-        android:id="@+id/TextView_numberTicket"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Nº Boleta"
-        android:textSize="15dp"
-        android:layout_marginTop="23dp"
-        android:layout_marginStart="10dp"
-        app:layout_constraintStart_toEndOf="@id/TextView_codigoGuia"
-        app:layout_constraintTop_toTopOf="parent" />
-    <TextView
-        android:id="@+id/TextView_total"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="Precio Total:"
-        android:textSize="15dp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginStart="110dp"
-        app:layout_constraintStart_toEndOf="@id/ImageView_imagen"
-        app:layout_constraintTop_toBottomOf="@id/TextView_numberTicket" />
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/ImageView_imagen"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:src="@mipmap/ic_launcher"
+            android:layout_margin="14dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
+        <TextView
+            android:id="@+id/TextView_codigoGuia"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nº Guia:"
+            android:textSize="15dp"
+            android:textStyle="bold"
+            android:layout_marginTop="23dp"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="110dp"
+            app:layout_constraintStart_toEndOf="@id/ImageView_imagen"
+            app:layout_constraintTop_toTopOf="parent"/>
 
-    <TextView
-        android:id="@+id/TextView_totalPrice"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="S/. 0.0"
-        android:textSize="15dp"
-        android:layout_marginStart="10dp"
-        app:layout_constraintStart_toEndOf="@id/TextView_total"
-        app:layout_constraintTop_toBottomOf="@id/TextView_numberTicket" />
-    <android.support.v7.widget.AppCompatImageButton
-        android:id="@+id/imageButton_delete"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_marginEnd="15dp"
-        android:background="@null"
-        app:srcCompat="@drawable/ic_delete_black_24dp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
-    <android.support.v7.widget.AppCompatImageButton
-        android:id="@+id/imageButton_edit"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:background="@null"
-        app:srcCompat="@drawable/ic_edit_black_24dp"
-        app:layout_constraintTop_toBottomOf="@id/imageButton_delete"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="15dp"
-        app:layout_constraintEnd_toEndOf="parent"/>
-    <android.support.v7.widget.AppCompatImageButton
-        android:id="@+id/imageButton_view"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:background="@null"
-        app:srcCompat="@drawable/ic_remove_red_eye_black_24dp"
-        app:layout_constraintTop_toBottomOf="@id/imageButton_edit"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="15dp"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        <TextView
+            android:id="@+id/TextView_numberTicket"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nº Boleta"
+            android:textSize="15dp"
+            android:layout_marginTop="23dp"
+            android:layout_marginStart="10dp"
+            app:layout_constraintStart_toEndOf="@id/TextView_codigoGuia"
+            app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/TextView_total"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Precio Total:"
+            android:textSize="15dp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="110dp"
+            app:layout_constraintStart_toEndOf="@id/ImageView_imagen"
+            app:layout_constraintTop_toBottomOf="@id/TextView_numberTicket" />
 
-</android.support.constraint.ConstraintLayout>
+        <TextView
+            android:id="@+id/TextView_totalPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="S/. 0.0"
+            android:textSize="15dp"
+            android:layout_marginStart="10dp"
+            app:layout_constraintStart_toEndOf="@id/TextView_total"
+            app:layout_constraintTop_toBottomOf="@id/TextView_numberTicket" />
+        <android.support.v7.widget.AppCompatImageButton
+            android:id="@+id/imageButton_delete"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginEnd="15dp"
+            android:background="@null"
+            app:srcCompat="@drawable/ic_delete_black_24dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+        <android.support.v7.widget.AppCompatImageButton
+            android:id="@+id/imageButton_edit"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@null"
+            app:srcCompat="@drawable/ic_edit_black_24dp"
+            app:layout_constraintTop_toBottomOf="@id/imageButton_delete"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="15dp"
+            app:layout_constraintEnd_toEndOf="parent"/>
+        <android.support.v7.widget.AppCompatImageButton
+            android:id="@+id/imageButton_view"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@null"
+            app:srcCompat="@drawable/ic_remove_red_eye_black_24dp"
+            app:layout_constraintTop_toBottomOf="@id/imageButton_edit"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="15dp"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+    </android.support.constraint.ConstraintLayout>
+</android.support.v7.widget.CardView>

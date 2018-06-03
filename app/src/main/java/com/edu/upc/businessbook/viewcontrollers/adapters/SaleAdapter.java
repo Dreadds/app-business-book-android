@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.edu.upc.businessbook.R;
-import com.edu.upc.businessbook.viewcontrollers.models.Sale;
+import com.edu.upc.businessbook.models.Sale;
 
 import java.util.List;
 
@@ -69,8 +69,8 @@ public class SaleAdapter
         }
 
         public void updateViews(final Sale sale){
-            numberTicketTextView.setText(sale.getCodigoGuia());
-            totalPrice.setText(Float.toString(sale.getPrecioTotal()));
+            numberTicketTextView.setText(sale.getCodeGuide());
+            totalPrice.setText(Float.toString(sale.getPriceTotal()));
            /*deleteImageView.setOnClickListener(new View.OnClickListener() {
                @Override
                public void onClick(View v) {
