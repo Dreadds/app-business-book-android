@@ -62,7 +62,7 @@ public class SaleActivity extends  Activity {
 
     private void getListSales() {
 
-        String token = "Bearer X79CMu46dOHSQPGxE1RezL_fvPXUoA7JGvi05IgQZsjQWf8BfrtlsfamKIE8D37GqRRTcOcnKT0bQzQrTLbPMbtUwSxfjJlw1MdFq8dBpSRKMTNpWRfjnoy2EHbEdmu7YZGx7WMNLrOfUTjtK7GIlPpJ6Vp5zB1CsC0ZjGYKPta898AtmGS5gkd_AkBKj8102wgC6Q2urJihV6F-QTcUyWq1oVqP82GjvxyEC9Dg29U6nwCnVLWRvsw8mMasWWMGgON-nALde_H_MVuIiQA3sw";
+        String token = "Bearer 4blUolxgC5MTxXnOxCgXFSL2aQarDM-K3f-1URbFxGU5NvLwvjrRN6ZITJbrXgAhjpX5tDs32qyjnjngkRmxvfS8e4GDY3UtIOywygZ2MotcOOn-I7w7F2PUasi6C1xO7RrAnLPbwzVqp4riziO04iwbNMbNljnCc42RNzjcvuPdvcWy_BUwTHxPx_50i--A6IGfpJgxSETLY0faLxswvUeXh1QexfSbp04Q8QsEi0_yVZdASBY1Rdg8U7ZFfc-xKMD7V9nxl7CyxX7s10vC7g";
         //String url = "http://chemita96-001-site1.dtempurl.com/businessbookapi/v1/sales";
         String url = NewApi.getListSaleUrl();
         AndroidNetworking

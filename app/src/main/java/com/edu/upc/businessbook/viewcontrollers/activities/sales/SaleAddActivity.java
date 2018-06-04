@@ -48,7 +48,7 @@ public class SaleAddActivity extends Activity {
     }
     private void postSale(String nameGuide,int priceTotal, int clientId, int employeeId, int localId){
         String url = NewApi.postSale();
-        AndroidNetworking.post(url)
+        /*AndroidNetworking.post(url)
                 .addBodyParameter("codeGuide", nameGuide)
                 .addBodyParameter("priceTotal", priceTotal)
                 .addBodyParameter("EmployeeId", employeeId)
@@ -66,6 +66,6 @@ public class SaleAddActivity extends Activity {
                     public void onError(ANError error) {
                         // handle error
                     }
-                });
+                });*/
     }
 }
