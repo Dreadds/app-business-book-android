@@ -38,8 +38,7 @@ public class SaleAdapter
     @Override
     public SaleAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         return new ViewHolder(
-                LayoutInflater.from(parent.getContext())
-                        .inflate(R.layout.item_sale, parent, false));
+                LayoutInflater.from(parent.getContext()).inflate(R.layout.card_sales, parent, false));
     }
 
     @Override
@@ -55,6 +54,7 @@ public class SaleAdapter
     public class ViewHolder extends RecyclerView.ViewHolder{
         private TextView numberTicketTextView;
         private TextView totalPrice;
+
         private AppCompatImageButton deleteImageView;
         private AppCompatImageButton editImageView;
         private AppCompatImageButton viewImageView;
@@ -63,9 +63,9 @@ public class SaleAdapter
             super(view);
             numberTicketTextView = (TextView) view.findViewById(R.id.TextView_numberTicket);
             totalPrice = (TextView) view.findViewById(R.id.TextView_totalPrice);
-            deleteImageView = (AppCompatImageButton) view.findViewById(R.id.imageButton_delete);
-            editImageView = (AppCompatImageButton) view.findViewById(R.id.imageButton_edit);
-            viewImageView = (AppCompatImageButton) view.findViewById(R.id.imageButton_view);
+            //deleteImageView = (AppCompatImageButton) view.findViewById(R.id.imageButton_delete);
+            //editImageView = (AppCompatImageButton) view.findViewById(R.id.imageButton_edit);
+            //viewImageView = (AppCompatImageButton) view.findViewById(R.id.imageButton_view);
         }
 
         public void updateViews(final Sale sale){

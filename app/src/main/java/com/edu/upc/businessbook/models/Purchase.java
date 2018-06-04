@@ -1,4 +1,4 @@
-package com.edu.upc.businessbook.viewcontrollers.models;
+package com.edu.upc.businessbook.models;
 
 public class Purchase {
 }

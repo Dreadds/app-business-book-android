@@ -65,14 +65,12 @@ public class SaleActivity extends  Activity {
 
     private void getListSales() {
 
-        String token = "bearer 8kofE2Qw1XXqAswVTcjflYVcgPPGyoRYGm3dkYQcddV0cwHjmCBuCu6MwmIj8j-0N4Y-iECeLPBgAweewd4kEhwa-VaMxuoOjaLRjRT6IQFqvg6XCsIRUNqDQx-1lStYbdZ2Jw-CMz88s-gYIvTiRBATXMrUuPqCyP1XCcJfv7jI3h8k6BuanvldAIpWy2hYqAKCVCOEEMS8MXg4mHHmbPJmRkW33XryoAAb9jJ8MRhpDhscUY5_r1pScediyYUdBvn9pnQxZhBBOaXIulfPYyME-Oq-sZIyTKZpZcyn8ss";
-        String token1 = token.trim();
+        String token = "Bearer FmtmxUV59KxaL6RKgj89nWO1LpTArlWBcrYTbKfBE5p07Vo8xN3cVmknxdrW-oOFlyteoEXocwPvqg9wPCg_x3ZZAgfwx2dUN4N0q5EHH0U9cNpAsBkM3ZAaGF61W4C3xiuKlR1R8v9ilp5i8PbRbOmk2UqfsLvzNZbkQmcZ5iBb31DHLG6Bt2kiqhN4VH85dZBQOCsVRoBshKysCMPpDSjpy1jErHfaWCh9uwOd9XhFaraqS16Su4BHMqpK3Uarg63lmPrG5sHxn-x1Ol9MdQ";
         String url = "http://chemita96-001-site1.dtempurl.com/businessbookapi/v1/sales";
         AndroidNetworking
                 .get(url)//TODO * URL DE LA LISTA
                 .addHeaders("Authorization", token) //TODO * INVESTIGAR COMO PASAR EL TOKEN
-                //.addHeaders ("Content-Type", "application/json")
-                .setTag("BusinessBook")
+                .setTag("businessbook")
                 .setPriority(Priority.LOW)
                 .build()
                 .getAsJSONObject(new JSONObjectRequestListener() {
