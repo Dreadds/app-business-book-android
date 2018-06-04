@@ -1,22 +1,20 @@
 package com.edu.upc.businessbook.viewcontrollers.activities.sales;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Spinner;
-import android.widget.TextView;
 
 import com.androidnetworking.AndroidNetworking;
 import com.androidnetworking.common.Priority;
 import com.androidnetworking.error.ANError;
 import com.edu.upc.businessbook.R;
 import com.androidnetworking.interfaces.JSONObjectRequestListener;
+import com.edu.upc.businessbook.models.AddSaleModel;
 import com.edu.upc.businessbook.viewcontrollers.network.NewApi;
 
-import org.json.JSONException;
 import org.json.JSONObject;
 
 
@@ -46,14 +44,19 @@ public class SaleAddActivity extends Activity {
             }
         });
     }
-    private void postSale(String nameGuide,int priceTotal, int clientId, int employeeId, int localId){
+    private void postSale(String nameGuide,float priceTotal, int clientId, int employeeId, int localId){
+
         String url = NewApi.postSale();
-        /*AndroidNetworking.post(url)
-                .addBodyParameter("codeGuide", nameGuide)
-                .addBodyParameter("priceTotal", priceTotal)
-                .addBodyParameter("EmployeeId", employeeId)
-                .addBodyParameter("clientId", clientId)
-                .addBodyParameter("localId", localId)
+        //pasar un modelo
+        AddSaleModel addSaleModel = new AddSaleModel();
+        addSaleModel.codeGuide = nameGuide;
+        addSaleModel.localId = localId;
+        addSaleModel.EmployeeId = employeeId;
+        addSaleModel.clientId = clientId;
+        addSaleModel.priceTotal = priceTotal;
+
+        AndroidNetworking.post(url)
+                .addBodyParameter(addSaleModel)
                 .setTag("businessbook")
                 .setPriority(Priority.MEDIUM)
                 .build()
@@ -66,6 +69,6 @@ public class SaleAddActivity extends Activity {
                     public void onError(ANError error) {
                         // handle error
                     }
-                });*/
+                });
     }
 }
