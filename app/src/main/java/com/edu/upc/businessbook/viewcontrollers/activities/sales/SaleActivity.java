@@ -42,10 +42,7 @@ public class SaleActivity extends  Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_sale);
-
-
         salesRecyclerView = findViewById(R.id.recyclerView_sale);
         sales = new ArrayList<>();
         salesAdapter = new SaleAdapter(sales);
@@ -65,7 +62,7 @@ public class SaleActivity extends  Activity {
 
     private void getListSales() {
 
-        String token = "Bearer T4poX60tnIzsJ5P4_SvxgyiFKc_MV6lm0zO3tOFTHUuGIQayEW2Jh87RcBvSpuyCih_wLj5_wGhNgkpE7NrDYIBTutXzUfoNj3uXqZFepc6KQRQKpkowqg46MvMqwl9M3HY-eGLCARHXuCal13LDOp0cEiykCb01F6uH7S7hzNmdlwZ3Q-GExHDg36Ro9-b53FXINlFsOF9hERX2vq-bJF2J0j8gdMwawtlyDL67inzUEZak6ApOQ30iSeKvVSesuJcbJFvx4Ucswai_ZWiuDA";
+        String token = "Bearer X79CMu46dOHSQPGxE1RezL_fvPXUoA7JGvi05IgQZsjQWf8BfrtlsfamKIE8D37GqRRTcOcnKT0bQzQrTLbPMbtUwSxfjJlw1MdFq8dBpSRKMTNpWRfjnoy2EHbEdmu7YZGx7WMNLrOfUTjtK7GIlPpJ6Vp5zB1CsC0ZjGYKPta898AtmGS5gkd_AkBKj8102wgC6Q2urJihV6F-QTcUyWq1oVqP82GjvxyEC9Dg29U6nwCnVLWRvsw8mMasWWMGgON-nALde_H_MVuIiQA3sw";
         //String url = "http://chemita96-001-site1.dtempurl.com/businessbookapi/v1/sales";
         String url = NewApi.getListSaleUrl();
         AndroidNetworking
