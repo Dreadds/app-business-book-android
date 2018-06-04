@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
 
@@ -16,6 +17,8 @@ import com.edu.upc.businessbook.models.AddSaleModel;
 import com.edu.upc.businessbook.viewcontrollers.network.NewApi;
 
 import org.json.JSONObject;
+
+import java.util.ArrayList;
 
 
 public class SaleAddActivity extends Activity {
@@ -35,6 +38,18 @@ public class SaleAddActivity extends Activity {
         clienteSpinner = (Spinner) findViewById(R.id.spinner_nameClient);
         employeeSpinner = (Spinner) findViewById(R.id.spinner_nameEmployee);
         localSpinner = (Spinner) findViewById(R.id.spinner_nameLocal);
+
+        String[] arraySpinner = new String[] {
+                "1", "2", "3", "4", "5"
+        };
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
+                android.R.layout.simple_spinner_item, arraySpinner);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        clienteSpinner.setAdapter(adapter);
+
+
+        //Sale Detail
         nextFlotingActionButton = (FloatingActionButton) findViewById(R.id.floatingActionButton_next);
         nextFlotingActionButton.setOnClickListener(new View.OnClickListener(){
             @Override
