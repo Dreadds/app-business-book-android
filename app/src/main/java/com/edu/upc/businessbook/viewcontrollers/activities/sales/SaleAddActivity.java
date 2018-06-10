@@ -15,11 +15,7 @@ import com.androidnetworking.error.ANError;
 import com.edu.upc.businessbook.R;
 import com.androidnetworking.interfaces.JSONObjectRequestListener;
 import com.edu.upc.businessbook.models.AddSaleModel;
-<<<<<<< HEAD
 import com.edu.upc.businessbook.models.ClientModel;
-=======
-import com.edu.upc.businessbook.models.Client;
->>>>>>> dbf662a94f771a39caa9253941763a8fbd10d386
 import com.edu.upc.businessbook.models.Sale;
 import com.edu.upc.businessbook.viewcontrollers.network.NewApi;
 
@@ -39,12 +35,7 @@ public class SaleAddActivity extends Activity {
     private Spinner employeeSpinner;
     private Spinner localSpinner;
     private FloatingActionButton nextFlotingActionButton;
-<<<<<<< HEAD
     private List<ClientModel> clients;
-=======
-    private List<Client> listClient;
->>>>>>> dbf662a94f771a39caa9253941763a8fbd10d386
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,7 +44,7 @@ public class SaleAddActivity extends Activity {
         numberGuideEditText = (EditText) findViewById(R.id.editText_NumberGuide);
         employeeSpinner = (Spinner) findViewById(R.id.spinner_nameEmployee);
         localSpinner = (Spinner) findViewById(R.id.spinner_nameLocal);
-        listClient = new ArrayList<>();
+        clients = new ArrayList<>();
 
 
         clients = new ArrayList<>();
@@ -77,7 +68,6 @@ public class SaleAddActivity extends Activity {
     }
 
 
-<<<<<<< HEAD
     private void getClients(int companyId){
         //URL
         String url = NewApi.getListClient(companyId);
@@ -87,18 +77,6 @@ public class SaleAddActivity extends Activity {
         AndroidNetworking
                 .get(url)
                 .addHeaders("Authorization", token)
-=======
-
-    private void getListClient(int clientId){
-
-        String token = "Bearer F_g2fJIUcNoplfEqxkRnKyuoJ8-wgi1DrpfaUrKy0lsqvN5p1MUcNUI4hOixxPixztWyTa4vCupxj96Xt5xyPQ_fU7v43XMuNinqvmjoAeLQOux1CqrHMd-sSpIlQL6XT5oUzUVSPD8e0JfhoDiemnPo9wox-bUIuIXI4u4qjtW04bXBW9A7AaBIeeNksDJr3GlGKNK5FQ-5fjd0nHNeQUjjCiRc7GleEfPqJ1zSSY70sVDV5zPDKqA_5XBxDfZXCzhhB15cZ0wYSi7nsXUFOb_lLSrBVhSEVThUHu7QOsM";
-        //String url = "http://chemita96-001-site1.dtempurl.com/businessbookapi/v1/sales";
-        String url = NewApi.getListClientUrl(clientId);
-
-        AndroidNetworking
-                .get(url)//TODO * URL DE LA LISTA
-                .addHeaders("Authorization", token) //TODO * INVESTIGAR COMO PASAR EL TOKEN
->>>>>>> dbf662a94f771a39caa9253941763a8fbd10d386
                 .setTag("businessbook")
                 .setPriority(Priority.LOW)
                 .build()
@@ -106,7 +84,6 @@ public class SaleAddActivity extends Activity {
                     @Override
                     public void onResponse(JSONObject response) {
                         try {
-<<<<<<< HEAD
                             JSONArray jsonClient = response.getJSONArray("Result");
                             clienteSpinner = (Spinner) findViewById(R.id.spinner_nameClient);
 
@@ -127,38 +104,13 @@ public class SaleAddActivity extends Activity {
                     }
                     @Override
                     public void onError(ANError error) {
-                        // handle error
-=======
-                            if (response != null) {
-                                JSONArray jsonClient = response.getJSONArray("Result");
-                                for(int i = 0; i<jsonClient.length(); i++){
-                                    listClient.add(new Client(jsonClient.getJSONObject(i).getInt("ClientId"),jsonClient.getJSONObject(i).getString("FullName")));
-                                }
-                            }
-                        } catch (JSONException ex) {
-                            ex.printStackTrace();
-                        }
-                    }
-
-                    @Override
-                    public void onError(ANError anError) {
-                        Log.d("BusinessBook", anError.getErrorDetail());
-                        String valor = anError.toString();
-                        String[] split1 = valor.split("Value");
-                        String[] split2 = split1[1].split("of");
-                        int status = anError.getErrorCode();
->>>>>>> dbf662a94f771a39caa9253941763a8fbd10d386
                     }
                 });
     }
 
-<<<<<<< HEAD
-=======
-
->>>>>>> dbf662a94f771a39caa9253941763a8fbd10d386
     private void postSale(String nameGuide,float priceTotal, int clientId, int employeeId, int localId){
 
-        String url = NewApi.postSale();
+        /*String url = NewApi.postSale();
         //pasar un modelo
         AddSaleModel addSaleModel = new AddSaleModel();
         addSaleModel.codeGuide = nameGuide;
@@ -181,6 +133,6 @@ public class SaleAddActivity extends Activity {
                     public void onError(ANError error) {
                         // handle error
                     }
-                });
+                });*/
     }
 }
