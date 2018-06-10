@@ -12,7 +12,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
         <meta-data
             android:name="com.facebook.accountkit.ApplicationName"
             android:value="@string/app_name" />
@@ -38,7 +37,7 @@
             android:label="@string/title_activity_main" />
         <activity
             android:name=".viewcontrollers.activities.LoginActivity"
-            android:label="@string/title_activity_login"/>
+            android:label="@string/title_activity_login" />
         <activity
             android:name=".viewcontrollers.activities.LocalActivity"
             android:label="@string/title_activity_local"
@@ -46,12 +45,15 @@
         <activity
             android:name=".viewcontrollers.activities.ItemActivity"
             android:label="@string/title_activity_item"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
-
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".viewcontrollers.activities.sales.SaleActivity" />
         <activity android:name=".viewcontrollers.activities.purchases.PurchaseActivity" />
         <activity android:name=".viewcontrollers.activities.sales.SaleAddActivity" />
-        <activity android:name=".viewcontrollers.activities.purchases.PurchaseAddActivity"></activity>
+        <activity android:name=".viewcontrollers.activities.purchases.PurchaseAddActivity" />
+        <activity android:name=".viewcontrollers.activities.TopProdRepActivity" />
+        <activity android:name=".viewcontrollers.activities.PurchasesRepActivity" />
+        <activity android:name=".viewcontrollers.activities.SalesRepActivity" />
+        <activity android:name=".viewcontrollers.activities.ComRepActivity"></activity>
     </application>
 
 </manifest>
