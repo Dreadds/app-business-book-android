@@ -66,6 +66,12 @@ public class SaleActivity extends  Activity {
         //URL
         String url = NewApi.getListSaleUrl(companyId);
 
+<<<<<<< HEAD
+=======
+        String token = "Bearer F_g2fJIUcNoplfEqxkRnKyuoJ8-wgi1DrpfaUrKy0lsqvN5p1MUcNUI4hOixxPixztWyTa4vCupxj96Xt5xyPQ_fU7v43XMuNinqvmjoAeLQOux1CqrHMd-sSpIlQL6XT5oUzUVSPD8e0JfhoDiemnPo9wox-bUIuIXI4u4qjtW04bXBW9A7AaBIeeNksDJr3GlGKNK5FQ-5fjd0nHNeQUjjCiRc7GleEfPqJ1zSSY70sVDV5zPDKqA_5XBxDfZXCzhhB15cZ0wYSi7nsXUFOb_lLSrBVhSEVThUHu7QOsM";
+        //String url = "http://chemita96-001-site1.dtempurl.com/businessbookapi/v1/sales";
+        String url = NewApi.getListSaleUrl();
+>>>>>>> dbf662a94f771a39caa9253941763a8fbd10d386
         AndroidNetworking
                 .get(url)//TODO * URL DE LA LISTA
                 .addHeaders("Authorization", token) //TODO * INVESTIGAR COMO PASAR EL TOKEN
