@@ -50,7 +50,7 @@ public class SaleActivity extends  Activity {
         salesRecyclerView.setAdapter(salesAdapter);
         salesRecyclerView.setLayoutManager(salesLayoutManager);
         floatingActionButton = (FloatingActionButton) findViewById(R.id.flotingActionButton_add);
-        getListSales();
+        getListSales(1);
         floatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -60,11 +60,12 @@ public class SaleActivity extends  Activity {
         });
     }
 
-    private void getListSales() {
+    private void getListSales(int companyId) {
+        //TOKEN FOR AUTHORIZATION
+        String token = "Bearer vLxEZavwttCG1T1AYcrqM5ia-Y6HeaS_TvbGxQ6ncqVarofCagsbCODP3CcWa0sTNRN2xk_tQkI2smkAJltYl9aMAqM2j8QpFjn8-PlANlBwREyB0QF4QRjOYqn7LPodRqDFh-fjTYN-OO4mHn7f4GxMZo9GPlOWGX8PkGmn3IafjtgmhrTZS99sbxpK0gtdrR2RPAnuC6qlEB35lNuMaL85CHOdOiqP4G2OaGaoizv-mnkecsfU4ePdgf5mwhLdNqVMD4541Jam_Msi5L2ifQ";
+        //URL
+        String url = NewApi.getListSaleUrl(companyId);
 
-        String token = "Bearer 4blUolxgC5MTxXnOxCgXFSL2aQarDM-K3f-1URbFxGU5NvLwvjrRN6ZITJbrXgAhjpX5tDs32qyjnjngkRmxvfS8e4GDY3UtIOywygZ2MotcOOn-I7w7F2PUasi6C1xO7RrAnLPbwzVqp4riziO04iwbNMbNljnCc42RNzjcvuPdvcWy_BUwTHxPx_50i--A6IGfpJgxSETLY0faLxswvUeXh1QexfSbp04Q8QsEi0_yVZdASBY1Rdg8U7ZFfc-xKMD7V9nxl7CyxX7s10vC7g";
-        //String url = "http://chemita96-001-site1.dtempurl.com/businessbookapi/v1/sales";
-        String url = NewApi.getListSaleUrl();
         AndroidNetworking
                 .get(url)//TODO * URL DE LA LISTA
                 .addHeaders("Authorization", token) //TODO * INVESTIGAR COMO PASAR EL TOKEN

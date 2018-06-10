@@ -154,31 +154,31 @@ public class Sale {
 
         public static Sale.Builder from(Bundle bundle){
             return new Sale.Builder(new Sale(
-                    bundle.getInt("SaleId"),
-                    bundle.getString("DateCreation"),
-                    bundle.getString("CodeGuide"),
-                    bundle.getString("LocalName"),
-                    bundle.getFloat("PriceTotal"),
-                    bundle.getString("EmployeeName"),
-                    bundle.getString("ClientName"),
-                    bundle.getString("State"),
-                    bundle.getString("StateDelivery")
+                    bundle.getInt("saleId"),
+                    bundle.getString("dateCreation"),
+                    bundle.getString("codeGuide"),
+                    bundle.getString("localName"),
+                    bundle.getFloat("priceTotal"),
+                    bundle.getString("employeeName"),
+                    bundle.getString("clientName"),
+                    bundle.getString("state"),
+                    bundle.getString("stateDelivery")
             ));
         }
         public static Builder from(JSONObject jsonSale) {
             try {
-                Double totalPrice = (jsonSale.getString("PriceTotal").equals("null")) ? 0.0 : jsonSale.getDouble("PriceTotal");
+                Double totalPrice = (jsonSale.getString("priceTotal").equals("null")) ? 0.0 : jsonSale.getDouble("priceTotal");
 
                 return new Builder(new Sale(
-                        jsonSale.getInt("SaleId"),
-                        jsonSale.getString("DateCreation"),
-                        jsonSale.getString("CodeGuide"),
-                        jsonSale.getString("LocalName"),
+                        jsonSale.getInt("saleId"),
+                        jsonSale.getString("dateCreation"),
+                        jsonSale.getString("codeGuide"),
+                        jsonSale.getString("localName"),
                         BigDecimal.valueOf(totalPrice).floatValue(),
-                        jsonSale.getString("EmployeeName"),
-                        jsonSale.getString("ClientName"),
-                        jsonSale.getString("State"),
-                        jsonSale.getString("StateDelivery")));
+                        jsonSale.getString("employeeName"),
+                        jsonSale.getString("clientName"),
+                        jsonSale.getString("state"),
+                        jsonSale.getString("stateDelivery")));
             } catch (JSONException e) {
                 e.printStackTrace();
             }
