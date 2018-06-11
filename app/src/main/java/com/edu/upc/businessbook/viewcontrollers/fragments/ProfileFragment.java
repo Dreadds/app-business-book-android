@@ -67,7 +67,7 @@ public class ProfileFragment extends Fragment {
 
     public void getProfile() {
         String token = "Bearer kVFso18dz-0sHn3llcSrdzqt11om7EQfCwhKL0DB2MluD0XjYJkzoRnoj9QeoyjChwg82mk5D6o16Mp9x0dXuBifXUcEGdZhDB1c0s0JrDsndGVW2he1pcI5bK_V1Pk5yKgAJ6GjOjn0l9OF9-5Ooy5iNeUOmRF9XI-0kNdAc0nsghAAF5A9Xc67QaiN6--mrmuL7yS2fJL2FOg-scRxD-0SM1PMbOyG6KqOcsj-SGJJW4KQ8oyXI4yMoNl0jYgN2Pf8k2H72QQonzDHoAAWeg";
-        int id = 1;
+        int id = 5;
         AndroidNetworking
                 .get(NewApi.getDataProfileUrl(id))
                 .addHeaders("Authorization", token)
@@ -89,7 +89,7 @@ public class ProfileFragment extends Fragment {
                                 emailTextview.setText(companyEntity.getEmail());
                                 phoneTextview.setText(companyEntity.getPhone());
                                 mobileTextview.setText(companyEntity.getMobile());
-                                return;
+
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();
