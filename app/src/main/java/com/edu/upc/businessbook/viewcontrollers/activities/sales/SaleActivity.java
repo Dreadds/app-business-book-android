@@ -62,7 +62,7 @@ public class SaleActivity extends  Activity {
 
     private void getListSales(int companyId) {
         //TOKEN FOR AUTHORIZATION
-        String token = "Bearer vLxEZavwttCG1T1AYcrqM5ia-Y6HeaS_TvbGxQ6ncqVarofCagsbCODP3CcWa0sTNRN2xk_tQkI2smkAJltYl9aMAqM2j8QpFjn8-PlANlBwREyB0QF4QRjOYqn7LPodRqDFh-fjTYN-OO4mHn7f4GxMZo9GPlOWGX8PkGmn3IafjtgmhrTZS99sbxpK0gtdrR2RPAnuC6qlEB35lNuMaL85CHOdOiqP4G2OaGaoizv-mnkecsfU4ePdgf5mwhLdNqVMD4541Jam_Msi5L2ifQ";
+        String token = "Bearer 2aAaiVbfLFMU4xBXyJILoOkMFxaQMMxvyvGA_lBRNti72ddVumlNAviWyAPSR52PQGL-ksyLDzhBthLG6lisADKW0gsOjyYXyOfKKM0LcTp3tZ6Tb-A911MkeIjhqcl7NGY1N49WP7gfzuQC3eUM6SI6wqScKp-aQJWjMBC3Cpt4DhRNwIj6VK1RnmAMm3BnhYlY3AdnQzUbPTahp8ZnP3mfUe53mmTDd4b-gAlPFXR-9FegWCqMP-43_btxDTcSLGFrzsr-ZIS2_eAIU0rNAg";
         //URL
         String url = NewApi.getListSaleUrl(companyId);
         AndroidNetworking
