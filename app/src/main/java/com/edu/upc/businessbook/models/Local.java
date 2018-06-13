@@ -8,7 +8,7 @@ import java.util.List;
 public class Local {
     private String localId;
     private String name;
-    private String address;
+    private String direction;
     private int thumbnail;
 
     public Local() {
@@ -16,7 +16,7 @@ public class Local {
 
     public Local(String name, String address, int thumbnail) {
         this.name = name;
-        this.address = address;
+        this.direction = address;
         this.thumbnail = thumbnail;
     }
 
@@ -40,11 +40,11 @@ public class Local {
     }
 
     public String getAddress() {
-        return address;
+        return direction;
     }
 
     public Local setAddress(String address) {
-        this.address = address;
+        this.direction = address;
         return this;
     }
 
