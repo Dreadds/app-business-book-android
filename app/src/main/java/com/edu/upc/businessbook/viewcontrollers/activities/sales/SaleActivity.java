@@ -43,6 +43,7 @@ public class SaleActivity extends  Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sale);
+
         salesRecyclerView = findViewById(R.id.recyclerView_sale);
         sales = new ArrayList<>();
         salesAdapter = new SaleAdapter(sales);
@@ -50,6 +51,7 @@ public class SaleActivity extends  Activity {
         salesRecyclerView.setAdapter(salesAdapter);
         salesRecyclerView.setLayoutManager(salesLayoutManager);
         floatingActionButton = (FloatingActionButton) findViewById(R.id.flotingActionButton_add);
+
         getListSales(1);
         floatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -62,7 +64,8 @@ public class SaleActivity extends  Activity {
 
     private void getListSales(int companyId) {
         //TOKEN FOR AUTHORIZATION
-        String token = "Bearer 2aAaiVbfLFMU4xBXyJILoOkMFxaQMMxvyvGA_lBRNti72ddVumlNAviWyAPSR52PQGL-ksyLDzhBthLG6lisADKW0gsOjyYXyOfKKM0LcTp3tZ6Tb-A911MkeIjhqcl7NGY1N49WP7gfzuQC3eUM6SI6wqScKp-aQJWjMBC3Cpt4DhRNwIj6VK1RnmAMm3BnhYlY3AdnQzUbPTahp8ZnP3mfUe53mmTDd4b-gAlPFXR-9FegWCqMP-43_btxDTcSLGFrzsr-ZIS2_eAIU0rNAg";
+        String token = "Bearer rveB9K5roI4dlOyfqv-JDMlncKYODBBmuP2S7YXIkBK93AdZH-TDwfXUjatjwz5ANyYq6qS5IQQmeH7ld7PrD4T-YBO5dOg9KzKlW_B24hkHUial-FnI81od5gJqrRuWhK7pOaRNe8L-LVRpT-YbARxUBv0IW4Dl0Fmx2iHn2wodc99Nm0qjy-uIoIeexh7ozObzTcpM2D-RZg8p_Vly2HIn08G0cS__A1g7Pj_aM93FPFn3WCy9gwPXEU9G88jxq4SD2tTcnasRwHqEhx6AEA";
+
         //URL
         String url = NewApi.getListSaleUrl(companyId);
         AndroidNetworking
