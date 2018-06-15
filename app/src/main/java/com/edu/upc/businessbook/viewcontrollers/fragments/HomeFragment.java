@@ -53,7 +53,8 @@ public class HomeFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
         localsRecyclerView = view.findViewById(R.id.recycler_locals);
         locals = new ArrayList<>();
-        localsAdapter = new LocalsAdapter(LocalsRepository.getInstance().getLocals());
+        //localsAdapter = new LocalsAdapter(LocalsRepository.getInstance().getLocals());
+        localsAdapter = new LocalsAdapter(locals);
         localsLayoutManager = new LinearLayoutManager(view.getContext());
         localsRecyclerView.setAdapter(localsAdapter);
         localsRecyclerView.setLayoutManager(localsLayoutManager);
@@ -80,6 +81,8 @@ public class HomeFragment extends Fragment {
                         try {
                             if(response != null){
                                 locals = Local.Builder.from(response.getJSONArray("Result")).buildAll();
+                                localsAdapter.setLocals(locals);
+                                localsAdapter.notifyDataSetChanged();
                                 Log.d("businessbook", String.format("Locals Count: %d", locals.size()));
                             }
                         } catch (JSONException e) {
