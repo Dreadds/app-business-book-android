@@ -19,7 +19,6 @@ import com.androidnetworking.interfaces.JSONObjectRequestListener;
 import com.edu.upc.businessbook.R;
 import com.edu.upc.businessbook.models.Local;
 import com.edu.upc.businessbook.models.LocalsRepository;
-import com.edu.upc.businessbook.models.Producto;
 import com.edu.upc.businessbook.network.BusinessBookApi;
 import com.edu.upc.businessbook.viewcontrollers.adapters.LocalsAdapter;
 import com.edu.upc.businessbook.viewcontrollers.dialogs.DialogPersonalized;
@@ -58,7 +57,7 @@ public class HomeFragment extends Fragment {
         localsLayoutManager = new LinearLayoutManager(view.getContext());
         localsRecyclerView.setAdapter(localsAdapter);
         localsRecyclerView.setLayoutManager(localsLayoutManager);
-        updateView();
+        getListLocals(1);
         FloatingActionButton localFab = (FloatingActionButton) view.findViewById(R.id.localFab);
         localFab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -69,7 +68,30 @@ public class HomeFragment extends Fragment {
         });
         return view;
     }
-    private void updateView(){
+    private void getListLocals(int companyId){
+        AndroidNetworking.get(BusinessBookApi.getLocalsUrl(companyId))
+                .addHeaders("Authorization", getString(R.string.business_api_key))
+                .setPriority(Priority.LOW)
+                .setTag("businessbook")
+                .build()
+                .getAsJSONObject(new JSONObjectRequestListener() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        try {
+                            if(response != null){
+                                locals = Local.Builder.from(response.getJSONArray("Result")).buildAll();
+                                Log.d("businessbook", String.format("Locals Count: %d", locals.size()));
+                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+
+                    @Override
+                    public void onError(ANError anError) {
+
+                    }
+                });
 
     }
 

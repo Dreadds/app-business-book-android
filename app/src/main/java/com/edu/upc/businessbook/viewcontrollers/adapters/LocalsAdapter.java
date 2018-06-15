@@ -70,7 +70,7 @@ public class LocalsAdapter extends RecyclerView.Adapter<LocalsAdapter.ViewHolder
         private void updateView(final Local local){
             localImageView.setImageResource(local.getThumbnail());
             titleTextView.setText(local.getName());
-            nameTextView.setText(local.getAddress());
+            nameTextView.setText(local.getDirection());
             exploreTextView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
