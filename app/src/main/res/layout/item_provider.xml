@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView android:id="@+id/layout_itemProvider"
+    android:clickable="true"
+    android:foreground="?android:selectableItemBackground"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/default_margin_kev"
+    app:cardCornerRadius="4dp"
+    app:cardElevation="2dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <com.androidnetworking.widget.ANImageView
+            android:id="@+id/logoProviderANImageView"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:src="@mipmap/ic_launcher"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_margin="@dimen/default_margin_kev"/>
+        <TextView
+            android:id="@+id/nameTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/mock_text"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toEndOf="@id/logoProviderANImageView"
+            android:layout_margin="@dimen/default_margin_kev"
+            android:textColor="@color/colorAccent"
+            android:textSize="20dp"
+            android:textStyle="bold"/>
+        <TextView
+            android:id="@+id/phoneTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/mock_text"
+            app:layout_constraintTop_toBottomOf="@id/nameTextView"
+            app:layout_constraintStart_toEndOf="@id/logoProviderANImageView"
+            android:layout_margin="@dimen/default_margin_kev"/>
+        <TextView
+            android:id="@+id/emailTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/mock_text"
+            app:layout_constraintTop_toBottomOf="@id/phoneTextView"
+            app:layout_constraintStart_toEndOf="@id/logoProviderANImageView"
+            android:layout_margin="@dimen/default_margin_kev"/>
+    </android.support.constraint.ConstraintLayout>
+
+</android.support.v7.widget.CardView>
