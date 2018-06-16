@@ -18,7 +18,7 @@
         <ImageView
             android:id="@+id/localImageView"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/image_default_side"
+            android:layout_height="wrap_content"
             android:src="@mipmap/ic_launcher"
             android:layout_margin="@dimen/default_margin_kev"
             app:layout_constraintTop_toBottomOf="@id/nameTextView"
@@ -32,8 +32,9 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             android:textStyle="bold"
+            android:textSize="20dp"
             android:gravity="center"
-            android:textColor="@color/colorDivider"
+            android:textColor="@color/colorAccent"
             android:text="@string/mock_text" />
         <TextView
             android:id="@+id/nameTextView"
@@ -43,6 +44,8 @@
             app:layout_constraintTop_toBottomOf="@id/titleTextView"
             app:layout_constraintStart_toStartOf="parent"
             android:gravity="center"
+            android:textSize="15dp"
+            android:textColor="@color/colorDivider"
             android:text="@string/mock_text"/>
         <TextView
             android:id="@+id/exploreTextView"
@@ -57,21 +60,11 @@
             android:textAllCaps="true"
             android:padding="@dimen/default_margin_kev"/>
         <ImageButton
-            android:id="@+id/favorite_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@+id/localImageView"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:srcCompat="@drawable/ic_favorite_border_black_24dp"
-            android:background="@android:color/transparent"
-            android:padding="@dimen/default_margin_kev"/>
-        <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/favorite_button"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:srcCompat="@drawable/ic_notifications_active_black_24dp"
             android:background="@android:color/transparent"
             android:padding="@dimen/default_margin_kev"/>

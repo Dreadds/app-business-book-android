@@ -68,7 +68,7 @@ public class LocalsAdapter extends RecyclerView.Adapter<LocalsAdapter.ViewHolder
             localLayout = (CardView) view.findViewById(R.id.layout_local);
         }
         private void updateView(final Local local){
-            localImageView.setImageResource(R.drawable.img_marketplace_logo);
+            localImageView.setImageResource(R.drawable.store);
             titleTextView.setText(local.getName());
             nameTextView.setText(local.getDirection());
             exploreTextView.setOnClickListener(new View.OnClickListener() {
