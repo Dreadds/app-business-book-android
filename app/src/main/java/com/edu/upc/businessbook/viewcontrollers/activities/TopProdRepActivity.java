@@ -1,6 +1,8 @@
 package com.edu.upc.businessbook.viewcontrollers.activities;
 
+import android.content.DialogInterface;
 import android.graphics.Color;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -19,11 +21,16 @@ import java.util.ArrayList;
 
 public class TopProdRepActivity extends AppCompatActivity {
     private PieChart pieChart;
+    String[] listItems;
+    Bundle idlocal;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_top_prod_rep);
+
+        idlocal = new Bundle();
+        idlocal.putInt("Selected",0);
 
         pieChart = (PieChart) findViewById(R.id.chart);
         TextView text = (TextView) findViewById(R.id.titleText);
@@ -65,14 +72,44 @@ public class TopProdRepActivity extends AppCompatActivity {
         return true;
     }
 
+    public AlertDialog.Builder localDialog(){
+        listItems = new String[] {"Local 1", "Local 2", "Local 3"};
+
+        final AlertDialog.Builder mBuilder = new AlertDialog.Builder(TopProdRepActivity.this);
+        mBuilder.setTitle("Choose an local");
+        mBuilder.setIcon(R.drawable.ic_action_local_dialog);
+        mBuilder.setSingleChoiceItems(listItems,idlocal.getInt("Selected"), new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int i) {
+                if (i==0)
+                    idlocal.putInt("Selected",0);
+                if (i==1)
+                    idlocal.putInt("Selected",1);
+                if (i==2)
+                    idlocal.putInt("Selected",2);
+            }
+        });
+        mBuilder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        });
+        return mBuilder;
+    }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item){
+
         switch (item.getItemId()){
             case R.id.action_location:
-                Toast.makeText(TopProdRepActivity.this,"Clickkk",Toast.LENGTH_SHORT).show();
+                //Toast.makeText(TopProdRepActivity.this,"Clickkk",Toast.LENGTH_SHORT).show();
+                AlertDialog mDialog = localDialog().create();
+                mDialog.show();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
     }
+    
 }
