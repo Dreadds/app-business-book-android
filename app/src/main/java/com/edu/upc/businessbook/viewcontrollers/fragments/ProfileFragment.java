@@ -53,8 +53,8 @@ public class ProfileFragment extends Fragment {
 
         getProfile();
 
-        Button btnsave = (Button) view.findViewById(R.id.button_update);
-        btnsave.setOnClickListener(new View.OnClickListener() {
+        Button update = (Button) view.findViewById(R.id.button_update);
+        update.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), ProfileActivity.class);
@@ -66,7 +66,7 @@ public class ProfileFragment extends Fragment {
     }
 
     public void getProfile() {
-        String token = "Bearer kVFso18dz-0sHn3llcSrdzqt11om7EQfCwhKL0DB2MluD0XjYJkzoRnoj9QeoyjChwg82mk5D6o16Mp9x0dXuBifXUcEGdZhDB1c0s0JrDsndGVW2he1pcI5bK_V1Pk5yKgAJ6GjOjn0l9OF9-5Ooy5iNeUOmRF9XI-0kNdAc0nsghAAF5A9Xc67QaiN6--mrmuL7yS2fJL2FOg-scRxD-0SM1PMbOyG6KqOcsj-SGJJW4KQ8oyXI4yMoNl0jYgN2Pf8k2H72QQonzDHoAAWeg";
+        String token = "Bearer bAIzKTyzdDVBoN2IKF2ly9g_fMYFY6gtZk_3UOEh5jO44_u-ng9-Hru7-muEFY09ftcHFd0nWwZQ1cByOMI9vrCYKtwmU3Ozpe94kt1Wd9i-Wegxd2Urcowo6n6nzU4F1B_sCwbwc8tSGLG0Vga3-EITHnUy0h12fZxb9PDf5gzbrMtYl_uM5blrago12-qqY9F1yVUSGRUIU_L2YHwrxvNNeCrDPZo1upi8jx2Gses2NN7jNqkHkevwQOapnsrWtEKAtnWibXICI6fSd9VSjw";
         int id = 5;
         AndroidNetworking
                 .get(NewApi.getDataProfileUrl(id))

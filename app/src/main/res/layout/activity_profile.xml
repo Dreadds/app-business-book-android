@@ -46,13 +46,11 @@
             android:id="@+id/til_address"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-            <EditText
+            <Spinner
                 android:id="@+id/et_address"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Address"
                 android:drawablePadding="10dp"
-                android:inputType="text"
                 android:maxLines="1"
                 android:drawableLeft="@drawable/ic_location_on_black_24dp"
                 android:ems="10"
