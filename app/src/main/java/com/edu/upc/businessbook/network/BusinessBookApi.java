@@ -10,4 +10,6 @@ public class BusinessBookApi {
     public static String getLocalsUrl(int companyId)
         {return BASE_URL + "businessbookapi/v1/companies/" + String.valueOf(companyId) + "/locals"; }
 
+    public static String getProvidersUrl(int companyId)
+    {return BASE_URL + "businessbookapi/v1/companies/" + String.valueOf(companyId) + "/providers"; }
 }

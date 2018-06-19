@@ -15,4 +15,5 @@
     <string name="title_activity_item">Item</string>
     <string name="about_text_card">about</string>
     <string name="title_activity_provider">ProviderActivity</string>
+    <string name="TAG_app">businessbook</string>
 </resources>
