@@ -37,16 +37,15 @@ public class ProviderActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Intent intent = getIntent();
-        if (intent == null) return;
-        provider = Provider.Builder.from(intent.getExtras()).build();
         setContentView(R.layout.activity_provider);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+
         providersRecyclerView = findViewById(R.id.recycler_providers);
         providers = new ArrayList<>();
         providersAdapter = new ProvidersAdapter(providers);
-        providersLayoutManager = new GridLayoutManager(this, 1);
+        providersLayoutManager = new GridLayoutManager(ProviderActivity.this, 1);
         providersRecyclerView.setAdapter(providersAdapter);
         providersRecyclerView.setLayoutManager(providersLayoutManager);
         getListProviders(1);
@@ -66,6 +65,8 @@ public class ProviderActivity extends AppCompatActivity {
                         if (response != null){
                             try {
                                 providers = Provider.Builder.from(response.getJSONArray("Result")).buildAll();
+                                providersAdapter.setProviders(providers);
+                                providersAdapter.notifyDataSetChanged();
                                 Log.d("businessbook", String.format("Providers Count: %d", providers.size()));
                             } catch (JSONException e) {
                                 e.printStackTrace();

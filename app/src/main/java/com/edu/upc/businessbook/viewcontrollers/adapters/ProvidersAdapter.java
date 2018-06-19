@@ -68,7 +68,7 @@ public class ProvidersAdapter extends RecyclerView.Adapter<ProvidersAdapter.View
             logoProvider.setErrorImageResId(R.drawable.box);
             nameTextView.setText(provider.getName());
             phoneTextView.setText(provider.getPhone());
-            emailTextView.setText("HOLA");
+            emailTextView.setText(provider.getEmail());
         }
     }
 }
