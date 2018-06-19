@@ -39,7 +39,7 @@
             android:layout_height="wrap_content"
             android:text="@string/mock_text"
             app:layout_constraintTop_toBottomOf="@id/nameTextView"
-            app:layout_constraintStart_toEndOf="@id/logoProviderANImageView"
+            app:layout_constraintStart_toEndOf="@id/phoneImageButton"
             android:layout_margin="@dimen/default_margin_kev"/>
         <TextView
             android:id="@+id/emailTextView"
@@ -47,8 +47,51 @@
             android:layout_height="wrap_content"
             android:text="@string/mock_text"
             app:layout_constraintTop_toBottomOf="@id/phoneTextView"
-            app:layout_constraintStart_toEndOf="@id/logoProviderANImageView"
+            app:layout_constraintStart_toEndOf="@id/emailImageButton"
+            app:layout_constraintBottom_toBottomOf="parent"
             android:layout_margin="@dimen/default_margin_kev"/>
+        <ImageButton
+            android:id="@+id/favoriteProviderIco"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/ic_favorite_border_black_24dp"
+            android:layout_margin="@dimen/default_margin_kev"
+            android:background="@android:color/transparent"
+            android:padding="@dimen/default_margin_kev"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/deleteProviderIco"/>
+        <ImageButton
+            android:id="@+id/deleteProviderIco"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/ic_delete_blackkev_24dp"
+            android:layout_margin="@dimen/default_margin_kev"
+            android:background="@android:color/transparent"
+            android:padding="@dimen/default_margin_kev"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+        <ImageButton
+            android:id="@+id/phoneImageButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/ic_phone_android_blackkev_24dp"
+            android:layout_margin="@dimen/default_margin_kev"
+            android:background="@android:color/transparent"
+            app:layout_constraintTop_toBottomOf="@id/nameTextView"
+            app:layout_constraintStart_toEndOf="@id/logoProviderANImageView"
+            app:layout_constraintEnd_toStartOf="@id/phoneTextView"/>
+        <ImageButton
+            android:id="@+id/emailImageButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/ic_email_blackkev_24dp"
+            android:layout_margin="@dimen/default_margin_kev"
+            android:background="@android:color/transparent"
+            app:layout_constraintTop_toBottomOf="@id/phoneImageButton"
+            app:layout_constraintStart_toEndOf="@id/logoProviderANImageView"
+            app:layout_constraintEnd_toStartOf="@id/emailTextView"
+            app:layout_constraintBottom_toBottomOf="parent"
+            />
     </android.support.constraint.ConstraintLayout>
 
 </android.support.v7.widget.CardView>
