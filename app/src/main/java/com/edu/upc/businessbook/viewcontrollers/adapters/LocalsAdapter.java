@@ -68,9 +68,9 @@ public class LocalsAdapter extends RecyclerView.Adapter<LocalsAdapter.ViewHolder
             localLayout = (CardView) view.findViewById(R.id.layout_local);
         }
         private void updateView(final Local local){
-            localImageView.setImageResource(local.getThumbnail());
+            localImageView.setImageResource(R.drawable.store);
             titleTextView.setText(local.getName());
-            nameTextView.setText(local.getAddress());
+            nameTextView.setText(local.getDirection());
             exploreTextView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

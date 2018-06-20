@@ -14,12 +14,18 @@ import android.widget.TextView;
 import com.edu.upc.businessbook.R;
 import com.edu.upc.businessbook.models.Item;
 import com.edu.upc.businessbook.viewcontrollers.activities.ItemActivity;
+<<<<<<< HEAD
 import com.edu.upc.businessbook.viewcontrollers.activities.sales.SaleActivity;
+=======
+import com.edu.upc.businessbook.viewcontrollers.activities.OnBoardActivity;
+import com.edu.upc.businessbook.viewcontrollers.activities.ProviderActivity;
+>>>>>>> kevin
 
 import java.util.List;
 
 public class ItemsAdapter extends RecyclerView.Adapter<ItemsAdapter.ViewHolder> {
     private List<Item> items;
+    Item item;
 
     public ItemsAdapter(List<Item> items) {
         this.items = items;
@@ -71,10 +77,23 @@ public class ItemsAdapter extends RecyclerView.Adapter<ItemsAdapter.ViewHolder> 
             itemLocalImageView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+<<<<<<< HEAD
 
                     Context context = v.getContext();
                     context.startActivity(new Intent(context, SaleActivity.class)
                             .putExtras(item.toBundle()));
+=======
+                    if(item.getName().toString() == "Sales") {
+                        Context context = v.getContext();
+                        context.startActivity(new Intent(context, ItemActivity.class)
+                                .putExtras(item.toBundle()));
+                    }
+                    if(item.getName().toString() == "Providers") {
+                        Context context = v.getContext();
+                        context.startActivity(new Intent(context, ProviderActivity.class)
+                                .putExtras(item.toBundle()));
+                    }
+>>>>>>> kevin
                 }
             });
         }
