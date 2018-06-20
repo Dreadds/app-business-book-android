@@ -5,28 +5,20 @@ import android.app.Dialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.design.widget.TextInputEditText;
 import android.support.v4.app.DialogFragment;
 import android.view.View;
 
 import com.edu.upc.businessbook.R;
-import com.edu.upc.businessbook.models.LocalsRepository;
 
-public class DialogPersonalized extends DialogFragment {
-
-    TextInputEditText editText;
-    LocalsRepository localsRepository;
-
-
+public class DialogProvider extends DialogFragment {
     @NonNull
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-
-        View view = getActivity().getLayoutInflater().inflate(R.layout.dialog_local,null);
-        editText = (TextInputEditText) view.findViewById(R.id.editLocalName);
+        View view = getActivity().getLayoutInflater().inflate(R.layout.dialog_provider,null);
+        //editText = (TextInputEditText) view.findViewById(R.id.editLocalName);
         builder.setView(view)
-                .setTitle("New Local")
+                .setTitle("Add Provider")
                 .setPositiveButton("Save", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
@@ -43,5 +35,4 @@ public class DialogPersonalized extends DialogFragment {
                 });
         return builder.create();
     }
-
 }

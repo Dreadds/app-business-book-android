@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
@@ -20,6 +21,8 @@ import com.edu.upc.businessbook.R;
 import com.edu.upc.businessbook.models.Provider;
 import com.edu.upc.businessbook.network.BusinessBookApi;
 import com.edu.upc.businessbook.viewcontrollers.adapters.ProvidersAdapter;
+import com.edu.upc.businessbook.viewcontrollers.dialogs.DialogPersonalized;
+import com.edu.upc.businessbook.viewcontrollers.dialogs.DialogProvider;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -41,6 +44,14 @@ public class ProviderActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                DialogFragment dialogFragment = new DialogProvider();
+                dialogFragment.show(getSupportFragmentManager(), "Dialog");
+            }
+        });
 
         providersRecyclerView = findViewById(R.id.recycler_providers);
         providers = new ArrayList<>();
@@ -49,6 +60,10 @@ public class ProviderActivity extends AppCompatActivity {
         providersRecyclerView.setAdapter(providersAdapter);
         providersRecyclerView.setLayoutManager(providersLayoutManager);
         getListProviders(1);
+        //Intent intent = getIntent();
+        //if(intent == null) return;
+        //provider = Provider.Builder.from(intent.getExtras()).build();
+        toolbar.setTitle("Providers");
 
 
     }
