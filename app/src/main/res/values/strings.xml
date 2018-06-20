@@ -31,14 +31,11 @@
     <string name="local_name_hint">Local Name</string>
     <string name="title_activity_item">Item</string>
     <string name="about_text_card">about</string>
-<<<<<<< HEAD
 
-=======
     <string name="title_activity_provider">ProviderActivity</string>
     <string name="TAG_app">businessbook</string>
     <string name="hint_local_direction">Local Direction</string>
     <string name="hint_provider_name">Name</string>
     <string name="hint_provider_phone">Phone</string>
     <string name="hint_provider_email">Email</string>
->>>>>>> kevin
 </resources>
