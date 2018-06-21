@@ -3,6 +3,7 @@ package com.edu.upc.businessbook.viewcontrollers.activities.sales;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.view.View;
@@ -39,6 +40,8 @@ public class SaleAddActivity extends Activity {
     private FloatingActionButton nextFlotingActionButton;
     private List<ClientSpinner> clients;
     private List<LocalSpinner> locals;
+    private SharedPreferences result;
+    private SharedPreferences spVentaId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +52,9 @@ public class SaleAddActivity extends Activity {
 
         clients = new ArrayList<>();
         locals = new ArrayList<>();
+
+        Context context = this;
+        result = getSharedPreferences("SaveSp",context.MODE_PRIVATE);
 
         getClients(1);
         getLocals(1);
@@ -69,8 +75,7 @@ public class SaleAddActivity extends Activity {
         //URL
         String url = NewApi.getListClient(companyId);
         //TOKEN FOR AUTHORIZATION
-        String token = "Bearer rveB9K5roI4dlOyfqv-JDMlncKYODBBmuP2S7YXIkBK93AdZH-TDwfXUjatjwz5ANyYq6qS5IQQmeH7ld7PrD4T-YBO5dOg9KzKlW_B24hkHUial-FnI81od5gJqrRuWhK7pOaRNe8L-LVRpT-YbARxUBv0IW4Dl0Fmx2iHn2wodc99Nm0qjy-uIoIeexh7ozObzTcpM2D-RZg8p_Vly2HIn08G0cS__A1g7Pj_aM93FPFn3WCy9gwPXEU9G88jxq4SD2tTcnasRwHqEhx6AEA";
-
+        String token = result.getString("token","Token Expirado");
 
         AndroidNetworking
                 .get(url)
@@ -110,8 +115,7 @@ public class SaleAddActivity extends Activity {
         //URL
         String url = NewApi.getListLocal(companyId);
         //TOKEN FOR AUTHORIZATION
-        String token = "Bearer rveB9K5roI4dlOyfqv-JDMlncKYODBBmuP2S7YXIkBK93AdZH-TDwfXUjatjwz5ANyYq6qS5IQQmeH7ld7PrD4T-YBO5dOg9KzKlW_B24hkHUial-FnI81od5gJqrRuWhK7pOaRNe8L-LVRpT-YbARxUBv0IW4Dl0Fmx2iHn2wodc99Nm0qjy-uIoIeexh7ozObzTcpM2D-RZg8p_Vly2HIn08G0cS__A1g7Pj_aM93FPFn3WCy9gwPXEU9G88jxq4SD2tTcnasRwHqEhx6AEA";
-
+        String token = result.getString("token","Token Expirado");
         AndroidNetworking
                 .get(url)
                 .addHeaders("Authorization", token)
@@ -148,9 +152,8 @@ public class SaleAddActivity extends Activity {
 
     private void postSale(final Context con) {
        // try {
-            String url = NewApi.postSale();
-            String token = "Bearer rveB9K5roI4dlOyfqv-JDMlncKYODBBmuP2S7YXIkBK93AdZH-TDwfXUjatjwz5ANyYq6qS5IQQmeH7ld7PrD4T-YBO5dOg9KzKlW_B24hkHUial-FnI81od5gJqrRuWhK7pOaRNe8L-LVRpT-YbARxUBv0IW4Dl0Fmx2iHn2wodc99Nm0qjy-uIoIeexh7ozObzTcpM2D-RZg8p_Vly2HIn08G0cS__A1g7Pj_aM93FPFn3WCy9gwPXEU9G88jxq4SD2tTcnasRwHqEhx6AEA";
-
+        String url = NewApi.postSale();
+        String token = result.getString("token","Token Expirado");
         AddSaleModel addSaleModel = new AddSaleModel();
 
             //Client ID
@@ -184,6 +187,12 @@ public class SaleAddActivity extends Activity {
                         public void onResponse(JSONObject response) {
                             try {
                                 if ("200".equalsIgnoreCase(response.getString("Code"))) {
+
+                                    spVentaId = getSharedPreferences("SaveSaleId",con.MODE_PRIVATE);
+                                    SharedPreferences.Editor editorSale = spVentaId.edit();
+                                    editorSale.putInt("saleId",1);
+                                    editorSale.apply();
+
                                     Intent intent = new Intent(con,SaleDetailAddActivity.class);
                                     startActivityForResult(intent,0);
                                 }

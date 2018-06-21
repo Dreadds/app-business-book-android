@@ -10,8 +10,7 @@ public class SaleDetail {
     public SaleDetail() {
     }
 
-    public SaleDetail(int saleDetailId, int productId, int quantity, float unitPrice, float priceSubTotal) {
-        SaleDetailId = saleDetailId;
+    public SaleDetail(int productId, int quantity, float unitPrice, float priceSubTotal) {
         ProductId = productId;
         Quantity = quantity;
         UnitPrice = unitPrice;

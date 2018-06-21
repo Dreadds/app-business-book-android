@@ -13,5 +13,6 @@ public class NewApi {
 
     //POST
     public static String postSale(){ return BASE_URL + "businessbookapi/v1/sales"; }
+    public static String postSaleDetail(int saleId){ return BASE_URL + "businessbookapi/v1/sales/" + String.valueOf(saleId) +"/items"; }
     public static String getPurchaselUrl() { return BASE_URL + "/purchases"; }
 }

@@ -1,7 +1,9 @@
 package com.edu.upc.businessbook.viewcontrollers.activities.sales;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Bundle;
 
@@ -36,6 +38,9 @@ public class SaleActivity extends  Activity {
     private RecyclerView.LayoutManager salesLayoutManager;
     private SaleAdapter salesAdapter;
     private FloatingActionButton floatingActionButton;
+    private SharedPreferences sp;
+
+
     public SaleActivity() {
     }
 
@@ -52,6 +57,13 @@ public class SaleActivity extends  Activity {
         salesRecyclerView.setLayoutManager(salesLayoutManager);
         floatingActionButton = (FloatingActionButton) findViewById(R.id.flotingActionButton_add);
 
+        Context context = this;
+        sp = getSharedPreferences("SaveSp",context.MODE_PRIVATE);
+        //Guardar dato
+        SharedPreferences.Editor editor = sp.edit();
+        editor.putString("token","Bearer 12xR3teAuFBH6DxfKKtqbtEoyb_LQccBnbKfqpD553_ewgKq6zo17kRweaBVmUZer8u3cwzZG5Z-v_QRta21aS6ZCw6i4WdPDuo-ay0FIIvrC13lIki2dUP9y2JwR4TAbMcoNmrLRhkYj7aqlotolAKmwFvQSWeiWcJz40mPp6jpucKfzcWck29mUP0C6Er0NhsL1BPO7kZivfjqvyh4dDj3mF-uloTbCK4qc3oCAv42q8bNgRqh35SJfGWkkhSrL8E046IYesYISZZMz5CS_lg_TcCk7T7E750zJmgWbdo");
+        editor.apply();
+
         getListSales(1);
         floatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -64,8 +76,7 @@ public class SaleActivity extends  Activity {
 
     private void getListSales(int companyId) {
         //TOKEN FOR AUTHORIZATION
-        String token = "Bearer rveB9K5roI4dlOyfqv-JDMlncKYODBBmuP2S7YXIkBK93AdZH-TDwfXUjatjwz5ANyYq6qS5IQQmeH7ld7PrD4T-YBO5dOg9KzKlW_B24hkHUial-FnI81od5gJqrRuWhK7pOaRNe8L-LVRpT-YbARxUBv0IW4Dl0Fmx2iHn2wodc99Nm0qjy-uIoIeexh7ozObzTcpM2D-RZg8p_Vly2HIn08G0cS__A1g7Pj_aM93FPFn3WCy9gwPXEU9G88jxq4SD2tTcnasRwHqEhx6AEA";
-
+        String token = sp.getString("token","Token Expirado");
         //URL
         String url = NewApi.getListSaleUrl(companyId);
         AndroidNetworking

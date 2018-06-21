@@ -26,23 +26,27 @@
         android:id="@+id/unitPrice_textView"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:text="00"
-        android:textSize="30dp"
+        android:text="0.0"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="12dp"
+        android:textSize="20dp"
         android:textColor="@color/colorPrimaryText"
         app:layout_constraintStart_toEndOf="@id/product_spinner"/>
     <TextView
         android:id="@+id/subPrice_textView"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:text="00"
-        android:textSize="30dp"
+        android:text="0.0"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="12dp"
+        android:textSize="20dp"
         android:textColor="@color/colorPrimaryText"
         app:layout_constraintStart_toEndOf="@id/unitPrice_textView"/>
     <ImageView
         android:id="@+id/delete_imageView"
         android:layout_width="30dp"
         android:layout_height="50dp"
-        android:layout_margin="8dp"
+        android:layout_marginStart="10dp"
         app:srcCompat="@drawable/ic_delete_black_24dp"
         app:layout_constraintStart_toEndOf="@id/subPrice_textView"/>
 </android.support.constraint.ConstraintLayout>

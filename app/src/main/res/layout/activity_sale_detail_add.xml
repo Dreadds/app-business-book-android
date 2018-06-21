@@ -7,9 +7,38 @@
     tools:context=".viewcontrollers.activities.sales.SaleDetailAddActivity">
 
     <android.support.constraint.ConstraintLayout
+        android:id="@+id/layout_title2"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:background="@color/colorPrimary">
+        <TextView
+            android:id="@+id/textView_saleDetail"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Detalle Venta"
+            android:textSize="55dp"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="50dp"
+            android:layout_marginStart="20dp"/>
+
+    </android.support.constraint.ConstraintLayout>
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/floatingActionButton_savaSaleDetail"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        app:srcCompat="@drawable/ic_check_black_24dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="30dp"
+        android:layout_marginTop="150dp"
+        android:layout_marginStart="300dp"
+        />
+    <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/layout_head">
+        app:layout_constraintTop_toBottomOf="@id/floatingActionButton_savaSaleDetail">
         <android.support.v7.widget.RecyclerView
             android:id="@+id/recyclerView_saleDetail"
             android:layout_width="match_parent"
