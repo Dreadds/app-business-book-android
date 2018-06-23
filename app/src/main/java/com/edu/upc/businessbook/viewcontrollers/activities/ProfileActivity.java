@@ -20,6 +20,7 @@ import com.androidnetworking.interfaces.JSONObjectRequestListener;
 import com.edu.upc.businessbook.R;
 import com.edu.upc.businessbook.models.CompanyPostEntity;
 import com.edu.upc.businessbook.models.LocationSpinner;
+import com.edu.upc.businessbook.viewcontrollers.fragments.ProfileFragment;
 import com.edu.upc.businessbook.viewcontrollers.network.NewApi;
 
 
@@ -43,31 +44,32 @@ public class ProfileActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
 
-        nameEditext=(EditText)findViewById(R.id.et_company_name);
-        addressSpinner=(Spinner)findViewById(R.id.et_address);
-        emailEditex=(EditText)findViewById(R.id.et_email);
-        phoneEditex=(EditText)findViewById(R.id.et_phone);
-        mobileEditex=(EditText)findViewById(R.id.et_mobile);
+        nameEditext = (EditText) findViewById(R.id.et_company_name);
+        addressSpinner = (Spinner) findViewById(R.id.et_address);
+        emailEditex = (EditText) findViewById(R.id.et_email);
+        phoneEditex = (EditText) findViewById(R.id.et_phone);
+        mobileEditex = (EditText) findViewById(R.id.et_mobile);
 
-        Button btnsave=(Button) findViewById(R.id.button_save);
-        btnsave.setOnClickListener(new View.OnClickListener(){
-        public void onClick(View v) {
-            Context c=v.getContext();
-            postProfile(c);
-        }
-     });
+        Button btnsave = (Button) findViewById(R.id.button_save);
+        btnsave.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Context c = v.getContext();
+                postProfile(c);
+            }
+        });
 
 
     }
     public void postProfile(final Context c){
-        String token = "Bearer bAIzKTyzdDVBoN2IKF2ly9g_fMYFY6gtZk_3UOEh5jO44_u-ng9-Hru7-muEFY09ftcHFd0nWwZQ1cByOMI9vrCYKtwmU3Ozpe94kt1Wd9i-Wegxd2Urcowo6n6nzU4F1B_sCwbwc8tSGLG0Vga3-EITHnUy0h12fZxb9PDf5gzbrMtYl_uM5blrago12-qqY9F1yVUSGRUIU_L2YHwrxvNNeCrDPZo1upi8jx2Gses2NN7jNqkHkevwQOapnsrWtEKAtnWibXICI6fSd9VSjw";
-
+        String token = "Bearer RchkA7x_sKAKu_2Z20TENjjprUqoJklU9Y3GLw-Hi5Rmd2gh6cF80zqa3Xmk4Cg8uKU4xwcxL06zuVtYLOPZGzo5GJKPcBf5jf7FSteTinhzat1_9qF75OdMM9EiBd3MaMqm31_OJTkfIdv-uECvdZ8iguxPhrY1kr30LBMSIwCnw7gaHt1kHePoqtEsfG_jfyeGAtwu40XhnYhqg5_iL6-eukT5mFqhwgqDuU4dLXv7bQOUsgI2Z-01iMUnIMadJYMMR94snt733wzkz9NwqA";
         CompanyPostEntity companyPostEntity= new CompanyPostEntity();
-        companyPostEntity.setName(nameEditext.getText().toString());
+        companyPostEntity.setName("hola");
 
-        companyPostEntity.setEmail(emailEditex.getText().toString());
-        companyPostEntity.setPhone(phoneEditex.getText().toString());
-        companyPostEntity.setMobile(mobileEditex.getText().toString());
+        companyPostEntity.setEmail("Hola");
+        companyPostEntity.setPhone("hi");
+        companyPostEntity.setMobile("ola");
+        companyPostEntity.setEmployeeId(5);
+        companyPostEntity.setLocationId(1);
 
         AndroidNetworking.post(NewApi.postDataProfileUrl())
                 .addHeaders("Authorization",token)
@@ -79,11 +81,20 @@ public class ProfileActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(JSONObject response) {
                         // do anything with response
-                      int prueba = 0;
+                        try {
+                            int prueba = 0;
+                            if ("200".equalsIgnoreCase(response.getString("Code"))) {
+                                Intent intent = new Intent(ProfileActivity.this, ProfileFragment.class);
+                                startActivity(intent);
+                            }
+                        }catch (JSONException e){
+                            e.printStackTrace();
+                        }
                     }
                     @Override
                     public void onError(ANError error) {
                         // handle error
+                        int errore = 1;
                     }
                 });
     }

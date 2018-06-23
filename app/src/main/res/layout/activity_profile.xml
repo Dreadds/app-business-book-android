@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:paddingLeft="18dp"
     android:paddingRight="18dp"
+    android:layout_margin="@dimen/default_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
     tools:context=".viewcontrollers.activities.ProfileActivity">
@@ -18,12 +19,12 @@
             android:orientation="vertical">
         <ImageView
             android:id="@+id/image_profile"
-            android:layout_marginLeft="100dp"
+            android:layout_gravity="center_horizontal"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_marginBottom="10dp"
             android:layout_marginTop="10dp"
-            android:src="@drawable/profile" />
+            android:src="@drawable/company" />
 
         <android.support.design.widget.TextInputLayout
             android:id="@+id/til_company_name"

@@ -2,21 +2,22 @@ package com.edu.upc.businessbook.models;
 
 public class CompanyPostEntity {
     private String name;
-    private String address;
+    private int locationId;
     private String email;
     private String phone;
     private String mobile;
+    private int employeeId;
+    public CompanyPostEntity() {
 
-    public CompanyPostEntity(String name, String address, String email, String phone, String mobile) {
+    }
+
+    public CompanyPostEntity(String name, int id,String email, String phone, String mobile, int employeeId) {
         this.name = name;
-        this.address = address;
+        this.locationId = id;
         this.email = email;
         this.phone = phone;
         this.mobile = mobile;
-    }
-
-    public CompanyPostEntity() {
-
+        this.employeeId = employeeId;
     }
 
     public String getName() {
@@ -28,14 +29,7 @@ public class CompanyPostEntity {
         return this;
     }
 
-    public String getAddress() {
-        return address;
-    }
 
-    public CompanyPostEntity setAddress(String address) {
-        this.address = address;
-        return this;
-    }
 
     public String getEmail() {
         return email;
@@ -61,6 +55,22 @@ public class CompanyPostEntity {
 
     public CompanyPostEntity setMobile(String mobile) {
         this.mobile = mobile;
+        return this;
+    }
+    public int getEmployeeId(){
+        return employeeId;
+    }
+
+    public CompanyPostEntity setEmployeeId(int employeeId) {
+        this.employeeId = employeeId;
+        return this;
+    }
+    public int getLocationlId(){
+        return locationId;
+    }
+
+    public CompanyPostEntity setLocationId(int locationId) {
+        this.locationId = locationId;
         return this;
     }
 }
