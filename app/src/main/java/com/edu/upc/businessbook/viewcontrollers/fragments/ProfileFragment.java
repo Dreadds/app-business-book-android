@@ -50,8 +50,8 @@ public class ProfileFragment extends Fragment {
         emailTextview = view.findViewById(R.id.text_email);
         phoneTextview = view.findViewById(R.id.text_phone);
         mobileTextview = view.findViewById(R.id.text_mobile);
-
-        getProfile();
+        int identification =5;
+        getProfile(identification);
 
         Button update = (Button) view.findViewById(R.id.button_update);
         update.setOnClickListener(new View.OnClickListener() {
@@ -65,9 +65,9 @@ public class ProfileFragment extends Fragment {
         return view;
     }
 
-    public void getProfile() {
+    public void getProfile(int id) {
         String token = "Bearer bAIzKTyzdDVBoN2IKF2ly9g_fMYFY6gtZk_3UOEh5jO44_u-ng9-Hru7-muEFY09ftcHFd0nWwZQ1cByOMI9vrCYKtwmU3Ozpe94kt1Wd9i-Wegxd2Urcowo6n6nzU4F1B_sCwbwc8tSGLG0Vga3-EITHnUy0h12fZxb9PDf5gzbrMtYl_uM5blrago12-qqY9F1yVUSGRUIU_L2YHwrxvNNeCrDPZo1upi8jx2Gses2NN7jNqkHkevwQOapnsrWtEKAtnWibXICI6fSd9VSjw";
-        int id = 5;
+
         AndroidNetworking
                 .get(NewApi.getDataProfileUrl(id))
                 .addHeaders("Authorization", token)

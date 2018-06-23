@@ -64,7 +64,6 @@ public class ProfileActivity extends AppCompatActivity {
         String token = "Bearer RchkA7x_sKAKu_2Z20TENjjprUqoJklU9Y3GLw-Hi5Rmd2gh6cF80zqa3Xmk4Cg8uKU4xwcxL06zuVtYLOPZGzo5GJKPcBf5jf7FSteTinhzat1_9qF75OdMM9EiBd3MaMqm31_OJTkfIdv-uECvdZ8iguxPhrY1kr30LBMSIwCnw7gaHt1kHePoqtEsfG_jfyeGAtwu40XhnYhqg5_iL6-eukT5mFqhwgqDuU4dLXv7bQOUsgI2Z-01iMUnIMadJYMMR94snt733wzkz9NwqA";
         CompanyPostEntity companyPostEntity= new CompanyPostEntity();
         companyPostEntity.setName("hola");
-
         companyPostEntity.setEmail("Hola");
         companyPostEntity.setPhone("hi");
         companyPostEntity.setMobile("ola");
