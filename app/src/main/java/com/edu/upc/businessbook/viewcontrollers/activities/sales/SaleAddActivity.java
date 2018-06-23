@@ -54,7 +54,7 @@ public class SaleAddActivity extends Activity {
         locals = new ArrayList<>();
 
         Context context = this;
-        result = getSharedPreferences("SaveSp",context.MODE_PRIVATE);
+        result = getSharedPreferences("Session",context.MODE_PRIVATE);
 
         getClients(1);
         getLocals(1);
@@ -75,7 +75,7 @@ public class SaleAddActivity extends Activity {
         //URL
         String url = NewApi.getListClient(companyId);
         //TOKEN FOR AUTHORIZATION
-        String token = result.getString("token","Token Expirado");
+        String token = result.getString("userToken","Token Expirado");
 
         AndroidNetworking
                 .get(url)

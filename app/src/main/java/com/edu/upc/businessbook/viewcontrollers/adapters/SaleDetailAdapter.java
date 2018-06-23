@@ -117,10 +117,10 @@ public class SaleDetailAdapter
             productSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                 @Override
                 public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                    Adapter adapterProduct = productSpinner.getAdapter();
+                    /*Adapter adapterProduct = productSpinner.getAdapter();
                     int posProduct = productSpinner.getSelectedItemPosition();
                     ProductSpinner ls = (ProductSpinner) adapterLocal.getItem(posProduct);
-                    addSaleModel.localId = ls.getLocalId();
+                    addSaleModel.localId = ls.getLocalId();*/
                 }
 
                 @Override
