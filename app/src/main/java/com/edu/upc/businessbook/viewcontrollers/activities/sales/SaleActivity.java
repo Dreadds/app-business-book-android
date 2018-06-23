@@ -61,7 +61,7 @@ public class SaleActivity extends  Activity {
         sp = getSharedPreferences("SaveSp",context.MODE_PRIVATE);
         //Guardar dato
         SharedPreferences.Editor editor = sp.edit();
-        editor.putString("token","Bearer 12xR3teAuFBH6DxfKKtqbtEoyb_LQccBnbKfqpD553_ewgKq6zo17kRweaBVmUZer8u3cwzZG5Z-v_QRta21aS6ZCw6i4WdPDuo-ay0FIIvrC13lIki2dUP9y2JwR4TAbMcoNmrLRhkYj7aqlotolAKmwFvQSWeiWcJz40mPp6jpucKfzcWck29mUP0C6Er0NhsL1BPO7kZivfjqvyh4dDj3mF-uloTbCK4qc3oCAv42q8bNgRqh35SJfGWkkhSrL8E046IYesYISZZMz5CS_lg_TcCk7T7E750zJmgWbdo");
+        editor.putString("token","Bearer x_5nQgRHNmLQB9j2ftuindO37XFafd3C2TV2muPbvOvjiyl9IUwU7RgJQ0sK86GYnOCt9akkgcmmor_3eU0tS8xSfGDA1KIkXvViwy2ifmOYvMvHVvj-pP_BRSSXYo5IpjptUpWMpKLhDQphN0VLdq7irRfHHcqZNrMf9IGoMPxbfDO62tWeLzG7JPogUOsFwe1GMN-YqtTADgtTV2o3tuPnwCYbijHN0J-bVxB2BnTBg6fSKKspADTwSIIbERaRV5NeT09nT6V6xZ4796UoZ3LSJcRkwtatLrg4Bj8hQnM");
         editor.apply();
 
         getListSales(1);
