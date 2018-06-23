@@ -1,6 +1,8 @@
 package com.edu.upc.businessbook.viewcontrollers.fragments;
 
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.DialogFragment;
@@ -38,7 +40,7 @@ public class HomeFragment extends Fragment {
     //LinearLayoutManager layoutManager;
     private RecyclerView.LayoutManager localsLayoutManager;
     private List<Local> locals;
-
+    private SharedPreferences result;
 
 
     public HomeFragment() {
@@ -67,11 +69,17 @@ public class HomeFragment extends Fragment {
                 dialogFragment.show(getFragmentManager(), "Dialog");
             }
         });
+
+        result = this.getActivity().getSharedPreferences("Session",Context.MODE_PRIVATE);
+
         return view;
     }
     private void getListLocals(int companyId){
+
+        String token = result.getString("userToken","Token Expirado");
+
         AndroidNetworking.get(BusinessBookApi.getLocalsUrl(companyId))
-                .addHeaders("Authorization","Bearer x_5nQgRHNmLQB9j2ftuindO37XFafd3C2TV2muPbvOvjiyl9IUwU7RgJQ0sK86GYnOCt9akkgcmmor_3eU0tS8xSfGDA1KIkXvViwy2ifmOYvMvHVvj-pP_BRSSXYo5IpjptUpWMpKLhDQphN0VLdq7irRfHHcqZNrMf9IGoMPxbfDO62tWeLzG7JPogUOsFwe1GMN-YqtTADgtTV2o3tuPnwCYbijHN0J-bVxB2BnTBg6fSKKspADTwSIIbERaRV5NeT09nT6V6xZ4796UoZ3LSJcRkwtatLrg4Bj8hQnM")
+                .addHeaders("Authorization",token)
                 .setPriority(Priority.LOW)
                 .setTag("businessbook")
                 .build()
