@@ -61,7 +61,7 @@ public class SaleDetailAddActivity extends Activity {
         products = new ArrayList<>();
 
         Context context = this;
-        result = getSharedPreferences("SaveSp",context.MODE_PRIVATE);
+        result = getSharedPreferences("Session",context.MODE_PRIVATE);
         resultSaleId = getSharedPreferences("SaveSaleId",context.MODE_PRIVATE);
         //saleDetails.add(saleDetail);
 
@@ -109,7 +109,7 @@ public class SaleDetailAddActivity extends Activity {
     }
 
     private void postSaleDetail(final Context con){
-        String token = result.getString("token","Token Expirado");
+        String token = result.getString("userToken","Token Expirado");
         int ventaId = resultSaleId.getInt("saleId",0);
         String url = NewApi.postSaleDetail(ventaId);
         List<SaleDetail> Lst = saleDetails;
@@ -149,7 +149,7 @@ public class SaleDetailAddActivity extends Activity {
         //URL
         String url = NewApi.getListProduct(companyId);
         //TOKEN FOR AUTHORIZATION
-        String token = result.getString("token","Token Expirado");
+        String token = result.getString("userToken","Token Expirado");
         AndroidNetworking
                 .get(url)
                 .addHeaders("Authorization", token)

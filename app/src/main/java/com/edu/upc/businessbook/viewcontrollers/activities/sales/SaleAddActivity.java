@@ -115,7 +115,7 @@ public class SaleAddActivity extends Activity {
         //URL
         String url = NewApi.getListLocal(companyId);
         //TOKEN FOR AUTHORIZATION
-        String token = result.getString("token","Token Expirado");
+        String token = result.getString("userToken","Token Expirado");
         AndroidNetworking
                 .get(url)
                 .addHeaders("Authorization", token)
@@ -153,7 +153,7 @@ public class SaleAddActivity extends Activity {
     private void postSale(final Context con) {
        // try {
         String url = NewApi.postSale();
-        String token = result.getString("token","Token Expirado");
+        String token = result.getString("userToken","Token Expirado");
         AddSaleModel addSaleModel = new AddSaleModel();
 
             //Client ID
