@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Adapter;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -109,6 +110,21 @@ public class SaleDetailAdapter
 
                 @Override
                 public void afterTextChanged(Editable s) {
+
+                }
+            });
+
+            productSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                    /*Adapter adapterProduct = productSpinner.getAdapter();
+                    int posProduct = productSpinner.getSelectedItemPosition();
+                    ProductSpinner ls = (ProductSpinner) adapterLocal.getItem(posProduct);
+                    addSaleModel.localId = ls.getLocalId();*/
+                }
+
+                @Override
+                public void onNothingSelected(AdapterView<?> parent) {
 
                 }
             });
