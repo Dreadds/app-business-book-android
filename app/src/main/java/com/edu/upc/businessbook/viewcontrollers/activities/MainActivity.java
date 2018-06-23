@@ -5,17 +5,11 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.NavigationView;
-import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import com.androidnetworking.AndroidNetworking;
 import com.androidnetworking.common.Priority;
@@ -30,9 +24,6 @@ import com.edu.upc.businessbook.viewcontrollers.network.NewApi;
 import com.facebook.accountkit.AccessToken;
 import com.facebook.accountkit.Account;
 import com.facebook.accountkit.AccountKit;
-import com.facebook.accountkit.AccountKitCallback;
-import com.facebook.accountkit.AccountKitError;
-import com.facebook.accountkit.PhoneNumber;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -41,6 +32,8 @@ public class MainActivity extends AppCompatActivity {
 
     private static final String STRING_PREFERENCE = "Session";
     private static final String ACCOUNT_TOKEN = "userToken";
+    private static final String COMPANY_ID = "CompanyId";
+    private static final String EMPLOYEE_ID = "EmployeeId";
     private String number;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
@@ -101,6 +94,8 @@ public class MainActivity extends AppCompatActivity {
                         try {
                             SharedPreferences preferences = getSharedPreferences(STRING_PREFERENCE,MODE_PRIVATE);
                             preferences.edit().putString(ACCOUNT_TOKEN,response.getJSONObject("Result").getString("accessToken")).apply();
+                            preferences.edit().putString(COMPANY_ID,response.getJSONObject("Result").getString("CompanyId")).apply();
+                            preferences.edit().putString(EMPLOYEE_ID,response.getJSONObject("Result").getString("EmployeeId")).apply();
 
                         }catch (JSONException e){
                             e.printStackTrace();
