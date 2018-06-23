@@ -24,6 +24,8 @@ public class LoginActivity extends AppCompatActivity {
     TextInputEditText password;
     private static final String STRING_PREFERENCE = "Session";
     private static final String ACCOUNT_TOKEN = "userToken";
+    private static final String COMPANY_ID = "CompanyId";
+    private static final String EMPLOYEE_ID = "EmployeeId";
     private boolean existe;
 
     @Override
@@ -72,6 +74,8 @@ public class LoginActivity extends AppCompatActivity {
 
                                 SharedPreferences preferences = getSharedPreferences(STRING_PREFERENCE,MODE_PRIVATE);
                                 preferences.edit().putString(ACCOUNT_TOKEN,response.getJSONObject("Result").getString("accessToken")).apply();
+                                preferences.edit().putString(COMPANY_ID,response.getJSONObject("Result").getString("CompanyId")).apply();
+                                preferences.edit().putString(EMPLOYEE_ID,response.getJSONObject("Result").getString("EmployeeId")).apply();
 
                                 existe = true;
                             }else{
@@ -114,6 +118,9 @@ public class LoginActivity extends AppCompatActivity {
                                         try {
                                             SharedPreferences preferences = getSharedPreferences(STRING_PREFERENCE,MODE_PRIVATE);
                                             preferences.edit().putString(ACCOUNT_TOKEN,response.getJSONObject("Result").getString("accessToken")).apply();
+                                            preferences.edit().putString(COMPANY_ID,response.getJSONObject("Result").getString("CompanyId")).apply();
+                                            preferences.edit().putString(EMPLOYEE_ID,response.getJSONObject("Result").getString("EmployeeId")).apply();
+
                                             launchHomeActivity();
                                         }catch (JSONException e){
                                             e.printStackTrace();
