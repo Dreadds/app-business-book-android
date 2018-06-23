@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">BusinessBook</string>
-    <string name="slogan_message_text">LLeva tu compañia contigo siempre...</string>
+    <string name="slogan_message_text">LLeva tu compañia siempre contigo...</string>
     <string name="title_profile">Perfil</string>
     <string name="title_reports">Reportes</string>
     <string name="title_home">Inicio</string>
-    <string name="title_activity_login">Registrate o Inicia Sesión</string>
+    <string name="title_activity_login">Regístrate o Inicia Sesión</string>
 
     <string name="login_phone_button_label">INGRESA CON TU CELULAR</string>
     <string name="login_email_button_label">INGRESA CON TU EMAIL</string>

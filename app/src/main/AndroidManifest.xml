@@ -3,6 +3,7 @@
     package="com.edu.upc.businessbook">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:name=".BusinessBookApp"
@@ -25,7 +26,7 @@
         <activity
             android:name=".viewcontrollers.activities.OnBoardActivity"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme.NoActionBar" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -50,7 +51,18 @@
         <activity android:name=".viewcontrollers.activities.purchases.PurchaseActivity" />
         <activity android:name=".viewcontrollers.activities.sales.SaleAddActivity" />
         <activity android:name=".viewcontrollers.activities.purchases.PurchaseAddActivity" />
-        <activity android:name=".viewcontrollers.activities.ProfileActivity"></activity>
+        <activity android:name=".viewcontrollers.activities.ProfileActivity"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".viewcontrollers.activities.sales.SaleDetailAddActivity"></activity>
+        <activity android:name=".viewcontrollers.activities.TopProdRepActivity" />
+        <activity android:name=".viewcontrollers.activities.PurchasesRepActivity" />
+        <activity android:name=".viewcontrollers.activities.SalesRepActivity" />
+        <activity android:name=".viewcontrollers.activities.ComRepActivity"></activity>
+
+        <activity
+            android:name=".viewcontrollers.activities.ProviderActivity"
+            android:label="@string/title_activity_provider"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

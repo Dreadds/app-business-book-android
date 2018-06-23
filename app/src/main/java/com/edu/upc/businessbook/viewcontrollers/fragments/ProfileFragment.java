@@ -66,8 +66,7 @@ public class ProfileFragment extends Fragment {
     }
 
     public void getProfile(int id) {
-        String token = "Bearer bAIzKTyzdDVBoN2IKF2ly9g_fMYFY6gtZk_3UOEh5jO44_u-ng9-Hru7-muEFY09ftcHFd0nWwZQ1cByOMI9vrCYKtwmU3Ozpe94kt1Wd9i-Wegxd2Urcowo6n6nzU4F1B_sCwbwc8tSGLG0Vga3-EITHnUy0h12fZxb9PDf5gzbrMtYl_uM5blrago12-qqY9F1yVUSGRUIU_L2YHwrxvNNeCrDPZo1upi8jx2Gses2NN7jNqkHkevwQOapnsrWtEKAtnWibXICI6fSd9VSjw";
-
+        String token = "Bearer x_5nQgRHNmLQB9j2ftuindO37XFafd3C2TV2muPbvOvjiyl9IUwU7RgJQ0sK86GYnOCt9akkgcmmor_3eU0tS8xSfGDA1KIkXvViwy2ifmOYvMvHVvj-pP_BRSSXYo5IpjptUpWMpKLhDQphN0VLdq7irRfHHcqZNrMf9IGoMPxbfDO62tWeLzG7JPogUOsFwe1GMN-YqtTADgtTV2o3tuPnwCYbijHN0J-bVxB2BnTBg6fSKKspADTwSIIbERaRV5NeT09nT6V6xZ4796UoZ3LSJcRkwtatLrg4Bj8hQnM";
         AndroidNetworking
                 .get(NewApi.getDataProfileUrl(id))
                 .addHeaders("Authorization", token)

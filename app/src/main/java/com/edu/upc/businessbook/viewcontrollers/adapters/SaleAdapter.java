@@ -1,15 +1,17 @@
 package com.edu.upc.businessbook.viewcontrollers.adapters;
 
+import android.media.Image;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.AppCompatImageButton;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.edu.upc.businessbook.R;
-import com.edu.upc.businessbook.viewcontrollers.models.Sale;
+import com.edu.upc.businessbook.models.Sale;
 
 import java.util.List;
 
@@ -38,8 +40,7 @@ public class SaleAdapter
     @Override
     public SaleAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         return new ViewHolder(
-                LayoutInflater.from(parent.getContext())
-                        .inflate(R.layout.item_sale, parent, false));
+                LayoutInflater.from(parent.getContext()).inflate(R.layout.card_sales, parent, false));
     }
 
     @Override
@@ -55,23 +56,24 @@ public class SaleAdapter
     public class ViewHolder extends RecyclerView.ViewHolder{
         private TextView numberTicketTextView;
         private TextView totalPrice;
-        private AppCompatImageButton deleteImageView;
-        private AppCompatImageButton editImageView;
-        private AppCompatImageButton viewImageView;
+
+        private ImageView deleteImageView;
+        private ImageView editImageView;
+        private ImageView viewImageView;
 
         public ViewHolder (View view){
             super(view);
             numberTicketTextView = (TextView) view.findViewById(R.id.TextView_numberTicket);
             totalPrice = (TextView) view.findViewById(R.id.TextView_totalPrice);
-            deleteImageView = (AppCompatImageButton) view.findViewById(R.id.imageButton_delete);
-            editImageView = (AppCompatImageButton) view.findViewById(R.id.imageButton_edit);
-            viewImageView = (AppCompatImageButton) view.findViewById(R.id.imageButton_view);
+            deleteImageView = (ImageView) view.findViewById(R.id.imageButton_delete);
+            editImageView = (ImageView) view.findViewById(R.id.imageButton_edit);
+            viewImageView = (ImageView) view.findViewById(R.id.imageButton_view);
         }
 
         public void updateViews(final Sale sale){
-            numberTicketTextView.setText(sale.getCodigoGuia());
-            totalPrice.setText(Float.toString(sale.getPrecioTotal()));
-           /*deleteImageView.setOnClickListener(new View.OnClickListener() {
+            numberTicketTextView.setText(sale.getCodeGuide());
+            totalPrice.setText(Float.toString(sale.getPriceTotal()));
+           deleteImageView.setOnClickListener(new View.OnClickListener() {
                @Override
                public void onClick(View v) {
                }
@@ -85,7 +87,7 @@ public class SaleAdapter
                 @Override
                 public void onClick(View v) {
                 }
-            });*/
+            });
         }
     }
 }
