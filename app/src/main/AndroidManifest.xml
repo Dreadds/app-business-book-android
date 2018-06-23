@@ -46,11 +46,13 @@
         <activity
             android:name=".viewcontrollers.activities.ItemActivity"
             android:label="@string/title_activity_item"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
-        <activity android:name=".viewcontrollers.activities.sales.SaleActivity"/>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".viewcontrollers.activities.sales.SaleActivity" />
         <activity android:name=".viewcontrollers.activities.purchases.PurchaseActivity" />
         <activity android:name=".viewcontrollers.activities.sales.SaleAddActivity" />
         <activity android:name=".viewcontrollers.activities.purchases.PurchaseAddActivity" />
+        <activity android:name=".viewcontrollers.activities.ProfileActivity"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity android:name=".viewcontrollers.activities.sales.SaleDetailAddActivity"></activity>
         <activity android:name=".viewcontrollers.activities.TopProdRepActivity" />
         <activity android:name=".viewcontrollers.activities.PurchasesRepActivity" />
@@ -61,7 +63,6 @@
             android:name=".viewcontrollers.activities.ProviderActivity"
             android:label="@string/title_activity_provider"
             android:theme="@style/AppTheme.NoActionBar"></activity>
-
     </application>
 
 </manifest>

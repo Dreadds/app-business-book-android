@@ -71,7 +71,7 @@ public class HomeFragment extends Fragment {
     }
     private void getListLocals(int companyId){
         AndroidNetworking.get(BusinessBookApi.getLocalsUrl(companyId))
-                .addHeaders("Authorization", getString(R.string.business_api_key))
+                .addHeaders("Authorization","Bearer x_5nQgRHNmLQB9j2ftuindO37XFafd3C2TV2muPbvOvjiyl9IUwU7RgJQ0sK86GYnOCt9akkgcmmor_3eU0tS8xSfGDA1KIkXvViwy2ifmOYvMvHVvj-pP_BRSSXYo5IpjptUpWMpKLhDQphN0VLdq7irRfHHcqZNrMf9IGoMPxbfDO62tWeLzG7JPogUOsFwe1GMN-YqtTADgtTV2o3tuPnwCYbijHN0J-bVxB2BnTBg6fSKKspADTwSIIbERaRV5NeT09nT6V6xZ4796UoZ3LSJcRkwtatLrg4Bj8hQnM")
                 .setPriority(Priority.LOW)
                 .setTag("businessbook")
                 .build()
