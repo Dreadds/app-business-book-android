@@ -110,4 +110,36 @@ public class MainActivity extends AppCompatActivity {
                 });
     }
 
+
+    private void launchOnBoardActivity() {
+        Intent intent = new Intent(this, OnBoardActivity.class);
+        startActivity(intent);
+        finish();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu){
+        getMenuInflater().inflate(R.menu.menu_exit, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item){
+
+        switch (item.getItemId()){
+            case R.id.action_exit:
+                AccessToken accessToken = AccountKit.getCurrentAccessToken();
+                if (accessToken != null) {
+                    AccountKit.logOut();
+                }else{
+                    SharedPreferences preferences = getSharedPreferences(STRING_PREFERENCE,MODE_PRIVATE);
+                    preferences.edit().putString(ACCOUNT_TOKEN,null).apply();
+                }
+                launchOnBoardActivity();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
 }
