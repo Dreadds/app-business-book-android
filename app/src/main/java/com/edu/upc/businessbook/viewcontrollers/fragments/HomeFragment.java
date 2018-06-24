@@ -53,6 +53,7 @@ public class HomeFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_home, container, false);
+        result = this.getActivity().getSharedPreferences("Session",Context.MODE_PRIVATE);
         localsRecyclerView = view.findViewById(R.id.recycler_locals);
         locals = new ArrayList<>();
         //localsAdapter = new LocalsAdapter(LocalsRepository.getInstance().getLocals());
@@ -70,7 +71,7 @@ public class HomeFragment extends Fragment {
             }
         });
 
-        result = this.getActivity().getSharedPreferences("Session",Context.MODE_PRIVATE);
+
 
         return view;
     }

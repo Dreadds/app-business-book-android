@@ -92,22 +92,24 @@
                     android:layout_margin="40dp"
                     android:orientation="horizontal" >
                     <Button
-                        android:id="@+id/button_cancel"
-                        style="@style/Base.Widget.AppCompat.Button.Borderless.Colored"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Cancel"
-                        android:layout_marginRight="20dp"
-                        />
-                    <Button
                         style="@style/Base.Widget.AppCompat.Button.Borderless.Colored"
                         android:id="@+id/button_update"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:background="@color/colorAccent"
-                        android:text="update"
+                        android:text="Create"
+                        android:layout_marginLeft="20dp"
+                        android:textColor="@android:color/white" />
+                    />
+                    <Button
+                        style="@style/Base.Widget.AppCompat.Button.Borderless.Colored"
+                        android:id="@+id/button_create"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@color/colorAccent"
+                        android:text="Create"
                         android:layout_marginLeft="20dp"
                         android:textColor="@android:color/white" />
                     />
