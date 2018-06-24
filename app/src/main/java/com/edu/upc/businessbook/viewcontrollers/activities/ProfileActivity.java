@@ -4,6 +4,7 @@ package com.edu.upc.businessbook.viewcontrollers.activities;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -37,12 +38,17 @@ public class ProfileActivity extends AppCompatActivity {
     private EditText phoneEditex;
     private EditText mobileEditex;
     private List<LocationSpinner> locations;
+    private SharedPreferences result;
+    private static final String COMPANY_ID = "CompanyId";
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
+
+        Context context = this;
+        result = getSharedPreferences("Session",context.MODE_PRIVATE);
 
         nameEditext = (EditText) findViewById(R.id.et_company_name);
         addressSpinner = (Spinner) findViewById(R.id.et_address);
@@ -57,17 +63,21 @@ public class ProfileActivity extends AppCompatActivity {
                 postProfile(c);
             }
         });
-
-
     }
+
+
     public void postProfile(final Context c){
-        String token = "Bearer RchkA7x_sKAKu_2Z20TENjjprUqoJklU9Y3GLw-Hi5Rmd2gh6cF80zqa3Xmk4Cg8uKU4xwcxL06zuVtYLOPZGzo5GJKPcBf5jf7FSteTinhzat1_9qF75OdMM9EiBd3MaMqm31_OJTkfIdv-uECvdZ8iguxPhrY1kr30LBMSIwCnw7gaHt1kHePoqtEsfG_jfyeGAtwu40XhnYhqg5_iL6-eukT5mFqhwgqDuU4dLXv7bQOUsgI2Z-01iMUnIMadJYMMR94snt733wzkz9NwqA";
+
+        String token = result.getString("userToken","Token Expirado");
+
         CompanyPostEntity companyPostEntity= new CompanyPostEntity();
-        companyPostEntity.setName("hola");
-        companyPostEntity.setEmail("Hola");
-        companyPostEntity.setPhone("hi");
-        companyPostEntity.setMobile("ola");
-        companyPostEntity.setEmployeeId(5);
+
+        companyPostEntity.setName(nameEditext.getText().toString());
+        companyPostEntity.setEmail(emailEditex.getText().toString());
+        companyPostEntity.setPhone(phoneEditex.getText().toString());
+        companyPostEntity.setMobile(mobileEditex.getText().toString());
+        String employeeId =  result.getString("EmployeeId","Token Expirado");
+        companyPostEntity.setEmployeeId(Integer.parseInt(employeeId));
         companyPostEntity.setLocationId(1);
 
         AndroidNetworking.post(NewApi.postDataProfileUrl())
@@ -83,6 +93,7 @@ public class ProfileActivity extends AppCompatActivity {
                         try {
                             int prueba = 0;
                             if ("200".equalsIgnoreCase(response.getString("Code"))) {
+
                                 Intent intent = new Intent(ProfileActivity.this, ProfileFragment.class);
                                 startActivity(intent);
                             }
@@ -99,8 +110,8 @@ public class ProfileActivity extends AppCompatActivity {
     }
     public void getLocations(){
     String url=NewApi.getLocationUrl();
-    String token = "Bearer kVFso18dz-0sHn3llcSrdzqt11om7EQfCwhKL0DB2MluD0XjYJkzoRnoj9QeoyjChwg82mk5D6o16Mp9x0dXuBifXUcEGdZhDB1c0s0JrDsndGVW2he1pcI5bK_V1Pk5yKgAJ6GjOjn0l9OF9-5Ooy5iNeUOmRF9XI-0kNdAc0nsghAAF5A9Xc67QaiN6--mrmuL7yS2fJL2FOg-scRxD-0SM1PMbOyG6KqOcsj-SGJJW4KQ8oyXI4yMoNl0jYgN2Pf8k2H72QQonzDHoAAWeg";
-        AndroidNetworking.get(url)
+    String token = result.getString("userToken","Token Expirado");
+            AndroidNetworking.get(url)
                 .addHeaders("Authorization",token)
                 .setTag("businessbook")
                 .setPriority(Priority.LOW)

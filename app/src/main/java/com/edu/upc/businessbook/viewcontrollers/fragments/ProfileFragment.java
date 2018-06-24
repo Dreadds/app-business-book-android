@@ -1,7 +1,9 @@
 package com.edu.upc.businessbook.viewcontrollers.fragments;
 
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -34,6 +36,9 @@ public class ProfileFragment extends Fragment {
     private TextView emailTextview;
     private TextView phoneTextview;
     private TextView mobileTextview;
+    private SharedPreferences result;
+    private Button createButton;
+    private Button updateButton;
 
     public ProfileFragment() {
         // Required empty public constructor
@@ -45,6 +50,7 @@ public class ProfileFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_profile, container, false);
+        result = this.getActivity().getSharedPreferences("Session", Context.MODE_PRIVATE);
         nameTexview = view.findViewById(R.id.text_company_name);
         adressTextview = view.findViewById(R.id.text_address);
         emailTextview = view.findViewById(R.id.text_email);
@@ -53,8 +59,17 @@ public class ProfileFragment extends Fragment {
         int identification =5;
         getProfile(identification);
 
-        Button update = (Button) view.findViewById(R.id.button_update);
-        update.setOnClickListener(new View.OnClickListener() {
+        updateButton = (Button) view.findViewById(R.id.button_update);
+        updateButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), ProfileActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        createButton = (Button) view.findViewById(R.id.button_create);
+        createButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), ProfileActivity.class);
@@ -66,7 +81,7 @@ public class ProfileFragment extends Fragment {
     }
 
     public void getProfile(int id) {
-        String token = "Bearer x_5nQgRHNmLQB9j2ftuindO37XFafd3C2TV2muPbvOvjiyl9IUwU7RgJQ0sK86GYnOCt9akkgcmmor_3eU0tS8xSfGDA1KIkXvViwy2ifmOYvMvHVvj-pP_BRSSXYo5IpjptUpWMpKLhDQphN0VLdq7irRfHHcqZNrMf9IGoMPxbfDO62tWeLzG7JPogUOsFwe1GMN-YqtTADgtTV2o3tuPnwCYbijHN0J-bVxB2BnTBg6fSKKspADTwSIIbERaRV5NeT09nT6V6xZ4796UoZ3LSJcRkwtatLrg4Bj8hQnM";
+        String token = result.getString("userToken","Token Expirado");
         AndroidNetworking
                 .get(NewApi.getDataProfileUrl(id))
                 .addHeaders("Authorization", token)
