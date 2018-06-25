@@ -54,6 +54,9 @@ public class TopProdRepActivity extends AppCompatActivity {
                     @Override
                     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
                         mDisplayDate.setText( (month + 1) + "/" + year);
+                        if(year==2018){
+                            pieChart.setData(fillPieData());
+                        }
                     }
                 }, dateB.getInt("year"), dateB.getInt("month"), dateB.getInt("day")){
                     @Override
@@ -69,7 +72,7 @@ public class TopProdRepActivity extends AppCompatActivity {
         TextView text = (TextView) findViewById(R.id.titleText);
 
         //pieChart.setNoDataText("No data available, please select a date");
-        
+
     }
 
     @Override
@@ -87,18 +90,13 @@ public class TopProdRepActivity extends AppCompatActivity {
         mBuilder.setSingleChoiceItems(listItems,idlocal.getInt("Selected"), new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int i) {
-                if (i==0) {
+                if (i==0)
                     idlocal.putInt("Selected", 0);
-
-                }
-                if (i==1) {
+                if (i==1)
                     idlocal.putInt("Selected", 1);
-
-                }
-                if (i==2) {
+                if (i==2)
                     idlocal.putInt("Selected", 2);
 
-                }
                 mDisplayDate.setText(".. / ...");
                 pieChart.clear();
                 pieChart.setNoDataText("No data available, please select a date");
@@ -126,9 +124,37 @@ public class TopProdRepActivity extends AppCompatActivity {
                 return super.onOptionsItemSelected(item);
         }
     }
-/*
-    public ArrayList<PieEntry> FillReport(){
 
+
+    public PieData fillPieData(){
+
+        pieChart.setUsePercentValues(true);
+        pieChart.getDescription().setEnabled(false);
+        pieChart.setExtraOffsets(5,10,5,5);
+
+        pieChart.setDragDecelerationFrictionCoef(0.15f);
+        pieChart.setDrawHoleEnabled(true);
+        pieChart.setHoleColor(Color.WHITE);
+        pieChart.setTransparentCircleRadius(61f);
+
+        ArrayList<PieEntry> yValues = new ArrayList<>();
+
+        yValues.add(new PieEntry(34f,"Aceite Sol"));
+        yValues.add(new PieEntry(23f,"Sal Yodada"));
+        yValues.add(new PieEntry(14f,"Coca Cola"));
+        yValues.add(new PieEntry(33f,"Donofrio"));
+        yValues.add(new PieEntry(40,"Pilsen Callao"));
+        yValues.add(new PieEntry(23,"Pan Bimbo"));
+
+        PieDataSet dataSet = new PieDataSet(yValues, "");
+        dataSet.setSliceSpace(3f);
+        dataSet.setSelectionShift(5f);
+        dataSet.setColors(ColorTemplate.JOYFUL_COLORS);
+
+        PieData data = new PieData(dataSet);
+        data.setValueTextSize(16f);
+        data.setValueTextColor(Color.BLACK);
+        return  data;
     }
-    */
+
 }
