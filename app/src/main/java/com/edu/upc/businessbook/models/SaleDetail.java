@@ -6,15 +6,19 @@ public class SaleDetail {
     public int Quantity;
     public float UnitPrice;
     public float PriceSubTotal;
+    public int ProductPos;
 
     public SaleDetail() {
     }
 
-    public SaleDetail(int productId, int quantity, float unitPrice, float priceSubTotal) {
+
+    public SaleDetail(int saleDetailId, int productId, int quantity, float unitPrice, float priceSubTotal, int productPos) {
+        SaleDetailId = saleDetailId;
         ProductId = productId;
         Quantity = quantity;
         UnitPrice = unitPrice;
         PriceSubTotal = priceSubTotal;
+        ProductPos = productPos;
     }
 
     public int getSaleDetailId() {
@@ -59,6 +63,15 @@ public class SaleDetail {
 
     public SaleDetail setPriceSubTotal(float priceSubTotal) {
         PriceSubTotal = priceSubTotal;
+        return this;
+    }
+
+    public int getProductPos() {
+        return ProductPos;
+    }
+
+    public SaleDetail setProductPos(int productPos) {
+        ProductPos = productPos;
         return this;
     }
 }
