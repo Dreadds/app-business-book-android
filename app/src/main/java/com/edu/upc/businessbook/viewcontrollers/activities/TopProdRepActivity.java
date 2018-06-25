@@ -53,9 +53,9 @@ public class TopProdRepActivity extends AppCompatActivity {
                         android.app.AlertDialog.THEME_HOLO_LIGHT, new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                        mDisplayDate.setText( (month + 1) + "/" + year);
+                        mDisplayDate.setText( year  + "/" + (month + 1));
                         if(year==2018 && month==5){
-                            pieChart.setData(fillPieData());
+                            pieChart.setData(fillPieData(idlocal.getInt("Selected")));
                         }
                         else{
                             NoDataPieChart();
@@ -73,7 +73,7 @@ public class TopProdRepActivity extends AppCompatActivity {
         });
         pieChart = (PieChart) findViewById(R.id.chart);
         TextView text = (TextView) findViewById(R.id.titleText);
-
+        NoDataPieChart();
     }
 
     @Override
@@ -86,7 +86,7 @@ public class TopProdRepActivity extends AppCompatActivity {
         pieChart.setNoDataText("No data available, please select a date");
     }
     public AlertDialog.Builder localDialog(){
-        listItems = new String[] {"Av.Marina", "Local 2", "Local 3"};
+        listItems = new String[] {"Av. Salaverry 342", "Av. La Marina 879", "Jr. Cuzco 598"};
 
         final AlertDialog.Builder mBuilder = new AlertDialog.Builder(TopProdRepActivity.this);
         mBuilder.setTitle("Choose an local");
@@ -101,7 +101,7 @@ public class TopProdRepActivity extends AppCompatActivity {
                 if (i==2)
                     idlocal.putInt("Selected", 2);
 
-                mDisplayDate.setText(".. / ...");
+                mDisplayDate.setText("---- / --");
                NoDataPieChart();
             }
         });
@@ -112,7 +112,6 @@ public class TopProdRepActivity extends AppCompatActivity {
             }
         });
         return mBuilder;
-
     }
 
     @Override
@@ -128,7 +127,7 @@ public class TopProdRepActivity extends AppCompatActivity {
         }
     }
 
-    public PieData fillPieData(){
+    public PieData fillPieData(int local){
 
         pieChart.setUsePercentValues(true);
         pieChart.getDescription().setEnabled(false);
@@ -141,12 +140,24 @@ public class TopProdRepActivity extends AppCompatActivity {
 
         ArrayList<PieEntry> yValues = new ArrayList<>();
 
-        yValues.add(new PieEntry(34f,"Aceite Sol"));
-        yValues.add(new PieEntry(23f,"Sal Yodada"));
-        yValues.add(new PieEntry(14f,"Coca Cola"));
-        yValues.add(new PieEntry(33f,"Donofrio"));
-        yValues.add(new PieEntry(40,"Pilsen Callao"));
-        yValues.add(new PieEntry(23,"Pan Bimbo"));
+        if(local==0) {
+            yValues.clear();
+            yValues.add(new PieEntry(70f, "Aceite Sol"));
+            yValues.add(new PieEntry(80f, "Sal Yodada"));
+            yValues.add(new PieEntry(65f, "Coca Cola"));
+            yValues.add(new PieEntry(45f, "Donofrio"));
+        }
+        if(local == 1) {
+            yValues.clear();
+            yValues.add(new PieEntry(50, "Pilsen Callao"));
+            yValues.add(new PieEntry(50, "Pan Bimbo"));
+        }
+        if(local == 2) {
+            yValues.clear();
+            yValues.add(new PieEntry(65, "Paneton Sayon"));
+            yValues.add(new PieEntry(75, "Pan Bimbo"));
+            yValues.add(new PieEntry(60f, "Donofrio"));
+        }
 
         PieDataSet dataSet = new PieDataSet(yValues, "");
         dataSet.setSliceSpace(3f);

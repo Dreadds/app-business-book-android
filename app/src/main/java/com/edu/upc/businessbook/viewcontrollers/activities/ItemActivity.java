@@ -17,7 +17,6 @@ import com.androidnetworking.interfaces.JSONObjectRequestListener;
 import com.edu.upc.businessbook.R;
 import com.edu.upc.businessbook.models.Item;
 import com.edu.upc.businessbook.models.ItemsRepository;
-import com.edu.upc.businessbook.models.Producto;
 import com.edu.upc.businessbook.network.BusinessBookApi;
 import com.edu.upc.businessbook.viewcontrollers.adapters.ItemsAdapter;
 
@@ -30,7 +29,7 @@ public class ItemActivity extends AppCompatActivity {
     Item item;
     ItemsRepository itemsRepository;
     TextView nameItemTextView;
-    List<Producto> products;
+    //List<Producto> products;
 
     private ItemsAdapter itemsAdapter;
     @Override
@@ -44,7 +43,7 @@ public class ItemActivity extends AppCompatActivity {
         if(intent == null) return;
         item = Item.Builder.from(intent.getExtras()).build();
         toolbar.setTitle(item.getName());
-        updateView();
+        //updateView();
 
 
 
@@ -58,35 +57,6 @@ public class ItemActivity extends AppCompatActivity {
         });
     }
 
-    private void updateView(){
-        AndroidNetworking.get(BusinessBookApi.getProductsUrl())
-                .setPriority(Priority.LOW)
-                .setTag("BusinessBook")
-                .build()
-                .getAsJSONObject(new JSONObjectRequestListener() {
-                    @Override
-                    public void onResponse(JSONObject response) {
-                        try {
-                            if ("error".equalsIgnoreCase(response.getString("status"))){
-                                Log.d("BusinessBook", response.getString("message"));
-                                return;
-                            }
-                            products = Producto.Builder.from(response.getJSONArray("products"))
-                                    .buildAll();
-                            Log.d("BusinessBook", String.format("Products Count %d",
-                                    products.size()));
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-                    }
 
-                    @Override
-                    public void onError(ANError anError) {
-
-                    }
-                });
-
-
-    }
 
 }
