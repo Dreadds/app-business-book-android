@@ -48,7 +48,7 @@ public class TopProdRepActivity extends AppCompatActivity {
                 dateB.putInt("year", cal.get(Calendar.YEAR));
                 dateB.putInt("month",Calendar.MONTH );
                 dateB.putInt("day",cal.get(Calendar.DAY_OF_MONTH) );
-      
+
                 DatePickerDialog monthDatePickerDialog = new DatePickerDialog(TopProdRepActivity.this,
                         android.app.AlertDialog.THEME_HOLO_LIGHT, new DatePickerDialog.OnDateSetListener() {
                     @Override
@@ -68,35 +68,8 @@ public class TopProdRepActivity extends AppCompatActivity {
         pieChart = (PieChart) findViewById(R.id.chart);
         TextView text = (TextView) findViewById(R.id.titleText);
 
-        pieChart.setUsePercentValues(true);
-        pieChart.getDescription().setEnabled(false);
-        pieChart.setExtraOffsets(5,10,5,5);
-
-        pieChart.setDragDecelerationFrictionCoef(0.15f);
-        pieChart.setDrawHoleEnabled(true);
-        pieChart.setHoleColor(Color.WHITE);
-        pieChart.setTransparentCircleRadius(61f);
-
-        ArrayList<PieEntry> yValues = new ArrayList<>();
-
-        yValues.add(new PieEntry(34f,"Aceite Sol"));
-        yValues.add(new PieEntry(23f,"Sal Yodada"));
-        yValues.add(new PieEntry(14f,"Coca Cola"));
-        yValues.add(new PieEntry(33f,"Donofrio"));
-        yValues.add(new PieEntry(40,"Pilsen Callao"));
-        yValues.add(new PieEntry(23,"Pan Bimbo"));
-
-        PieDataSet dataSet = new PieDataSet(yValues, "");
-        dataSet.setSliceSpace(3f);
-        dataSet.setSelectionShift(5f);
-        dataSet.setColors(ColorTemplate.JOYFUL_COLORS);
-
-        PieData data = new PieData(dataSet);
-        data.setValueTextSize(16f);
-        data.setValueTextColor(Color.BLACK);
-
-        pieChart.setData(data);
-
+        //pieChart.setNoDataText("No data available, please select a date");
+        
     }
 
     @Override
@@ -127,6 +100,8 @@ public class TopProdRepActivity extends AppCompatActivity {
 
                 }
                 mDisplayDate.setText(".. / ...");
+                pieChart.clear();
+                pieChart.setNoDataText("No data available, please select a date");
             }
         });
         mBuilder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
