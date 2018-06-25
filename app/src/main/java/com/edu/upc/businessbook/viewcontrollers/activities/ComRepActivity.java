@@ -14,15 +14,21 @@ import android.widget.TextView;
 
 import com.edu.upc.businessbook.R;
 import com.github.mikephil.charting.charts.BarChart;
+import com.github.mikephil.charting.components.AxisBase;
 import com.github.mikephil.charting.components.Legend;
 import com.github.mikephil.charting.components.XAxis;
 import com.github.mikephil.charting.components.YAxis;
 import com.github.mikephil.charting.data.BarData;
 import com.github.mikephil.charting.data.BarDataSet;
 import com.github.mikephil.charting.data.BarEntry;
+import com.github.mikephil.charting.data.Entry;
+import com.github.mikephil.charting.formatter.IAxisValueFormatter;
+import com.github.mikephil.charting.formatter.IValueFormatter;
 import com.github.mikephil.charting.formatter.IndexAxisValueFormatter;
 import com.github.mikephil.charting.formatter.LargeValueFormatter;
+import com.github.mikephil.charting.utils.ViewPortHandler;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 
@@ -91,6 +97,31 @@ public class ComRepActivity extends AppCompatActivity {
         chartComp.clear();
         chartComp.setNoDataText("No data available, please select a date");
     }
+
+    public class MyYAxisValuesFormatter implements IAxisValueFormatter {
+        private DecimalFormat mFormat;
+
+        public  MyYAxisValuesFormatter(){
+            mFormat = new DecimalFormat("###,###,##0.0");
+        }
+        @Override
+        public String getFormattedValue(float value, AxisBase axis) {
+            return "S/." + mFormat.format(value);
+        }
+    }
+
+    public class MyValueFormatter implements IValueFormatter {
+        private DecimalFormat mFormat;
+
+        public  MyValueFormatter(){
+            mFormat = new DecimalFormat("###,###,##0.0");
+        }
+
+        @Override
+        public String getFormattedValue(float value, Entry entry, int dataSetIndex, ViewPortHandler viewPortHandler) {
+            return "S/." + mFormat.format(value);
+        }
+    }
     public AlertDialog.Builder localDialog(){
         listItems = new String[] {"Av. Salaverry 342", "Av. La Marina 879", "Jr. Cuzco 598"};
 
@@ -141,6 +172,7 @@ public class ComRepActivity extends AppCompatActivity {
         chartComp.setScaleEnabled(false);
         chartComp.setDrawBarShadow(false);
         chartComp.setDrawGridBackground(false);
+        chartComp.setDragEnabled(true);
 
         int grupCount =6;
 
@@ -210,7 +242,7 @@ public class ComRepActivity extends AppCompatActivity {
         //Y - Axis
         chartComp.getAxisRight().setEnabled(false);
         YAxis lefAxis = chartComp.getAxisLeft();
-        lefAxis.setValueFormatter(new LargeValueFormatter());
+        lefAxis.setValueFormatter(new MyYAxisValuesFormatter());
         lefAxis.setDrawGridLines(true);
         lefAxis.setSpaceTop(35f);
         lefAxis.setAxisMinimum(0f);
