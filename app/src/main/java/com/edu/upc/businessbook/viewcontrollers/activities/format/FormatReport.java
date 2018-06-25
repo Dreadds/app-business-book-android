@@ -1,5 +1,13 @@
 package com.edu.upc.businessbook.viewcontrollers.activities.format;
 
+import android.content.DialogInterface;
+import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
+import android.view.MenuItem;
+import android.widget.TextView;
+
+import com.edu.upc.businessbook.R;
+import com.edu.upc.businessbook.viewcontrollers.activities.TopProdRepActivity;
 import com.github.mikephil.charting.components.AxisBase;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.formatter.IAxisValueFormatter;
@@ -46,4 +54,5 @@ public class FormatReport {
             return "S/." + mFormat.format(value);
         }
     }
+
 }
