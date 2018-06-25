@@ -54,8 +54,11 @@ public class TopProdRepActivity extends AppCompatActivity {
                     @Override
                     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
                         mDisplayDate.setText( (month + 1) + "/" + year);
-                        if(year==2018){
+                        if(year==2018 && month==5){
                             pieChart.setData(fillPieData());
+                        }
+                        else{
+                            NoDataPieChart();
                         }
                     }
                 }, dateB.getInt("year"), dateB.getInt("month"), dateB.getInt("day")){
@@ -71,8 +74,6 @@ public class TopProdRepActivity extends AppCompatActivity {
         pieChart = (PieChart) findViewById(R.id.chart);
         TextView text = (TextView) findViewById(R.id.titleText);
 
-        //pieChart.setNoDataText("No data available, please select a date");
-
     }
 
     @Override
@@ -80,7 +81,10 @@ public class TopProdRepActivity extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.menu_reports, menu);
         return true;
     }
-
+    public void NoDataPieChart(){
+        pieChart.clear();
+        pieChart.setNoDataText("No data available, please select a date");
+    }
     public AlertDialog.Builder localDialog(){
         listItems = new String[] {"Local 1", "Local 2", "Local 3"};
 
@@ -98,8 +102,7 @@ public class TopProdRepActivity extends AppCompatActivity {
                     idlocal.putInt("Selected", 2);
 
                 mDisplayDate.setText(".. / ...");
-                pieChart.clear();
-                pieChart.setNoDataText("No data available, please select a date");
+               NoDataPieChart();
             }
         });
         mBuilder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
@@ -124,7 +127,6 @@ public class TopProdRepActivity extends AppCompatActivity {
                 return super.onOptionsItemSelected(item);
         }
     }
-
 
     public PieData fillPieData(){
 
@@ -153,7 +155,7 @@ public class TopProdRepActivity extends AppCompatActivity {
 
         PieData data = new PieData(dataSet);
         data.setValueTextSize(16f);
-        data.setValueTextColor(Color.BLACK);
+        data.setValueTextColor(Color.WHITE);
         return  data;
     }
 
