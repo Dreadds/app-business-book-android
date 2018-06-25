@@ -42,6 +42,7 @@ public class SaleAddActivity extends Activity {
     private List<LocalSpinner> locals;
     private SharedPreferences result;
     private SharedPreferences spVentaId;
+    private static final String COMPANY_ID = "CompanyId";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,9 +56,9 @@ public class SaleAddActivity extends Activity {
 
         Context context = this;
         result = getSharedPreferences("Session",context.MODE_PRIVATE);
-
-        getClients(1);
-        getLocals(1);
+        int companyId = Integer.parseInt(result.getString(COMPANY_ID,"company no found"));
+        getClients(companyId);
+        getLocals(companyId);
 
         //Sale Detail
         nextFlotingActionButton = (FloatingActionButton) findViewById(R.id.floatingActionButton_next);
@@ -188,9 +189,11 @@ public class SaleAddActivity extends Activity {
                             try {
                                 if ("200".equalsIgnoreCase(response.getString("Code"))) {
 
+                                    response.getString("Result");
                                     spVentaId = getSharedPreferences("SaveSaleId",con.MODE_PRIVATE);
                                     SharedPreferences.Editor editorSale = spVentaId.edit();
-                                    editorSale.putInt("saleId",1);
+
+                                    editorSale.putInt("saleId",Integer.parseInt(response.getJSONObject("Result").getString("SaleId")));
                                     editorSale.apply();
 
                                     Intent intent = new Intent(con,SaleDetailAddActivity.class);
