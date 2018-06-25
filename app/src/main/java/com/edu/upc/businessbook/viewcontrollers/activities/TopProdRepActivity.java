@@ -28,6 +28,7 @@ public class TopProdRepActivity extends AppCompatActivity {
     private DatePickerDialog.OnDateSetListener mDateSetListener;
     String[] listItems;
     Bundle idlocal;
+    Bundle dateB;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,23 +38,24 @@ public class TopProdRepActivity extends AppCompatActivity {
         idlocal = new Bundle();
         idlocal.putInt("Selected",0);
 
+        dateB = new Bundle();
+
         mDisplayDate = (TextView)findViewById(R.id.dateText);
         mDisplayDate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Calendar cal = Calendar.getInstance();
-                int year = cal.get(Calendar.YEAR);
-                int month = cal.get(Calendar.MONTH);
-                int day = cal.get(Calendar.DAY_OF_MONTH);
-
-
+                dateB.putInt("year", cal.get(Calendar.YEAR));
+                dateB.putInt("month",Calendar.MONTH );
+                dateB.putInt("day",cal.get(Calendar.DAY_OF_MONTH) );
+      
                 DatePickerDialog monthDatePickerDialog = new DatePickerDialog(TopProdRepActivity.this,
                         android.app.AlertDialog.THEME_HOLO_LIGHT, new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
                         mDisplayDate.setText( (month + 1) + "/" + year);
                     }
-                }, year, month, day){
+                }, dateB.getInt("year"), dateB.getInt("month"), dateB.getInt("day")){
                     @Override
                     protected void onCreate(Bundle savedInstanceState) {
                         super.onCreate(savedInstanceState);
@@ -94,6 +96,7 @@ public class TopProdRepActivity extends AppCompatActivity {
         data.setValueTextColor(Color.BLACK);
 
         pieChart.setData(data);
+
     }
 
     @Override
@@ -111,12 +114,19 @@ public class TopProdRepActivity extends AppCompatActivity {
         mBuilder.setSingleChoiceItems(listItems,idlocal.getInt("Selected"), new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int i) {
-                if (i==0)
-                    idlocal.putInt("Selected",0);
-                if (i==1)
-                    idlocal.putInt("Selected",1);
-                if (i==2)
-                    idlocal.putInt("Selected",2);
+                if (i==0) {
+                    idlocal.putInt("Selected", 0);
+
+                }
+                if (i==1) {
+                    idlocal.putInt("Selected", 1);
+
+                }
+                if (i==2) {
+                    idlocal.putInt("Selected", 2);
+
+                }
+                mDisplayDate.setText(".. / ...");
             }
         });
         mBuilder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
@@ -126,6 +136,7 @@ public class TopProdRepActivity extends AppCompatActivity {
             }
         });
         return mBuilder;
+
     }
 
     @Override
@@ -140,5 +151,9 @@ public class TopProdRepActivity extends AppCompatActivity {
                 return super.onOptionsItemSelected(item);
         }
     }
+/*
+    public ArrayList<PieEntry> FillReport(){
 
+    }
+    */
 }
