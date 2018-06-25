@@ -1,6 +1,8 @@
 package com.edu.upc.businessbook.viewcontrollers.fragments;
 
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.DialogFragment;
@@ -19,7 +21,6 @@ import com.androidnetworking.interfaces.JSONObjectRequestListener;
 import com.edu.upc.businessbook.R;
 import com.edu.upc.businessbook.models.Local;
 import com.edu.upc.businessbook.models.LocalsRepository;
-import com.edu.upc.businessbook.models.Producto;
 import com.edu.upc.businessbook.network.BusinessBookApi;
 import com.edu.upc.businessbook.viewcontrollers.adapters.LocalsAdapter;
 import com.edu.upc.businessbook.viewcontrollers.dialogs.DialogPersonalized;
@@ -39,7 +40,7 @@ public class HomeFragment extends Fragment {
     //LinearLayoutManager layoutManager;
     private RecyclerView.LayoutManager localsLayoutManager;
     private List<Local> locals;
-
+    private SharedPreferences result;
 
 
     public HomeFragment() {
@@ -52,13 +53,15 @@ public class HomeFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_home, container, false);
+        result = this.getActivity().getSharedPreferences("Session",Context.MODE_PRIVATE);
         localsRecyclerView = view.findViewById(R.id.recycler_locals);
         locals = new ArrayList<>();
-        localsAdapter = new LocalsAdapter(LocalsRepository.getInstance().getLocals());
+        //localsAdapter = new LocalsAdapter(LocalsRepository.getInstance().getLocals());
+        localsAdapter = new LocalsAdapter(locals);
         localsLayoutManager = new LinearLayoutManager(view.getContext());
         localsRecyclerView.setAdapter(localsAdapter);
         localsRecyclerView.setLayoutManager(localsLayoutManager);
-        updateView();
+        getListLocals(1);
         FloatingActionButton localFab = (FloatingActionButton) view.findViewById(R.id.localFab);
         localFab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -67,9 +70,40 @@ public class HomeFragment extends Fragment {
                 dialogFragment.show(getFragmentManager(), "Dialog");
             }
         });
+
+
+
         return view;
     }
-    private void updateView(){
+    private void getListLocals(int companyId){
+
+        String token = result.getString("userToken","Token Expirado");
+
+        AndroidNetworking.get(BusinessBookApi.getLocalsUrl(companyId))
+                .addHeaders("Authorization",token)
+                .setPriority(Priority.LOW)
+                .setTag("businessbook")
+                .build()
+                .getAsJSONObject(new JSONObjectRequestListener() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        try {
+                            if(response != null){
+                                locals = Local.Builder.from(response.getJSONArray("Result")).buildAll();
+                                localsAdapter.setLocals(locals);
+                                localsAdapter.notifyDataSetChanged();
+                                Log.d("businessbook", String.format("Locals Count: %d", locals.size()));
+                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+
+                    @Override
+                    public void onError(ANError anError) {
+
+                    }
+                });
 
     }
 

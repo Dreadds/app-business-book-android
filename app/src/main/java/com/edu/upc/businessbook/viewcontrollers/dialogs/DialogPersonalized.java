@@ -5,18 +5,12 @@ import android.app.Dialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.support.design.widget.TextInputEditText;
 import android.support.v4.app.DialogFragment;
 import android.view.View;
 
 import com.edu.upc.businessbook.R;
-import com.edu.upc.businessbook.models.Local;
 import com.edu.upc.businessbook.models.LocalsRepository;
-
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class DialogPersonalized extends DialogFragment {
 
@@ -49,4 +43,5 @@ public class DialogPersonalized extends DialogFragment {
                 });
         return builder.create();
     }
+
 }

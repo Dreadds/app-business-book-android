@@ -8,7 +8,7 @@
     android:paddingRight="18dp"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_margin="@dimen/default_margin"
     tools:context=".viewcontrollers.fragments.ProfileFragment">
     <ScrollView
         android:layout_width="match_parent"
@@ -17,84 +17,107 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="120dp">
-
                 <ImageView
                     android:id="@+id/image_profile"
-                    android:layout_marginLeft="100dp"
+                    android:layout_gravity="center_horizontal"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:layout_marginBottom="10dp"
                     android:layout_marginTop="10dp"
-                    android:src="@mipmap/ic_launcher" />
+                    android:src="@drawable/company" />
+                <TextView
+                    android:id="@+id/text_company_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Company Name"
+                    android:drawablePadding="10dp"
+                    android:maxLines="1"
+                    android:drawableLeft="@drawable/ic_business_black_24dp"
+                    android:ems="10"
+                    android:inputType="text"
+                    android:layout_marginTop="20dp"/>
 
-                <ImageButton
-                    android:id="@+id/imagebutton_upload"
-                    android:layout_gravity="bottom"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    app:srcCompat="@drawable/ic_photo_camera_black_24dp"
+                <TextView
+                    android:id="@+id/text_address"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Address"
+                    android:drawablePadding="10dp"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:drawableLeft="@drawable/ic_location_on_black_24dp"
+                    android:ems="10"
+                    android:layout_marginTop="20dp"/>
+
+                <TextView
+                    android:id="@+id/text_email"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="email"
+                    android:drawablePadding="10dp"
+                    android:drawableLeft="@drawable/ic_email_black_24dp"
+                    android:ems="10"
+                    android:maxLines="1"
+                    android:inputType="textEmailAddress"
+                    android:singleLine="true"
+                    android:layout_marginTop="20dp"/>
+
+                <TextView
+                    android:id="@+id/text_phone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Phone Number"
+                    android:drawablePadding="10dp"
+                    android:maxLines="1"
+                    android:drawableLeft="@drawable/ic_local_phone_black_24dp"
+                    android:ems="10"
+                    android:inputType="phone"
+                    android:layout_marginTop="20dp"/>
+
+                <TextView
+                    android:id="@+id/text_mobile"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Mobile Number"
+                    android:inputType="phone"
+                    android:drawablePadding="10dp"
+                    android:maxLines="1"
+                    android:drawableLeft="@drawable/ic_phone_android_black_24dp"
+                    android:ems="10"
+                    android:layout_marginTop="20dp"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_margin="40dp"
+                    android:orientation="horizontal" >
+                    <Button
+                        style="@style/Base.Widget.AppCompat.Button.Borderless.Colored"
+                        android:id="@+id/button_update"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@color/colorAccent"
+                        android:text="Create"
+                        android:layout_marginLeft="20dp"
+                        android:textColor="@android:color/white" />
                     />
-            </LinearLayout>
-               <EditText
-                android:id="@+id/text_company_name"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Company Name"
-                android:drawablePadding="10dp"
-                android:maxLines="1"
-                android:drawableLeft="@drawable/ic_business_black_24dp"
-                android:ems="10"
-                android:inputType="text"
-                android:layout_marginTop="10dp"/>
-            <EditText
-                android:id="@+id/text_address"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Address"
-                android:drawablePadding="10dp"
-                android:maxLines="1"
-                android:drawableLeft="@drawable/ic_location_on_black_24dp"
-                android:ems="10"
-                android:layout_marginTop="10dp"/>
-            <EditText
-                android:id="@+id/text_email"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="email"
-                android:drawablePadding="10dp"
-                android:maxLines="1"
-                android:drawableLeft="@drawable/ic_email_black_24dp"
-                android:ems="10"
-                android:layout_marginTop="10dp"/>
-            <EditText
-                android:id="@+id/text_phone"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Phone Number"
-                android:drawablePadding="10dp"
-                android:maxLines="1"
-                android:drawableLeft="@drawable/ic_local_phone_black_24dp"
-                android:ems="10"
-                android:layout_marginTop="10dp"/>
-            <EditText
-                android:id="@+id/text_mobile"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Mobile Number"
-                android:drawablePadding="10dp"
-                android:maxLines="1"
-                android:drawableLeft="@drawable/ic_phone_android_black_24dp"
-                android:ems="10"
-                android:layout_marginTop="10dp"/>
+                    <Button
+                        style="@style/Base.Widget.AppCompat.Button.Borderless.Colored"
+                        android:id="@+id/button_create"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@color/colorAccent"
+                        android:text="Create"
+                        android:layout_marginLeft="20dp"
+                        android:textColor="@android:color/white" />
+                    />
 
-        </LinearLayout>
+
+            </LinearLayout>
+
+            </LinearLayout>
 
     </ScrollView>
-    <!-- TODO: Update blank fragment layout -->
-
-
 </LinearLayout>
