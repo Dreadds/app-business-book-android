@@ -40,7 +40,7 @@ public class SaleActivity extends  Activity {
     private FloatingActionButton floatingActionButton;
     private SharedPreferences sp;
     private SharedPreferences result;
-
+    private static final String COMPANY_ID = "CompanyId";
 
     public SaleActivity() {
     }
@@ -60,8 +60,8 @@ public class SaleActivity extends  Activity {
 
         Context context = this;
         result = getSharedPreferences("Session",context.MODE_PRIVATE);
-
-        getListSales(1);
+        int companyId = Integer.parseInt(result.getString(COMPANY_ID,"company no found"));
+        getListSales(companyId);
         floatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

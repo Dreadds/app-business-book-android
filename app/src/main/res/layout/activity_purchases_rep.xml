@@ -13,16 +13,31 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:layout_marginLeft="16dp"
-        android:textSize="18sp"
+        android:textSize="21sp"
         android:text="Monthly purchases"
         android:textStyle="bold"
         />
-
+    <TextView
+        android:id="@+id/dateNameText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:layout_marginLeft="16dp"
+        android:textSize="18sp"
+        android:text="Select date: "
+        />
+    <TextView
+        android:id="@+id/dateText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:layout_marginLeft="130dp"
+        android:textSize="18sp"
+        android:text=" ----"
+        />
     <com.github.mikephil.charting.charts.LineChart
         android:id="@+id/lineChart"
-        android:layout_marginTop="65dp"
-        android:layout_marginRight="@dimen/default_margin"
-        android:layout_marginLeft="@dimen/default_margin"
+        android:layout_marginTop="100dp"
         android:layout_width="400dp"
         android:layout_height="400dp"/>
 

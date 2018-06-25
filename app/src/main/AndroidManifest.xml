@@ -26,7 +26,7 @@
         <activity
             android:name=".viewcontrollers.activities.OnBoardActivity"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar" >
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -51,25 +51,30 @@
         <activity android:name=".viewcontrollers.activities.purchases.PurchaseActivity" />
         <activity android:name=".viewcontrollers.activities.sales.SaleAddActivity" />
         <activity android:name=".viewcontrollers.activities.purchases.PurchaseAddActivity" />
-        <activity android:name=".viewcontrollers.activities.ProfileActivity"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
-        <activity android:name=".viewcontrollers.activities.sales.SaleDetailAddActivity"></activity>
+        <activity
+            android:name=".viewcontrollers.activities.ProfileActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".viewcontrollers.activities.sales.SaleDetailAddActivity" />
         <activity android:name=".viewcontrollers.activities.TopProdRepActivity" />
         <activity android:name=".viewcontrollers.activities.PurchasesRepActivity" />
         <activity android:name=".viewcontrollers.activities.SalesRepActivity" />
-        <activity android:name=".viewcontrollers.activities.ComRepActivity"></activity>
-
+        <activity android:name=".viewcontrollers.activities.ComRepActivity" />
         <activity
             android:name=".viewcontrollers.activities.ProviderActivity"
             android:label="@string/title_activity_provider"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
+<<<<<<< HEAD
             android:name=".viewcontrollers.activities.ProductActivity"
             android:label="@string/title_activity_product"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".viewcontrollers.activities.ClientActivity"
             android:label="@string/title_activity_client"
+=======
+            android:name=".viewcontrollers.activities.UpdateProfileActivity"
+            android:label="@string/title_activity_update_profile"
+>>>>>>> c3e12409b716ebb0970b57db81ac575331c12f6a
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 

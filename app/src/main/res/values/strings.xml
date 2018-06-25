@@ -38,6 +38,10 @@
     <string name="hint_provider_name">Name</string>
     <string name="hint_provider_phone">Phone</string>
     <string name="hint_provider_email">Email</string>
+<<<<<<< HEAD
     <string name="title_activity_product">ProductActivity</string>
     <string name="title_activity_client">ClientActivity</string>
+=======
+    <string name="title_activity_update_profile">UpdateProfileActivity</string>
+>>>>>>> c3e12409b716ebb0970b57db81ac575331c12f6a
 </resources>

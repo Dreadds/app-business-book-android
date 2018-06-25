@@ -98,7 +98,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:background="@color/colorAccent"
-                        android:text="Create"
+                        android:text="Update"
                         android:layout_marginLeft="20dp"
                         android:textColor="@android:color/white" />
                     />

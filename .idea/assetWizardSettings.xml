@@ -70,10 +70,14 @@
                                   <option name="values">
                                     <map>
 <<<<<<< HEAD
+<<<<<<< HEAD
                                       <entry key="url" value="jar:file:/C:/Program%20Files/Android/Android%20Studio/plugins/android/lib/android.jar!/images/material_design_icons/communication/ic_location_on_black_24dp.xml" />
 =======
                                       <entry key="url" value="jar:file:/snap/android-studio/47/android-studio/plugins/android/lib/android.jar!/images/material_design_icons/av/ic_featured_video_black_24dp.xml" />
 >>>>>>> kevin
+=======
+                                      <entry key="url" value="jar:file:/C:/Program%20Files/Android/Android%20Studio/plugins/android/lib/android.jar!/images/material_design_icons/maps/ic_store_mall_directory_black_24dp.xml" />
+>>>>>>> c3e12409b716ebb0970b57db81ac575331c12f6a
                                     </map>
                                   </option>
                                 </PersistentState>
@@ -85,7 +89,7 @@
                           <map>
 <<<<<<< HEAD
                             <entry key="color" value="ffffff" />
-                            <entry key="outputName" value="ic_location_on_black_24dp" />
+                            <entry key="outputName" value="ic_store_mall_directory_black_24dp" />
                             <entry key="sourceFile" value="C:\Users\Ana" />
 =======
                             <entry key="outputName" value="ic_featured_dni_black_24dp" />
