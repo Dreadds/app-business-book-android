@@ -1,5 +1,7 @@
 package com.edu.upc.businessbook.viewcontrollers.activities;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.DialogFragment;
@@ -31,6 +33,7 @@ public class ClientActivity extends AppCompatActivity {
     private ClientsAdapter clientsAdapter;
     private RecyclerView.LayoutManager clientLayoutManager;
     private List<ClientItem> clientItems;
+    private SharedPreferences result;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,7 +49,7 @@ public class ClientActivity extends AppCompatActivity {
                 dialogFragment.show(getSupportFragmentManager(), "Dialog");
             }
         });
-
+        result = this.getSharedPreferences("Session", Context.MODE_PRIVATE);
         clientsRecyclerView = findViewById(R.id.recycler_clients);
         clientItems = new ArrayList<>();
         clientsAdapter = new ClientsAdapter(clientItems);
@@ -58,8 +61,9 @@ public class ClientActivity extends AppCompatActivity {
     }
 
     private void getListClients(int companyId){
+        String token = result.getString("userToken","Token Expirado");
         AndroidNetworking.get(BusinessBookApi.getClientsUrl(companyId))
-                .addHeaders("Authorization", getString(R.string.business_api_key))
+                .addHeaders("Authorization", token)
                 .setPriority(Priority.LOW)
                 .setTag(R.string.TAG_app)
                 .build()
