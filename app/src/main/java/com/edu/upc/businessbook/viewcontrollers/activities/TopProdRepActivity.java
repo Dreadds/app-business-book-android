@@ -142,10 +142,10 @@ public class TopProdRepActivity extends AppCompatActivity {
 
         if(local==0) {
             yValues.clear();
-            yValues.add(new PieEntry(20f, "Aceite Sol"));
-            yValues.add(new PieEntry(10f, "Sal Yodada"));
-            yValues.add(new PieEntry(30f, "Coca Cola"));
-            yValues.add(new PieEntry(40f, "Donofrio"));
+            yValues.add(new PieEntry(70f, "Aceite Sol"));
+            yValues.add(new PieEntry(80f, "Sal Yodada"));
+            yValues.add(new PieEntry(65f, "Coca Cola"));
+            yValues.add(new PieEntry(45f, "Donofrio"));
         }
         if(local == 1) {
             yValues.clear();
@@ -154,9 +154,9 @@ public class TopProdRepActivity extends AppCompatActivity {
         }
         if(local == 2) {
             yValues.clear();
-            yValues.add(new PieEntry(40, "Paneton Sayon"));
-            yValues.add(new PieEntry(30, "Pan Bimbo"));
-            yValues.add(new PieEntry(30f, "Donofrio"));
+            yValues.add(new PieEntry(65, "Paneton Sayon"));
+            yValues.add(new PieEntry(75, "Pan Bimbo"));
+            yValues.add(new PieEntry(60f, "Donofrio"));
         }
 
         PieDataSet dataSet = new PieDataSet(yValues, "");
