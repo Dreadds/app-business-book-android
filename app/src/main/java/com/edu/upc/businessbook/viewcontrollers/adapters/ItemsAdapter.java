@@ -15,6 +15,7 @@ import com.edu.upc.businessbook.R;
 import com.edu.upc.businessbook.models.Item;
 import com.edu.upc.businessbook.viewcontrollers.activities.ItemActivity;
 
+import com.edu.upc.businessbook.viewcontrollers.activities.purchases.PurchaseActivity;
 import com.edu.upc.businessbook.viewcontrollers.activities.sales.SaleActivity;
 
 import com.edu.upc.businessbook.viewcontrollers.activities.OnBoardActivity;
@@ -85,6 +86,11 @@ public class ItemsAdapter extends RecyclerView.Adapter<ItemsAdapter.ViewHolder> 
                     if(item.getName().toString() == "Providers") {
                         Context context = v.getContext();
                         context.startActivity(new Intent(context, ProviderActivity.class)
+                                .putExtras(item.toBundle()));
+                    }
+                    if(item.getName().toString() == "Purchases") {
+                        Context context = v.getContext();
+                        context.startActivity(new Intent(context, PurchaseActivity.class)
                                 .putExtras(item.toBundle()));
                     }
                 }

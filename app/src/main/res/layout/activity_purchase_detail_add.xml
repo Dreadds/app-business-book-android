@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".viewcontrollers.activities.sales.SaleDetailAddActivity">
+    tools:context=".viewcontrollers.activities.purchases.PurchaseDetailAddActivity">
 
     <android.support.constraint.ConstraintLayout
         android:id="@+id/layout_title2"
@@ -12,10 +12,10 @@
         android:layout_height="180dp"
         android:background="@color/colorPrimary">
         <TextView
-            android:id="@+id/textView_saleDetail"
+            android:id="@+id/textView_purchaseDetail"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="Detail Sale"
+            android:text="Detail Purchase"
             android:textSize="45dp"
             android:textStyle="bold"
             android:textColor="#FFFFFF"
@@ -25,7 +25,7 @@
 
     </android.support.constraint.ConstraintLayout>
     <android.support.design.widget.FloatingActionButton
-        android:id="@+id/floatingActionButton_savaSaleDetail"
+        android:id="@+id/floatingActionButton_savaPurchaseDetail"
         android:layout_width="60dp"
         android:layout_height="60dp"
         app:srcCompat="@drawable/ic_check_black_24dp"
@@ -40,7 +40,7 @@
         android:id="@+id/constraint_title"
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        app:layout_constraintTop_toBottomOf="@id/floatingActionButton_savaSaleDetail">
+        app:layout_constraintTop_toBottomOf="@id/floatingActionButton_savaPurchaseDetail">
 
         <TextView
             android:id="@+id/twQ"
@@ -82,19 +82,19 @@
     </android.support.constraint.ConstraintLayout>
 
     <android.support.constraint.ConstraintLayout
-        android:id="@+id/recycler_SD"
+        android:id="@+id/recycler_SDPurchase"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/constraint_title"
         android:layout_marginTop="10dp">
         <android.support.v7.widget.RecyclerView
-            android:id="@+id/recyclerView_saleDetail"
+            android:id="@+id/recyclerView_purchaseDetail"
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
     </android.support.constraint.ConstraintLayout>
 
     <android.support.design.widget.FloatingActionButton
-        android:id="@+id/addSaleDetail_flotingActionButton"
+        android:id="@+id/addPurchaseDetail_flotingActionButtonPurchase"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:srcCompat="@drawable/ic_add_white_24dp"

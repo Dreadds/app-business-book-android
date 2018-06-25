@@ -66,7 +66,8 @@
         <activity
             android:name=".viewcontrollers.activities.UpdateProfileActivity"
             android:label="@string/title_activity_update_profile"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".viewcontrollers.activities.purchases.PurchaseDetailAddActivity"></activity>
     </application>
 
 </manifest>

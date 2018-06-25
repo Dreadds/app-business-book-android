@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    android:foreground="?android:selectableItemBackground"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/default_margin_kev"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="4dp"
+    app:cardElevation="2dp">
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/quantity_editTextPurchase"
+            android:layout_width="60dp"
+            android:layout_height="50dp"
+            android:hint="Quant"/>
+        <Spinner
+            android:id="@+id/product_spinnerPurchase"
+            android:layout_width="165dp"
+            android:layout_height="50dp"
+            app:layout_constraintStart_toEndOf="@id/quantity_editTextPurchase" />
+        <TextView
+            android:id="@+id/unitPrice_textViewPurchase"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:text="0.0"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="12dp"
+            android:textSize="20dp"
+            android:textColor="@color/colorPrimaryText"
+            app:layout_constraintStart_toEndOf="@id/product_spinnerPurchase"/>
+        <TextView
+            android:id="@+id/subPrice_textViewPurchase"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:text="0.0"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="12dp"
+            android:textSize="20dp"
+            android:textColor="@color/colorPrimaryText"
+            app:layout_constraintStart_toEndOf="@id/unitPrice_textViewPurchase"/>
+
+        <ImageButton
+            android:id="@+id/deleteSD_imageButtonPurchase"
+            android:layout_width="30dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="10dp"
+            app:srcCompat="@drawable/ic_delete_black_24dp"
+            android:layout_margin="@dimen/default_margin_kev"
+            android:background="@android:color/transparent"
+            android:padding="@dimen/default_margin_kev"
+            app:layout_constraintEnd_toEndOf="parent"/>
+    </android.support.constraint.ConstraintLayout>
+</android.support.v7.widget.CardView>

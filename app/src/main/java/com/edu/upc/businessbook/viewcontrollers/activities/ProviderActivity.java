@@ -1,6 +1,8 @@
 package com.edu.upc.businessbook.viewcontrollers.activities;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -36,6 +38,7 @@ public class ProviderActivity extends AppCompatActivity {
     private ProvidersAdapter providersAdapter;
     private RecyclerView.LayoutManager providersLayoutManager;
     private List<Provider> providers;
+    private SharedPreferences result;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,7 +55,7 @@ public class ProviderActivity extends AppCompatActivity {
                 dialogFragment.show(getSupportFragmentManager(), "Dialog");
             }
         });
-
+        result = this.getSharedPreferences("Session", Context.MODE_PRIVATE);
         providersRecyclerView = findViewById(R.id.recycler_providers);
         providers = new ArrayList<>();
         providersAdapter = new ProvidersAdapter(providers);
@@ -69,8 +72,9 @@ public class ProviderActivity extends AppCompatActivity {
     }
 
     private void getListProviders(int companyId){
+        String token = result.getString("userToken","Token Expirado");
         AndroidNetworking.get(BusinessBookApi.getProvidersUrl(companyId))
-                .addHeaders("Authorization", getString(R.string.business_api_key))
+                .addHeaders("Authorization", token)
                 .setPriority(Priority.LOW)
                 .setTag(R.string.TAG_app)
                 .build()
