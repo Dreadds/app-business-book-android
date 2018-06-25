@@ -183,15 +183,15 @@ public class SalesRepActivity extends AppCompatActivity {
         }
         if(local==1){
             yValue.clear();
-            yValue.add(new Entry(0,530f));
-            yValue.add(new Entry(1,550f));
-            yValue.add(new Entry(2,495f));
+            yValue.add(new Entry(0,120f));
+            yValue.add(new Entry(1,110f));
+            yValue.add(new Entry(2,126f));
         }
         if(local==2){
             yValue.clear();
-            yValue.add(new Entry(0,530f));
-            yValue.add(new Entry(1,550f));
-            yValue.add(new Entry(2,495f));
+            yValue.add(new Entry(0,125f));
+            yValue.add(new Entry(1,127f));
+            yValue.add(new Entry(2,130f));
         }
 
 
