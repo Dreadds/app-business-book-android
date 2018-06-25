@@ -40,6 +40,7 @@ public class ProfileActivity extends AppCompatActivity {
     private List<LocationSpinner> locations;
     private SharedPreferences result;
     private static final String COMPANY_ID = "CompanyId";
+    private static final String STRING_PREFERENCE = "Session";
 
 
     @Override
@@ -93,6 +94,8 @@ public class ProfileActivity extends AppCompatActivity {
                         try {
                             int prueba = 0;
                             if ("200".equalsIgnoreCase(response.getString("Code"))) {
+                                SharedPreferences preferences = getSharedPreferences(STRING_PREFERENCE,MODE_PRIVATE);
+                                preferences.edit().putString(COMPANY_ID,response.getJSONObject("Result").getString("CompanyId")).apply();
 
                                 Intent intent = new Intent(ProfileActivity.this, ProfileFragment.class);
                                 startActivity(intent);
@@ -108,6 +111,7 @@ public class ProfileActivity extends AppCompatActivity {
                     }
                 });
     }
+
     public void getLocations(){
     String url=NewApi.getLocationUrl();
     String token = result.getString("userToken","Token Expirado");

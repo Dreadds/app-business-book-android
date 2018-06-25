@@ -19,14 +19,18 @@ import com.androidnetworking.AndroidNetworking;
 import com.androidnetworking.common.Priority;
 import com.androidnetworking.error.ANError;
 import com.androidnetworking.interfaces.JSONObjectRequestListener;
+import com.edu.upc.businessbook.Modelo;
 import com.edu.upc.businessbook.R;
 import com.edu.upc.businessbook.models.LocalSpinner;
 import com.edu.upc.businessbook.models.ProductSpinner;
 import com.edu.upc.businessbook.models.Sale;
 import com.edu.upc.businessbook.models.SaleDetail;
+import com.edu.upc.businessbook.models.SaleDetailEntity;
 import com.edu.upc.businessbook.viewcontrollers.adapters.SaleAdapter;
 import com.edu.upc.businessbook.viewcontrollers.adapters.SaleDetailAdapter;
 import com.edu.upc.businessbook.viewcontrollers.network.NewApi;
+import com.google.gson.Gson;
+import com.google.gson.JsonParser;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -41,6 +45,8 @@ import static android.content.res.Configuration.ORIENTATION_PORTRAIT;
 public class SaleDetailAddActivity extends Activity {
 
     private java.util.List<SaleDetail> saleDetails;
+    private java.util.List<SaleDetailEntity> listSaleDetail;
+    private SaleDetailEntity saleDetailEntity;
     private SaleDetail saleDetail;
     private RecyclerView saleDetailsRecyclerView;
     private RecyclerView.LayoutManager saleDetailsLayoutManager;
@@ -50,6 +56,7 @@ public class SaleDetailAddActivity extends Activity {
     private List<ProductSpinner> products;
     private SharedPreferences result;
     private SharedPreferences resultSaleId;
+    private static final String COMPANY_ID = "CompanyId";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,6 +66,7 @@ public class SaleDetailAddActivity extends Activity {
         saleDetailsRecyclerView = (RecyclerView) findViewById(R.id.recyclerView_saleDetail);
         saleDetails = new ArrayList<>();
         products = new ArrayList<>();
+        listSaleDetail = new ArrayList<>();
 
         Context context = this;
         result = getSharedPreferences("Session",context.MODE_PRIVATE);
@@ -77,18 +85,29 @@ public class SaleDetailAddActivity extends Activity {
             @Override
             public void onClick(View v) {
                 String[] qua = saleDetailsAdapter.getQuantitys();
+                String[] pId = saleDetailsAdapter.getProducts();
+                String[] pU = saleDetailsAdapter.getPunits();
+                String[] pP = saleDetailsAdapter.getProductsPos();
+                String[] sT = saleDetailsAdapter.getSptotals();
+
                 for(int i = 0;i< qua.length;i++){
                     saleDetail = new SaleDetail();
                     if(qua[i] != null) {
                         int quanti = Integer.parseInt(qua[i]);
+                        int produId = Integer.parseInt(pId[i]);
+                        int punit = Integer.parseInt(pU[i]);
+                        int pPos = Integer.parseInt(pP[i]);
+                        int sTot = Integer.parseInt(sT[i]);
                         saleDetail.setQuantity(quanti);
-                        saleDetail.setProductId(1);
-                        saleDetail.setUnitPrice(2);
-                        saleDetail.setPriceSubTotal(20);
+                        saleDetail.setProductId(produId);
+                        saleDetail.setUnitPrice(punit);
+                        saleDetail.setProductPos(pPos);
+                        saleDetail.setPriceSubTotal(sTot);
                         saleDetails.set(i,saleDetail);
                     }
                 }
-                getProducts(1);
+                int companyId = Integer.parseInt(result.getString(COMPANY_ID,"company no found"));
+                getProducts(companyId);
             }
         });
         saveFloatingActionButton = (FloatingActionButton) findViewById(R.id.floatingActionButton_savaSaleDetail);
@@ -97,12 +116,6 @@ public class SaleDetailAddActivity extends Activity {
             public void onClick(View v) {
                 //PASAR LA VENTA ID para
                 Context c = v.getContext();
-                for (SaleDetail sd: saleDetails) {
-                    /*sd.setQuantity();
-                    sd.setProductId();
-                    sd.setUnitPrice();
-                    sd.setPriceSubTotal();*/
-                }
                 postSaleDetail(c);
             }
         });
@@ -112,11 +125,55 @@ public class SaleDetailAddActivity extends Activity {
         String token = result.getString("userToken","Token Expirado");
         int ventaId = resultSaleId.getInt("saleId",0);
         String url = NewApi.postSaleDetail(ventaId);
-        List<SaleDetail> Lst = saleDetails;
+
+        String[] qua = saleDetailsAdapter.getQuantitys();
+        String[] pId = saleDetailsAdapter.getProducts();
+        String[] pU = saleDetailsAdapter.getPunits();
+        String[] pP = saleDetailsAdapter.getProductsPos();
+        String[] sT = saleDetailsAdapter.getSptotals();
+
+        for(int i = 0;i< qua.length;i++){
+            saleDetail = new SaleDetail();
+            if(qua[i] != null) {
+                int quanti = Integer.parseInt(qua[i]);
+                int produId = Integer.parseInt(pId[i]);
+                int punit = Integer.parseInt(pU[i]);
+                int pPos = Integer.parseInt(pP[i]);
+                int sTot = Integer.parseInt(sT[i]);
+                saleDetail.setQuantity(quanti);
+                saleDetail.setProductId(produId);
+                saleDetail.setUnitPrice(punit);
+                saleDetail.setProductPos(pPos);
+                saleDetail.setPriceSubTotal(sTot);
+                saleDetails.set(i,saleDetail);
+            }
+        }
+        //List<SaleDetail> Lst = saleDetails;
+
+        for (SaleDetail sd: saleDetails) {
+            saleDetailEntity = new SaleDetailEntity();
+            saleDetailEntity.productId = sd.ProductId;
+            saleDetailEntity.priceSubTotal = sd.PriceSubTotal;
+            saleDetailEntity.unitPrice = sd.UnitPrice;
+            saleDetailEntity.quantity = sd.Quantity;
+            listSaleDetail.add(saleDetailEntity);
+        }
+
+
+        String json = new Gson().toJson(listSaleDetail);
+        String json2 = "{" + "\"listSaleDetail\":" + json + "}";
+
+
+        Modelo m = new Modelo(listSaleDetail);
+
+        Gson g = new Gson();
+
 
         AndroidNetworking.post(url)
                 .addHeaders("Authorization", token)
-                .addBodyParameter(products)
+                .addHeaders("Content-Type", "application/json")
+                .addApplicationJsonBody(m)
+                //.add
                 .setTag(this)
                 .setPriority(Priority.MEDIUM)
                 .build()
@@ -162,14 +219,16 @@ public class SaleDetailAddActivity extends Activity {
                         try {
                             JSONArray jsonProduct = response.getJSONArray("Result");
                             products.clear();
+                            products.add(new ProductSpinner());
                             for (int i = 0; i < jsonProduct.length(); i++) {
                                 products.add(new ProductSpinner(jsonProduct.getJSONObject(i).getInt("productId"),
-                                        jsonProduct.getJSONObject(i).getString("name")));
+                                        jsonProduct.getJSONObject(i).getString("name"), jsonProduct.getJSONObject(i).getInt("unitPrice")));
                             }
                             ArrayAdapter<ProductSpinner> adapter = new ArrayAdapter<ProductSpinner>(getApplicationContext(), android.R.layout.simple_spinner_dropdown_item, products);
                             adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
                             saleDetails.add(new SaleDetail());
+
                             saleDetailsAdapter = new SaleDetailAdapter(saleDetails, adapter);
                             saleDetailsLayoutManager = new GridLayoutManager(SaleDetailAddActivity.this,1);
                             saleDetailsRecyclerView.setAdapter(saleDetailsAdapter);

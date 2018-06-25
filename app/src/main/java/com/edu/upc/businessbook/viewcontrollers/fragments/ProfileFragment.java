@@ -21,6 +21,7 @@ import com.androidnetworking.interfaces.JSONObjectRequestListener;
 import com.edu.upc.businessbook.R;
 import com.edu.upc.businessbook.models.CompanyEntity;
 import com.edu.upc.businessbook.viewcontrollers.activities.ProfileActivity;
+import com.edu.upc.businessbook.viewcontrollers.activities.UpdateProfileActivity;
 import com.edu.upc.businessbook.viewcontrollers.network.NewApi;
 
 import org.json.JSONArray;
@@ -56,14 +57,16 @@ public class ProfileFragment extends Fragment {
         emailTextview = view.findViewById(R.id.text_email);
         phoneTextview = view.findViewById(R.id.text_phone);
         mobileTextview = view.findViewById(R.id.text_mobile);
-        int identification =5;
-        getProfile(identification);
+
+        String identification = result.getString("CompanyId","noClienteId");;
+        getProfile(Integer.parseInt(identification));
+
 
         updateButton = (Button) view.findViewById(R.id.button_update);
         updateButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), ProfileActivity.class);
+                Intent intent = new Intent(getActivity(), UpdateProfileActivity.class);
                 startActivity(intent);
             }
         });
