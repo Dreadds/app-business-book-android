@@ -61,6 +61,7 @@ public class HomeFragment extends Fragment {
         localsLayoutManager = new LinearLayoutManager(view.getContext());
         localsRecyclerView.setAdapter(localsAdapter);
         localsRecyclerView.setLayoutManager(localsLayoutManager);
+
         getListLocals(1);
         FloatingActionButton localFab = (FloatingActionButton) view.findViewById(R.id.localFab);
         localFab.setOnClickListener(new View.OnClickListener() {
@@ -79,7 +80,8 @@ public class HomeFragment extends Fragment {
 
         String token = result.getString("userToken","Token Expirado");
 
-        AndroidNetworking.get(BusinessBookApi.getLocalsUrl(companyId))
+        String url = BusinessBookApi.getLocalsUrl(companyId);
+        AndroidNetworking.get(url)
                 .addHeaders("Authorization",token)
                 .setPriority(Priority.LOW)
                 .setTag("businessbook")

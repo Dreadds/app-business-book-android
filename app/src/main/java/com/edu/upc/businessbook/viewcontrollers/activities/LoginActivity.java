@@ -74,8 +74,8 @@ public class LoginActivity extends AppCompatActivity {
 
                                 SharedPreferences preferences = getSharedPreferences(STRING_PREFERENCE,MODE_PRIVATE);
                                 preferences.edit().putString(ACCOUNT_TOKEN,"Bearer "+response.getJSONObject("Result").getString("accessToken")).apply();
-                                preferences.edit().putString(COMPANY_ID,response.getJSONObject("Result").getString("CompanyId")).apply();
-                                preferences.edit().putString(EMPLOYEE_ID,response.getJSONObject("Result").getString("EmployeeId")).apply();
+                                preferences.edit().putString(COMPANY_ID,response.getJSONObject("Result").getString("companyId")).apply();
+                                preferences.edit().putString(EMPLOYEE_ID,response.getJSONObject("Result").getString("employeeId")).apply();
 
                                 existe = true;
                             }else{

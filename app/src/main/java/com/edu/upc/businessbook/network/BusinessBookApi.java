@@ -6,19 +6,19 @@ public class BusinessBookApi {
 
     public static String getProductsUrl(int companyId){
 
-        return BASE_URL + "businessbookapi/v1/companies/" + String.valueOf(companyId) + "/products";
+        return BASE_URL + "/companies/" + String.valueOf(companyId) + "/products";
 
     }
     public static String getDataProfileUrl(int id){return BASE_URL+ "/companies/"+ String.valueOf(id) ;  }
     public static String postDataProfileUrl(){return BASE_URL+ "/companies" ;  }
     public static String getLocalsUrl(int companyId)
 
-    {return BASE_URL + "businessbookapi/v1/companies/" + String.valueOf(companyId) + "/locals"; }
+    {return BASE_URL + "/companies/" + String.valueOf(companyId) + "/locals"; }
 
     public static String getProvidersUrl(int companyId) {
-        return BASE_URL + "businessbookapi/v1/companies/" + String.valueOf(companyId) + "/providers"; }
+        return BASE_URL + "/companies/" + String.valueOf(companyId) + "/providers"; }
 
     public static String getClientsUrl(int companyId) {
-        return BASE_URL + "businessbookapi/v1/companies/" + String.valueOf(companyId) + "/clients"; }
+        return BASE_URL + "/companies/" + String.valueOf(companyId) + "/clients"; }
 
 }

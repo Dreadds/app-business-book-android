@@ -36,6 +36,8 @@ public class ProductActivity extends AppCompatActivity {
     private List<Product> products;
     private SharedPreferences result;
 
+    private static final String COMPANY_ID = "CompanyId";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,7 +60,8 @@ public class ProductActivity extends AppCompatActivity {
         productLayoutManager = new GridLayoutManager(ProductActivity.this, 1);
         productsRecyclerView.setAdapter(productAdapter);
         productsRecyclerView.setLayoutManager(productLayoutManager);
-        getListProducts(1);
+        int companyId = Integer.parseInt(result.getString(COMPANY_ID,"company no found"));
+        getListProducts(companyId);
         toolbar.setTitle("Products");
 
     }
