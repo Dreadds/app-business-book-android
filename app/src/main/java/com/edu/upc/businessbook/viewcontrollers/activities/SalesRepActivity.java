@@ -212,7 +212,7 @@ public class SalesRepActivity extends AppCompatActivity {
         //pChart.setData(data);
         pChart.getAxisRight().setEnabled(false);
 
-        String[]values = new String[]{"May", "Jun", "Jul"};
+        String[]values = new String[]{"Apr","May", "Jun"};
 
         XAxis xAxis = pChart.getXAxis();
         xAxis.setValueFormatter(new MyXAxisValueFormatter(values));
