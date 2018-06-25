@@ -62,6 +62,14 @@
         <activity
             android:name=".viewcontrollers.activities.ProviderActivity"
             android:label="@string/title_activity_provider"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".viewcontrollers.activities.ProductActivity"
+            android:label="@string/title_activity_product"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".viewcontrollers.activities.ClientActivity"
+            android:label="@string/title_activity_client"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
