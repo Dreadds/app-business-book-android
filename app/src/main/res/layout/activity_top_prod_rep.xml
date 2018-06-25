@@ -30,7 +30,7 @@
         android:layout_marginTop="60dp"
         android:layout_marginLeft="130dp"
         android:textSize="18sp"
-        android:text=".. / ..."
+        android:text="---- / --"
         />
     <com.github.mikephil.charting.charts.PieChart
         android:id="@+id/chart"
