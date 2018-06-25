@@ -41,8 +41,7 @@ public class ClientActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+
             }
         });
 
@@ -53,6 +52,7 @@ public class ClientActivity extends AppCompatActivity {
         clientsRecyclerView.setAdapter(clientsAdapter);
         clientsRecyclerView.setLayoutManager(clientLayoutManager);
         getListClients(1);
+        toolbar.setTitle("Clients");
     }
 
     private void getListClients(int companyId){
