@@ -96,11 +96,10 @@ public class ProfileFragment extends Fragment {
                     public void onResponse(JSONObject response) {
                         try {
                             if ("200".equalsIgnoreCase(response.getString("Code"))) {
-                                JSONArray ja = response.getJSONArray("Result");
 
-                                CompanyEntity companyEntity = new CompanyEntity(ja.getJSONObject(0).getInt("companyId"),
-                                        ja.getJSONObject(0).getString("name"), ja.getJSONObject(0).getString("address"), ja.getJSONObject(0).getString("email"),
-                                        ja.getJSONObject(0).getString("phone"), ja.getJSONObject(0).getString("mobile"));
+                                CompanyEntity companyEntity = new CompanyEntity(response.getJSONObject("Result").getInt("companyId"),
+                                        response.getJSONObject("Result").getString("name"), response.getJSONObject("Result").getString("address"), response.getJSONObject("Result").getString("email"),
+                                        response.getJSONObject("Result").getString("phone"), response.getJSONObject("Result").getString("mobile"));
                                 nameTexview.setText(companyEntity.getName());
                                 adressTextview.setText(companyEntity.getAddress());
                                 emailTextview.setText(companyEntity.getEmail());

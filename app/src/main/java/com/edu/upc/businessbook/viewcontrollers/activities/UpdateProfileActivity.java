@@ -74,7 +74,7 @@ public class UpdateProfileActivity extends AppCompatActivity {
         btnCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(UpdateProfileActivity.this, ProfileFragment.class);
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                 startActivity(intent);
             }
         });
@@ -112,7 +112,7 @@ public class UpdateProfileActivity extends AppCompatActivity {
                             int prueba = 0;
                             if ("200".equalsIgnoreCase(response.getString("Code"))) {
 
-                                Intent intent = new Intent(UpdateProfileActivity.this, ProfileFragment.class);
+                                Intent intent = new Intent( getApplicationContext(), MainActivity.class);
                                 startActivity(intent);
                             }
                         }catch (JSONException e){
@@ -141,11 +141,10 @@ public class UpdateProfileActivity extends AppCompatActivity {
                     public void onResponse(JSONObject response) {
                         try {
                             if ("200".equalsIgnoreCase(response.getString("Code"))) {
-                                JSONArray ja = response.getJSONArray("Result");
 
-                                CompanyEntity companyEntity = new CompanyEntity(ja.getJSONObject(0).getInt("companyId"),
-                                        ja.getJSONObject(0).getString("name"), ja.getJSONObject(0).getString("address"), ja.getJSONObject(0).getString("email"),
-                                        ja.getJSONObject(0).getString("phone"), ja.getJSONObject(0).getString("mobile"));
+                                CompanyEntity companyEntity = new CompanyEntity(response.getJSONObject("Result").getInt("companyId"),
+                                        response.getJSONObject("Result").getString("name"), response.getJSONObject("Result").getString("address"), response.getJSONObject("Result").getString("email"),
+                                        response.getJSONObject("Result").getString("phone"), response.getJSONObject("Result").getString("mobile"));
 
                                 nameUpdateEditext.setText(companyEntity.getName());
                                 emailUpdateEditex.setText(companyEntity.getEmail());

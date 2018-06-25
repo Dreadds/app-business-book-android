@@ -64,6 +64,14 @@ public class ProfileActivity extends AppCompatActivity {
                 postProfile(c);
             }
         });
+
+        Button btnCancel = (Button) findViewById(R.id.button_cancel);
+        btnCancel.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
 
@@ -97,7 +105,7 @@ public class ProfileActivity extends AppCompatActivity {
                                 SharedPreferences preferences = getSharedPreferences(STRING_PREFERENCE,MODE_PRIVATE);
                                 preferences.edit().putString(COMPANY_ID,response.getJSONObject("Result").getString("CompanyId")).apply();
 
-                                Intent intent = new Intent(ProfileActivity.this, ProfileFragment.class);
+                                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                                 startActivity(intent);
                             }
                         }catch (JSONException e){
