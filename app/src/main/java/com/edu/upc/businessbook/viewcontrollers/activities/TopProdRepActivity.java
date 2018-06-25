@@ -1,5 +1,6 @@
 package com.edu.upc.businessbook.viewcontrollers.activities;
 
+import android.app.DatePickerDialog;
 import android.content.DialogInterface;
 import android.graphics.Color;
 import android.support.v7.app.AlertDialog;
@@ -7,8 +8,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.DatePicker;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.edu.upc.businessbook.R;
 import com.github.mikephil.charting.charts.PieChart;
@@ -18,9 +20,12 @@ import com.github.mikephil.charting.data.PieEntry;
 import com.github.mikephil.charting.utils.ColorTemplate;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 
 public class TopProdRepActivity extends AppCompatActivity {
     private PieChart pieChart;
+    private TextView mDisplayDate;
+    private DatePickerDialog.OnDateSetListener mDateSetListener;
     String[] listItems;
     Bundle idlocal;
 
@@ -32,9 +37,34 @@ public class TopProdRepActivity extends AppCompatActivity {
         idlocal = new Bundle();
         idlocal.putInt("Selected",0);
 
+        mDisplayDate = (TextView)findViewById(R.id.dateText);
+        mDisplayDate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Calendar cal = Calendar.getInstance();
+                int year = cal.get(Calendar.YEAR);
+                int month = cal.get(Calendar.MONTH);
+                int day = cal.get(Calendar.DAY_OF_MONTH);
+
+
+                DatePickerDialog monthDatePickerDialog = new DatePickerDialog(TopProdRepActivity.this,
+                        android.app.AlertDialog.THEME_HOLO_LIGHT, new DatePickerDialog.OnDateSetListener() {
+                    @Override
+                    public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+                        mDisplayDate.setText( (month + 1) + "/" + year);
+                    }
+                }, year, month, day){
+                    @Override
+                    protected void onCreate(Bundle savedInstanceState) {
+                        super.onCreate(savedInstanceState);
+                        getDatePicker().findViewById(getResources().getIdentifier("day","id","android")).setVisibility(View.GONE);
+                    }
+                };
+                monthDatePickerDialog.show();
+            }
+        });
         pieChart = (PieChart) findViewById(R.id.chart);
         TextView text = (TextView) findViewById(R.id.titleText);
-
 
         pieChart.setUsePercentValues(true);
         pieChart.getDescription().setEnabled(false);
@@ -103,7 +133,6 @@ public class TopProdRepActivity extends AppCompatActivity {
 
         switch (item.getItemId()){
             case R.id.action_location:
-                //Toast.makeText(TopProdRepActivity.this,"Clickkk",Toast.LENGTH_SHORT).show();
                 AlertDialog mDialog = localDialog().create();
                 mDialog.show();
                 return true;

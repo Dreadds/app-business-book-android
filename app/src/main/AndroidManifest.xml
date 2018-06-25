@@ -53,7 +53,8 @@
         <activity android:name=".viewcontrollers.activities.TopProdRepActivity" />
         <activity android:name=".viewcontrollers.activities.PurchasesRepActivity" />
         <activity android:name=".viewcontrollers.activities.SalesRepActivity" />
-        <activity android:name=".viewcontrollers.activities.ComRepActivity"></activity>
+        <activity android:name=".viewcontrollers.activities.ComRepActivity" />
+        <activity android:name=".viewcontrollers.activities.format.MonthYearPickerDialogActivity"></activity>
     </application>
 
 </manifest>
