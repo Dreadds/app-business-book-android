@@ -64,17 +64,15 @@
             android:label="@string/title_activity_provider"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-<<<<<<< HEAD
             android:name=".viewcontrollers.activities.ProductActivity"
             android:label="@string/title_activity_product"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".viewcontrollers.activities.ClientActivity"
-            android:label="@string/title_activity_client"
-=======
-            android:name=".viewcontrollers.activities.UpdateProfileActivity"
+            android:label="@string/title_activity_client"/>
+            <activity
+                android:name=".viewcontrollers.activities.UpdateProfileActivity"
             android:label="@string/title_activity_update_profile"
->>>>>>> c3e12409b716ebb0970b57db81ac575331c12f6a
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
