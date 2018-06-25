@@ -171,8 +171,9 @@ public class SaleDetailAddActivity extends Activity {
 
         AndroidNetworking.post(url)
                 .addHeaders("Authorization", token)
-                .addHeaders("Content-Type", "application/json")
+                //.addHeaders("Content-Type", "application/json")
                 .addApplicationJsonBody(m)
+                //.addBodyParameter(m)
                 //.add
                 .setTag(this)
                 .setPriority(Priority.MEDIUM)
@@ -198,6 +199,8 @@ public class SaleDetailAddActivity extends Activity {
                     public void onError(ANError error) {
                         // handle error
                         int i = 0;
+                        Intent intent = new Intent(con,SaleActivity.class);
+                        startActivityForResult(intent,0);
                     }
                 });
     }
