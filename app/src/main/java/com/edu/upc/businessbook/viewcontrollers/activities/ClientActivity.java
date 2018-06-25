@@ -2,7 +2,7 @@ package com.edu.upc.businessbook.viewcontrollers.activities;
 
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
+import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -18,6 +18,7 @@ import com.edu.upc.businessbook.R;
 import com.edu.upc.businessbook.models.ClientItem;
 import com.edu.upc.businessbook.network.BusinessBookApi;
 import com.edu.upc.businessbook.viewcontrollers.adapters.ClientsAdapter;
+import com.edu.upc.businessbook.viewcontrollers.dialogs.DialogClient;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -41,7 +42,8 @@ public class ClientActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                DialogFragment dialogFragment = new DialogClient();
+                dialogFragment.show(getSupportFragmentManager(), "Dialog");
             }
         });
 

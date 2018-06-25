@@ -3,6 +3,7 @@ package com.edu.upc.businessbook.viewcontrollers.activities;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -18,6 +19,7 @@ import com.edu.upc.businessbook.R;
 import com.edu.upc.businessbook.models.Product;
 import com.edu.upc.businessbook.network.BusinessBookApi;
 import com.edu.upc.businessbook.viewcontrollers.adapters.ProductAdapter;
+import com.edu.upc.businessbook.viewcontrollers.dialogs.DialogProduct;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -42,7 +44,8 @@ public class ProductActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                DialogFragment dialogFragment = new DialogProduct();
+                dialogFragment.show(getSupportFragmentManager(), "Dialog");
             }
         });
 
