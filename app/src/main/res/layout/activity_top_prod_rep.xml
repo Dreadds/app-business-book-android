@@ -10,7 +10,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:layout_marginLeft="16dp"
-        android:textSize="18sp"
+        android:textSize="21sp"
         android:text="Top sales by product"
         android:textStyle="bold"
         />
@@ -18,18 +18,18 @@
         android:id="@+id/dateNameText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="52dp"
+        android:layout_marginTop="60dp"
         android:layout_marginLeft="16dp"
-        android:textSize="17sp"
+        android:textSize="18sp"
         android:text="Select date: "
         />
     <TextView
         android:id="@+id/dateText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="52dp"
+        android:layout_marginTop="60dp"
         android:layout_marginLeft="130dp"
-        android:textSize="17sp"
+        android:textSize="18sp"
         android:text=".. / ..."
         />
     <com.github.mikephil.charting.charts.PieChart

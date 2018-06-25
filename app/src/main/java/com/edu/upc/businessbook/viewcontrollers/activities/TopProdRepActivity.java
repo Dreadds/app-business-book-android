@@ -86,7 +86,7 @@ public class TopProdRepActivity extends AppCompatActivity {
         pieChart.setNoDataText("No data available, please select a date");
     }
     public AlertDialog.Builder localDialog(){
-        listItems = new String[] {"Local 1", "Local 2", "Local 3"};
+        listItems = new String[] {"Av.Marina", "Local 2", "Local 3"};
 
         final AlertDialog.Builder mBuilder = new AlertDialog.Builder(TopProdRepActivity.this);
         mBuilder.setTitle("Choose an local");
