@@ -11,12 +11,30 @@
         android:layout_marginTop="16dp"
         android:layout_marginLeft="16dp"
         android:textSize="18sp"
-        android:text="Top products per month"
+        android:text="Top sales by product"
         android:textStyle="bold"
+        />
+    <TextView
+        android:id="@+id/dateNameText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="52dp"
+        android:layout_marginLeft="16dp"
+        android:textSize="17sp"
+        android:text="Select date: "
+        />
+    <TextView
+        android:id="@+id/dateText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="52dp"
+        android:layout_marginLeft="130dp"
+        android:textSize="17sp"
+        android:text=".. / ..."
         />
     <com.github.mikephil.charting.charts.PieChart
         android:id="@+id/chart"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="100dp"
         android:layout_width="400dp"
         android:layout_height="400dp"/>
 </RelativeLayout>
